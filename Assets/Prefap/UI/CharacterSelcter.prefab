@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: 1140da0435fecc945bc2610e263d0c52, type: 2}
+  portrait: {fileID: 0}
 --- !u!1 &3406809247220694013
 GameObject:
   m_ObjectHideFlags: 0

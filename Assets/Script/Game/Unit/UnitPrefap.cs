@@ -10,7 +10,8 @@ public class UnitPrefap : ScriptableObject
         Attack,
         Heal
     }
-    public List<Item> startItem; 
+    public List<Item> startItem;
+    public Sprite portrait;
 
     public float hp;
     public float attackDamage;
@@ -19,4 +20,5 @@ public class UnitPrefap : ScriptableObject
     public float defence;
     public float magicDamage;
     public SkillType skillType;
+    public string explain;
 }

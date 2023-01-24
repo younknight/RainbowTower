@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c03550d72ae86544194be6392e49fad3, type: 3}
   m_Name: Default
   m_EditorClassIdentifier: 
-  PlayerImage: {fileID: 0}
   startItem: []
+  portrait: {fileID: 21300000, guid: caad555cf667dd044b299819a49c40a7, type: 3}
   hp: 50
   attackDamage: 3
   critcalRate: 10
@@ -21,3 +21,4 @@ MonoBehaviour:
   defence: 0
   magicDamage: 0
   skillType: 0
+  explain: 'It''s just the basics. '

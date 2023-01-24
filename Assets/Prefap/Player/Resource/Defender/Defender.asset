@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Defender
   m_EditorClassIdentifier: 
   startItem: []
+  portrait: {fileID: 21300000, guid: 59731da334af26d44a5bb6921552e3bd, type: 3}
   hp: 100
   attackDamage: 1
   critcalRate: 10
@@ -20,3 +21,4 @@ MonoBehaviour:
   defence: 0
   magicDamage: 0
   skillType: 0
+  explain: The Rising of the Shield Hero.
