@@ -13,7 +13,7 @@ public class EnemyCountControl : MonoBehaviour
     }
     void Start()
     {
-        for (int i = 0; i < EnemyManager.enemyList.Count; i++)
+        for (int i = 0; i < EnemyManager.EnemyList.Count; i++)
         {
             GameObject newGauge = Instantiate(GaugePrefab, Vector3.zero, Quaternion.identity, this.transform);
             Gauge.Add(newGauge);

@@ -4,17 +4,17 @@ using UnityEngine;
 using UnityEngine.UI;
 public class SelectCharacter : MonoBehaviour
 {
-    [SerializeField] PlayerPrefab character;
+    [SerializeField] GameObject character;
     [SerializeField] Sprite portrait;
     private void Start()
     {
-        //if (PlayerManager.character == null) PlayerManager.character = character;
         Image image = transform.GetChild(0).GetComponent<Image>();
         image.sprite = portrait;
+        if (PlayerDatabase.Character == null) PlayerDatabase.SetCharacter(character);
     }
     public void ChanageCharacter()
     {
-        PlayerManager.SetCharacter(character);
+        PlayerDatabase.SetCharacter(character);
         PlayerTitle.instance.SetImage(portrait);
     }
 }

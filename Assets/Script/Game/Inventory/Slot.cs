@@ -14,7 +14,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         {
             if (item != null)
             {
-                ItemEffectDatabase.instance.UseItem(item);
+                ItemEffect.instance.UseItem(item);
                 ClearSlot();
             }
         }

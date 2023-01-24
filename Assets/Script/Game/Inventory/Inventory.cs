@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public int itemNum = 0;
-    public static Inventory instance;
-    [SerializeField]
-    GameObject SlotsParent;
+    static Inventory instance;
+    [SerializeField] GameObject SlotsParent;
     Slot[] slots;
+
+    public static Inventory Instance { get => instance; }
+
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -21,7 +22,6 @@ public class Inventory : MonoBehaviour
             if(slots[i].item == null)
             {
                 slots[i].AddItem(_item);
-                itemNum++;
                 return;
             }
         }

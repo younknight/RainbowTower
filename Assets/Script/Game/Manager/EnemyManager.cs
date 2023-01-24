@@ -4,26 +4,25 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    public GameObject[] enemyListPrefap;
-    public static List<UnitState> enemyList = new List<UnitState>();
+    static List<UnitState> enemyList = new List<UnitState>();
+
+    public static List<UnitState> EnemyList { get => enemyList; }
+
     private void Awake()
     {
-        for (int i = 0; i < enemyListPrefap.Length; i++)
+        foreach(GameObject enemyPrefap in EnemyDatabase.EnemyList)
         {
-            GameObject enemy = Instantiate(enemyListPrefap[i], this.transform.position, Quaternion.identity);
+            GameObject enemy = Instantiate(enemyPrefap, this.transform.position, Quaternion.identity);
+            enemy.SetActive(false);
             enemyList.Add(enemy.GetComponent<UnitState>());
-            if(i != 0)
-            {
-                enemy.SetActive(false);
-            }
         }
+        enemyList[0].gameObject.SetActive(true);
     }
-    public static void RemoveEnemy()
+    public static void RemoveEnemy()//Àû Á¦°Å
     {
-        EnemyCountControl.instance.DeleteCount(enemyList.Count - 1);
-        Destroy(enemyList[0].gameObject);
+        EnemyCountControl.instance.DeleteCount(EnemyList.Count - 1);
+        Destroy(EnemyList[0].gameObject);
         enemyList.RemoveAt(0);
         if(enemyList.Count != 0) enemyList[0].gameObject.SetActive(true);
-        
     }
 }
