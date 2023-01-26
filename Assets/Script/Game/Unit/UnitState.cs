@@ -1,35 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnitState.state;
 public class UnitState : MonoBehaviour
 {
     [SerializeField] UnitPrefap thisCharacter;
-    public enum status {
-        None,
-        Dead,
-        Sleep
-    }
-    public enum state
-    {
-        hp,
-        attackDamage,
-        magic,
-        critcalRate,
-        critcalDamage
-    }
-    Dictionary<state, double> currentStatus = new Dictionary<state, double>();
-    status playerState;
 
-    public status PlayerState { get => playerState; }
+    Dictionary<status, double> currentStatus = new Dictionary<status, double>();
+    santae playerState;
+
+    public santae PlayerState { get => playerState; }
     public UnitPrefap ThisCharacter { get => thisCharacter; }
 
     private void Awake()
     {
-        currentStatus.Add(hp, ThisCharacter.hp);
-        currentStatus.Add(attackDamage, ThisCharacter.attackDamage);
-        currentStatus.Add(critcalRate, ThisCharacter.critcalRate);
-        currentStatus.Add(critcalDamage, ThisCharacter.critcalDamage);
+        currentStatus.Add(status.hp, ThisCharacter.hp);
+        currentStatus.Add(status.attackDamage, ThisCharacter.attackDamage);
+        currentStatus.Add(status.critcalRate, ThisCharacter.critcalRate);
+        currentStatus.Add(status.critcalDamage, ThisCharacter.critcalDamage);
 
     }
     public IEnumerator ChangeStatus(Item item, bool isBuff)
@@ -43,24 +30,24 @@ public class UnitState : MonoBehaviour
         double status = currentStatus[item.targetState];
         currentStatus[item.targetState] = isBuff ? status + item.value : status - item.value;
     }
-    public double GetStatus(state targetStatus)
+    public double GetStatus(status targetStatus)
     {
         return currentStatus[targetStatus];
     }
     public double TotalDamage()
     {
-        if (Random.Range(0, 100) <= currentStatus[critcalRate])
+        if (Random.Range(0, 100) <= currentStatus[status.critcalRate])
         {
-            return currentStatus[attackDamage] * ((currentStatus[critcalDamage] + 100) / 100);
+            return currentStatus[status.attackDamage] * ((currentStatus[status.critcalDamage] + 100) / 100);
         }
-        return currentStatus[attackDamage];
+        return currentStatus[status.attackDamage];
     }
     public void PlayerDamaged(double value)
     {
-        currentStatus[hp] -= value;
-        if (currentStatus[hp] <= 0)
+        currentStatus[status.hp] -= value;
+        if (currentStatus[status.hp] <= 0)
         {
-            playerState = status.Dead;
+            playerState = santae.Dead;
         }
     }
 }

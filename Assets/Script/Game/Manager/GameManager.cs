@@ -1,16 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnitState.status;
 public class GameManager : MonoBehaviour
 {
     UnitState playerStatus;
     IEnumerator coroutine;
     int turn = 0;
-    private void Awake()
-    {
-        Instantiate(PlayerDatabase.Character, transform.position, Quaternion.identity);
-    }
     private void Start()
     {
         playerStatus = GameObject.FindWithTag("Player").GetComponent<UnitState>();
@@ -19,17 +14,17 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator Fight()
     {
-        while (EnemyManager.EnemyList.Count != 0 && playerStatus.PlayerState != Dead)
+        while (EnemyManager.EnemyList.Count != 0 && playerStatus.PlayerState != santae.Dead)
         {
             playerStatus.PlayerDamaged(EnemyManager.EnemyList[0].TotalDamage());
-            if(playerStatus.PlayerState == Dead)
+            if(playerStatus.PlayerState == santae.Dead)
             {
                 Destroy(playerStatus.gameObject);
                 GameoverControl.instance.GameOverWithVictory(false);
                 break;
             }
             EnemyManager.EnemyList[0].PlayerDamaged(playerStatus.TotalDamage());
-            if (EnemyManager.EnemyList[0].PlayerState == Dead)
+            if (EnemyManager.EnemyList[0].PlayerState == santae.Dead)
             {
                 EnemyManager.RemoveEnemy();
                 if(EnemyManager.EnemyList.Count == 0)

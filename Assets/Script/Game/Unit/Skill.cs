@@ -13,7 +13,7 @@ public class Skill : MonoBehaviour
 
     void Awake()
     {
-       StartCoroutine(UseSkill());
+       //StartCoroutine(UseSkill());
     }
     IEnumerator UseSkill()
     {

@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using static UnitState.state;
 public class TextControl : MonoBehaviour
 {
     UnitState playerStatus;
@@ -15,14 +14,14 @@ public class TextControl : MonoBehaviour
     }
     void Update()
     {
-        PlayerText[0].text = "" + playerStatus.GetStatus(hp);
-        PlayerText[1].text = "" + playerStatus.GetStatus(attackDamage);
-        PlayerText[2].text = "" + playerStatus.GetStatus(critcalRate)/ 100;
-        PlayerText[3].text = "" + (playerStatus.GetStatus(critcalDamage) + 100) / 100;
+        PlayerText[0].text = "" + playerStatus.GetStatus(status.hp);
+        PlayerText[1].text = "" + playerStatus.GetStatus(status.attackDamage);
+        PlayerText[2].text = "" + playerStatus.GetStatus(status.critcalRate)/ 100;
+        PlayerText[3].text = "" + (playerStatus.GetStatus(status.critcalDamage) + 100) / 100;
         if(EnemyManager.EnemyList.Count != 0)
         {
-            EnemyText[0].text = "" + EnemyManager.EnemyList[0].GetStatus(hp);
-            EnemyText[1].text = "" + EnemyManager.EnemyList[0].GetStatus(attackDamage);
+            EnemyText[0].text = "" + EnemyManager.EnemyList[0].GetStatus(status.hp);
+            EnemyText[1].text = "" + EnemyManager.EnemyList[0].GetStatus(status.attackDamage);
             return;
         }
     }

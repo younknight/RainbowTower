@@ -23,7 +23,7 @@ public class ItemEffect : MonoBehaviour
     {
         switch (_item.itemType)
         {
-            case Item.ItemType.LevelUP:
+            case ItemType.LevelUP:
                 StartCoroutine(player.ChangeStatus(_item, true));
                 break;
         }

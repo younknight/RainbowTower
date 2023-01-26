@@ -26,6 +26,6 @@ public class SkillGaugeControl : MonoBehaviour
                 gauge.SetActive(false);
             }
         }
-        Gauge[skill.Mp].SetActive(true);
+       // Gauge[skill.Mp].SetActive(true);
     }
 }

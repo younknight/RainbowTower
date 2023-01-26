@@ -5,11 +5,6 @@ using UnityEngine;
 
 public class UnitPrefap : ScriptableObject
 {
-    public enum SkillType
-    {
-        Attack,
-        Heal
-    }
     public List<Item> startItem;
     public Sprite portrait;
 
