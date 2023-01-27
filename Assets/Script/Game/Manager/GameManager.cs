@@ -14,17 +14,17 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator Fight()
     {
-        while (EnemyManager.EnemyList.Count != 0 && playerStatus.PlayerState != santae.Dead)
+        while (EnemyManager.EnemyList.Count != 0 && playerStatus.PlayerState != sangtae.Dead)
         {
             playerStatus.PlayerDamaged(EnemyManager.EnemyList[0].TotalDamage());
-            if(playerStatus.PlayerState == santae.Dead)
+            if(playerStatus.PlayerState == sangtae.Dead)
             {
                 Destroy(playerStatus.gameObject);
                 GameoverControl.instance.GameOverWithVictory(false);
                 break;
             }
             EnemyManager.EnemyList[0].PlayerDamaged(playerStatus.TotalDamage());
-            if (EnemyManager.EnemyList[0].PlayerState == santae.Dead)
+            if (EnemyManager.EnemyList[0].PlayerState == sangtae.Dead)
             {
                 EnemyManager.RemoveEnemy();
                 if(EnemyManager.EnemyList.Count == 0)

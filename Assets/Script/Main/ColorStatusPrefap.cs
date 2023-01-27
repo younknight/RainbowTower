@@ -7,4 +7,10 @@ public class ColorStatusPrefap : ScriptableObject
 {
     public Sprite sprite;
     public spriteType spriteTarget;
+    public int index;
+    //스테이터스
+    public int hp;
+    public int attackDamage;
+    public int criticalRate;
+    public int criticalDamage;
 }

@@ -18,7 +18,7 @@ public enum SkillType
     Attack,
     Heal
 }
-public enum santae
+public enum sangtae
 {
     None,
     Dead,
@@ -28,7 +28,6 @@ public enum status
 {
     hp,
     attackDamage,
-    magic,
-    critcalRate,
-    critcalDamage
+    criticalRate,
+    criticalDamage
 }

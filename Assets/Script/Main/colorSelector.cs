@@ -3,20 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class colorSelector : MonoBehaviour
+public class ColorSelector : MonoBehaviour
 {
-    public ColorStatusPrefap color;
+    public ColorStatusPrefap colorPrefap;
 
-    public ColorStatusPrefap Color { get => color; }
+    public ColorStatusPrefap Color { get => colorPrefap; }
 
     public void Init(ColorStatusPrefap colorStatusPrefap)
     {
-        color = colorStatusPrefap;
-        gameObject.transform.GetChild(0).GetComponent<Image>().sprite = Color.sprite;
+        colorPrefap = colorStatusPrefap;
+        gameObject.transform.GetChild(0).GetComponent<Image>().sprite = colorPrefap.sprite;
     }
     public void ChangeColor()
     {
-        PlayerManager.ChangeSprite(Color.spriteTarget, Color.sprite);
+        PlayerManager.ChangeSprite(colorPrefap.spriteTarget, colorPrefap);
+        
+
+        DataManager.SetSpriteData(colorPrefap.spriteTarget, colorPrefap.index);//데이터 저장
         UIPopup.instance.ActivatePopup();
     }
 }

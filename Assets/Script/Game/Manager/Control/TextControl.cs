@@ -16,8 +16,8 @@ public class TextControl : MonoBehaviour
     {
         PlayerText[0].text = "" + playerStatus.GetStatus(status.hp);
         PlayerText[1].text = "" + playerStatus.GetStatus(status.attackDamage);
-        PlayerText[2].text = "" + playerStatus.GetStatus(status.critcalRate)/ 100;
-        PlayerText[3].text = "" + (playerStatus.GetStatus(status.critcalDamage) + 100) / 100;
+        PlayerText[2].text = "" + playerStatus.GetStatus(status.criticalRate)/ 100;
+        PlayerText[3].text = "" + (playerStatus.GetStatus(status.criticalDamage) + 100) / 100;
         if(EnemyManager.EnemyList.Count != 0)
         {
             EnemyText[0].text = "" + EnemyManager.EnemyList[0].GetStatus(status.hp);

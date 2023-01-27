@@ -7,15 +7,13 @@ public class UIPopup : MonoBehaviour
 {
     public static UIPopup instance;
     public bool isOpen = false;
-    Image selectedBtnImage;
+    [SerializeField] GameObject contents;
     [SerializeField] GameObject btnPrefap;
-    [SerializeField] ColorStatusPrefap[] colorBodyPrefap;
-    [SerializeField] ColorStatusPrefap[] colorLeftPrefap;
-    [SerializeField] ColorStatusPrefap[] colorRightPrefap;
-    [SerializeField] ColorStatusPrefap[] weaponPrefap;
     List<GameObject> btnList;
     Dictionary<string, List<GameObject>> btnDict = new Dictionary<string, List<GameObject>>();
-    [SerializeField] GameObject contents;
+    BtnImage selectedBtn;
+    ColorDatabase colorDatabase;
+
     private void Awake()
     {
         if (instance != null) Destroy(gameObject);
@@ -24,10 +22,11 @@ public class UIPopup : MonoBehaviour
     }
     void Start()
     {
-        InitBtn(colorBodyPrefap, "Body");
-        InitBtn(colorLeftPrefap, "LeftHand");
-        InitBtn(colorRightPrefap, "RightHand");
-        InitBtn(weaponPrefap, "Weapon");
+        colorDatabase = ColorDatabase.instance;
+        InitBtn(colorDatabase.GetPrefaps(spriteType.body), "Body");
+        InitBtn(colorDatabase.GetPrefaps(spriteType.leftHand), "LeftHand");
+        InitBtn(colorDatabase.GetPrefaps(spriteType.rightHand), "RightHand");
+        InitBtn(colorDatabase.GetPrefaps(spriteType.weapon), "Weapon");
         gameObject.SetActive(false);
     }
     void InitBtn(ColorStatusPrefap[] prefap, string target)
@@ -37,7 +36,7 @@ public class UIPopup : MonoBehaviour
         {
             var newBtn = Instantiate<GameObject>(this.btnPrefap, contents.transform);
             btnList.Add(newBtn);
-            newBtn.GetComponent<colorSelector>().Init(prefap[i]);
+            newBtn.GetComponent<ColorSelector>().Init(prefap[i]);
             newBtn.SetActive(false);
         }
         btnDict.Add(target, btnList);
@@ -48,15 +47,13 @@ public class UIPopup : MonoBehaviour
         //Debug.Log(selectedBtnName);
         if (isOpen)//열려 있으면 닫으라
         {
-            selectedBtnImage.sprite = EventSystem.current.currentSelectedGameObject.GetComponent<colorSelector>().Color.sprite;
-            Debug.Log("Asdasd");
+            selectedBtn.ChangePortrait(EventSystem.current.currentSelectedGameObject.GetComponent<ColorSelector>().Color.sprite);
             ClosePopup();
         }
         else//닫혀 있으면 열으라 
         {
             gameObject.SetActive(true);
-            selectedBtnImage = EventSystem.current.currentSelectedGameObject.transform.GetChild(0).GetComponent<Image>();
-            Debug.Log(selectedBtnImage);
+            selectedBtn = EventSystem.current.currentSelectedGameObject.GetComponent<BtnImage>();
             ActivateBtn(selectedBtnName);
             isOpen = !isOpen;
         }
