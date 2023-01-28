@@ -10,7 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e0b9fe8cbfc52948b143c2f35006e9e, type: 3}
-  m_Name: axe
+  m_Name: Weapon3_Hammer
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 3e4af1ded44b6414b825de94fcf7ef60, type: 3}
+  sprite: {fileID: 21300000, guid: 380a8315caf12d54ebf8905dd1d4f2a2, type: 3}
   spriteTarget: 3
+  index: 3
+  hp: 0
+  attackDamage: 0
+  criticalRate: 0
+  criticalDamage: 60

@@ -8,12 +8,12 @@ public class UnitPrefap : ScriptableObject
     public List<Item> startItem;
     public Sprite portrait;
 
-    public float hp;
-    public float attackDamage;
-    public float critcalRate;
-    public float critcalDamage;
-    public float defence;
-    public float magicDamage;
-    public SkillType skillType;
+    public double hp;
+    public double attackDamage;
+    public double criticalRate;
+    public double criticalDamage;
+    public double defence;
+    public double magicDamage;
+    public skillType skillType;
     public string explain;
 }

@@ -14,13 +14,13 @@ public class UnitState : MonoBehaviour
     {
         currentStatus.Add(status.hp, ThisCharacter.hp);
         currentStatus.Add(status.attackDamage, ThisCharacter.attackDamage);
-        currentStatus.Add(status.criticalRate, ThisCharacter.critcalRate);
-        currentStatus.Add(status.criticalDamage, ThisCharacter.critcalDamage);
+        currentStatus.Add(status.criticalRate, ThisCharacter.criticalRate);
+        currentStatus.Add(status.criticalDamage, ThisCharacter.criticalDamage);
 
     }
-    public void InitStatus(Dictionary<spriteType, ColorStatusPrefap> playerStatus)
+    public void InitStatus(Dictionary<equipment, ColorStatusPrefap> playerStatus)
     {
-        foreach(KeyValuePair<spriteType, ColorStatusPrefap> entry in playerStatus)
+        foreach(KeyValuePair<equipment, ColorStatusPrefap> entry in playerStatus)
         {
             currentStatus[status.hp] += entry.Value.hp;
             currentStatus[status.attackDamage] += entry.Value.attackDamage;

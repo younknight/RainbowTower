@@ -5,18 +5,24 @@ using UnityEngine;
 public class DataManager : MonoBehaviour
 {
     public static DataManager instance;
-    PlayerData playerData = new PlayerData();
-    static Data data;
+    JsonManager playerData = new JsonManager();
+    static Data data = new Data(false);
     public static Data Data { get => data; }
     void Awake()
     {
         if (instance != null) Destroy(gameObject);
         instance = this;
-        data = playerData.LoadJsonFile(playerData.FileName);
+        //data = new Data(true);
+        //Save();
+        data = playerData.LoadJsonFile(playerData.FileName);//데이터 들고오기
     }
-    public static void SetSpriteData(spriteType target, int value)
+    public static void SetEquipmentData(equipment target, int value)
     {
-        data.playerSprites[target] = value;
+        data.equipment[target].currentIndex = value;
+    }
+    public static void SetColorResource(colorType target, int value)
+    {
+        data.hasColor[target] = value;
     }
     public void Save()
     {

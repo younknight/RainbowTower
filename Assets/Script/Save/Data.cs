@@ -4,25 +4,34 @@ using System.IO;
 using UnityEngine;
 using Newtonsoft.Json;
 public class Data
-
 {
-    public Dictionary<spriteType, int> playerSprites = new Dictionary<spriteType, int>();
-    public Data() { }
-    public Data(bool isSet)
+    public Dictionary<equipment, Equipment> equipment = new Dictionary<equipment, Equipment>()
     {
-        if (isSet)
-        {
-            playerSprites.Add(spriteType.body, 0);
-            playerSprites.Add(spriteType.leftHand, 0);
-            playerSprites.Add(spriteType.rightHand, 0);
-            playerSprites.Add(spriteType.weapon, 0);
-        }
-    }
-    public void PrintAll()
+        { global::equipment.body, new Equipment(0, new List<bool>(){ true, false, false, false, false, false, false })},
+        { global::equipment.leftHand, new Equipment(0, new List<bool>(){ true, false, false, false, false, false, false })},
+        { global::equipment.rightHand, new Equipment(0, new List<bool>(){ true, false, false, false, false, false, false })},
+        { global::equipment.weapon, new Equipment(0, new List<bool>(){ true, false, false, false, false, false, false })}
+    };
+    public Dictionary<colorType, int> hasColor = new Dictionary<colorType, int>()
     {
-        foreach(KeyValuePair<spriteType, int> entry in playerSprites)
+        { colorType.red, 0 },
+        { colorType.orange, 0 },
+        { colorType.yellow, 0 },
+        { colorType.green, 0 },
+        { colorType.blue, 0 },
+        { colorType.purple, 0 }
+    };
+    public Data(bool isDebug) 
+    {
+        if (isDebug)
         {
-            Debug.Log(entry.Key + "/" + entry.Value);
+            foreach(KeyValuePair<equipment, Equipment> entry in equipment)
+            {
+                for(int i=0;i< entry.Value.hasEquipment.Count; i++)
+                {
+                    entry.Value.hasEquipment[i] = true;
+                }
+            }
         }
     }
 }

@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: Color1Red
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: c3a5aa4a67f954745ab7574ca1a32b95, type: 3}
-  spriteTarget: 1
+  spriteTarget: 0
   index: 1
+  hp: 0
+  attackDamage: 0
+  criticalRate: 15
+  criticalDamage: 0

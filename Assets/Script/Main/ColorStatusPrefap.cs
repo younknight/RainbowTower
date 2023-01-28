@@ -6,7 +6,7 @@ using UnityEngine;
 public class ColorStatusPrefap : ScriptableObject
 {
     public Sprite sprite;
-    public spriteType spriteTarget;
+    public equipment spriteTarget;
     public int index;
     //스테이터스
     public int hp;

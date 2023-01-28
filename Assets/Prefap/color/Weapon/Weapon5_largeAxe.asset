@@ -10,8 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e0b9fe8cbfc52948b143c2f35006e9e, type: 3}
-  m_Name: shield
+  m_Name: Weapon5_largeAxe
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 6153ffcf1043f6f4da0edd4805493159, type: 3}
+  sprite: {fileID: 21300000, guid: 4f8531fac10ca4647ba16c8c3383e0b3, type: 3}
   spriteTarget: 3
-  index: 3
+  index: 5
+  hp: 0
+  attackDamage: 0
+  criticalRate: 0
+  criticalDamage: 70

@@ -3,12 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using Newtonsoft.Json;
-public class PlayerData 
+public class JsonManager 
 {
-    Data data = new Data(true);
     string fileName = "PlayerData";
-
-    public Data Data { get => data; }
     public string FileName { get => fileName; }
 
     public void SaveJsonFile(string fileName, Data data)

@@ -9,17 +9,17 @@ public class ColorDatabase : MonoBehaviour
     [SerializeField] ColorStatusPrefap[] colorLeftPrefap;
     [SerializeField] ColorStatusPrefap[] colorRightPrefap;
     [SerializeField] ColorStatusPrefap[] weaponPrefap;
-    Dictionary<spriteType, ColorStatusPrefap[]> prefaps = new Dictionary<spriteType, ColorStatusPrefap[]>();
+    Dictionary<equipment, ColorStatusPrefap[]> prefaps = new Dictionary<equipment, ColorStatusPrefap[]>();
     private void Awake()
     {
         if (instance != null) Destroy(gameObject);
         instance = this;
-        prefaps.Add(spriteType.body, colorBodyPrefap);
-        prefaps.Add(spriteType.leftHand, colorLeftPrefap);
-        prefaps.Add(spriteType.rightHand, colorRightPrefap);
-        prefaps.Add(spriteType.weapon, weaponPrefap);
+        prefaps.Add(equipment.body, colorBodyPrefap);
+        prefaps.Add(equipment.leftHand, colorLeftPrefap);
+        prefaps.Add(equipment.rightHand, colorRightPrefap);
+        prefaps.Add(equipment.weapon, weaponPrefap);
     }
-    public ColorStatusPrefap[] GetPrefaps(spriteType target)
+    public ColorStatusPrefap[] GetPrefaps(equipment target)
     {
         return prefaps[target];
     }

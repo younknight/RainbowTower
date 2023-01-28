@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: Color4Green
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: a1cebfd955945e44596d314ca4d28708, type: 3}
-  spriteTarget: 1
+  spriteTarget: 0
   index: 4
+  hp: 0
+  attackDamage: 0
+  criticalRate: 30
+  criticalDamage: 0

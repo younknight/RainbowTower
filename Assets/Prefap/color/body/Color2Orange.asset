@@ -15,3 +15,7 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 0424797aa3bdc0b4db29bc8d2373ef79, type: 3}
   spriteTarget: 2
   index: 2
+  hp: 15
+  attackDamage: 0
+  criticalRate: 0
+  criticalDamage: 0

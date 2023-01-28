@@ -1,1 +1,1 @@
-{"playerSprites":{"body":6,"leftHand":6,"rightHand":6,"weapon":6}}
+{"equipment":{"body":{"currentIndex":3,"hasEquipment":[true,true,true,true,true,true,true]},"leftHand":{"currentIndex":2,"hasEquipment":[true,true,true,true,true,true,true]},"rightHand":{"currentIndex":4,"hasEquipment":[true,true,true,true,true,true,true]},"weapon":{"currentIndex":3,"hasEquipment":[true,true,true,true,true,true,true]}},"hasColor":{"red":0,"orange":0,"yellow":0,"green":0,"blue":0,"purple":0}}

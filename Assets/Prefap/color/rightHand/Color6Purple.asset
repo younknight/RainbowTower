@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: Color6Purple
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: e3ed0acaceb37d0458a3d3a43b37b27a, type: 3}
-  spriteTarget: 1
+  spriteTarget: 0
   index: 6
+  hp: 0
+  attackDamage: 0
+  criticalRate: 40
+  criticalDamage: 0

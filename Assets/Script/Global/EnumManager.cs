@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public enum spriteType
+public enum equipment
 {
     rightHand,
     leftHand,
@@ -13,7 +13,7 @@ public enum ItemType
     None,
     LevelUP
 }
-public enum SkillType
+public enum skillType
 {
     Attack,
     Heal
@@ -30,4 +30,13 @@ public enum status
     attackDamage,
     criticalRate,
     criticalDamage
+}
+public enum colorType
+{
+    red,
+    orange,
+    yellow,
+    green,
+    blue,
+    purple
 }
