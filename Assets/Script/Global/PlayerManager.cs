@@ -16,6 +16,7 @@ public class PlayerManager
         {equipment.rightHand, null },
         {equipment.weapon, null },
     };
+    public static List<Item> playerItem = new List<Item>();
     public static void ChangeSprite(equipment targetSprite, ColorStatusPrefap status)
     {
         playerSprite[targetSprite] = status.sprite;

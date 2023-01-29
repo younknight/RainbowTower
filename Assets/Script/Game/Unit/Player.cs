@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Player : MonoBehaviour
 {
-    UnitPrefap ThisCharacter;
     List<Item> startItem = new List<Item>();
 
     private void Start()
     {
-        ThisCharacter = gameObject.GetComponent<UnitState>().ThisCharacter;
-        foreach (Item item in ThisCharacter.startItem)
+        foreach (Item item in PlayerManager.playerItem)
         {
             this.startItem.Add(item);
         }

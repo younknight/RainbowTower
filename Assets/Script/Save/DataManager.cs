@@ -6,14 +6,14 @@ public class DataManager : MonoBehaviour
 {
     public static DataManager instance;
     JsonManager playerData = new JsonManager();
-    static Data data = new Data(false);
+    static Data data;
     public static Data Data { get => data; }
     void Awake()
     {
         if (instance != null) Destroy(gameObject);
         instance = this;
-        //data = new Data(true);
-        //Save();
+        data = new Data(true);
+        Save();
         data = playerData.LoadJsonFile(playerData.FileName);//데이터 들고오기
     }
     public static void SetEquipmentData(equipment target, int value)

@@ -22,7 +22,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     public void AddItem(Item _item)
     {
         item = _item;
-        itemImage.sprite = item.itemImage;
+        itemImage.sprite = item.sprite;
         SetColor(1);
     }
     private void ClearSlot()

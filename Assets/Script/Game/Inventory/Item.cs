@@ -6,8 +6,9 @@ public class Item : ScriptableObject
 {
     public status targetState;
     public ItemType itemType;
-    public int itemLevel;
+    public string itemName;
+    public int itemIndex;
     public int duration;
     public double value;
-    public Sprite itemImage;
+    public Sprite sprite;
 }

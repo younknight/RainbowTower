@@ -6,7 +6,8 @@ public enum equipment
     rightHand,
     leftHand,
     body,
-    weapon
+    weapon,
+    item
 }
 public enum ItemType
 {

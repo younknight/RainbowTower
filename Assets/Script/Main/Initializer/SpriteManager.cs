@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class SpriteManager : MonoBehaviour
 {
-    ColorDatabase colorDatabase;
+    Database colorDatabase;
     //캐릭터 선택창 UI
     //이미지
     [SerializeField] equipment[] keys;
@@ -19,7 +19,7 @@ public class SpriteManager : MonoBehaviour
         {
             btnImages.Add(keys[i], values[i]);
         }//사전 초기화
-        colorDatabase = ColorDatabase.instance;//데이터베이스
+        colorDatabase = Database.instance;//데이터베이스
         playerData = DataManager.Data;
         //이미지 초기화
         ColorStatusPrefap prefap;
