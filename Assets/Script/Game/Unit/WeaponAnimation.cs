@@ -8,8 +8,12 @@ public class WeaponAnimation : MonoBehaviour
     int weaponIndex = 0;
     private void Awake()
     {
-        weaponIndex = PlayerManager.playerStatus[equipment.weapon].index;
-        animator = GetComponent<Animator>();
-        animator.SetInteger("weaponIndex", weaponIndex);
+        if (PlayerManager.PlayerStatus[equipment.weapon] != null)
+        {
+
+            weaponIndex = PlayerManager.PlayerStatus[equipment.weapon].index;
+            animator = GetComponent<Animator>();
+            animator.SetInteger("weaponIndex", weaponIndex);
+        }
     }
 }

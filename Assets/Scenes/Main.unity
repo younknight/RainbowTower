@@ -2217,6 +2217,165 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 274, y: 400}
   m_Pivot: {x: 1, y: 0.5}
+--- !u!1 &302036737
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 302036738}
+  - component: {fileID: 302036742}
+  - component: {fileID: 302036741}
+  - component: {fileID: 302036740}
+  - component: {fileID: 302036739}
+  m_Layer: 5
+  m_Name: Test
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &302036738
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302036737}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1593033932}
+  m_Father: {fileID: 1669134339}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -100}
+  m_SizeDelta: {x: 160, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &302036739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302036737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0207ae97eff03eb4c9e1568eb3fe7fa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &302036740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302036737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 302036741}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 302036739}
+        m_TargetAssemblyTypeName: ScenesManger, GameScript
+        m_MethodName: GoTest
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 477239742}
+        m_TargetAssemblyTypeName: DataManager, Assembly-CSharp
+        m_MethodName: Save
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &302036741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302036737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 98841535b5b4c7b4ab9812e143cb7352, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &302036742
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302036737}
+  m_CullTransparentMesh: 1
 --- !u!1 &308110567
 GameObject:
   m_ObjectHideFlags: 0
@@ -3237,7 +3396,7 @@ GameObject:
   - component: {fileID: 437064323}
   - component: {fileID: 437064324}
   m_Layer: 0
-  m_Name: Color
+  m_Name: ItemData
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3270,38 +3429,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23647e1ceef61014bae3f1d9e8016f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorBodyPrefap:
-  - {fileID: 11400000, guid: e1c611d15e0333d4789e8e7f0ef34909, type: 2}
-  - {fileID: 11400000, guid: 0f94fa312992b2d458bdd0256787828a, type: 2}
-  - {fileID: 11400000, guid: dfdc9b1055217074e9f46716ddb19177, type: 2}
-  - {fileID: 11400000, guid: b6b8129670bcd214b9de81e8eeceba64, type: 2}
-  - {fileID: 11400000, guid: 5501730ad01828d408620bafff4c7aa9, type: 2}
-  - {fileID: 11400000, guid: b38bff8d6a7d1e14cb7e0160824ac8f5, type: 2}
-  - {fileID: 11400000, guid: 5c22f8a49749b9e4887c413158dd8701, type: 2}
-  colorLeftPrefap:
-  - {fileID: 11400000, guid: 6c288a09dba43bd45aec8378e89a1665, type: 2}
-  - {fileID: 11400000, guid: 3e994ba5e2083b143b0fc1646bdf731d, type: 2}
-  - {fileID: 11400000, guid: 7b5b261c3ae9d8140a9bcae8da9eb718, type: 2}
-  - {fileID: 11400000, guid: 342aaea7f8774f7488908654122b5826, type: 2}
-  - {fileID: 11400000, guid: 31305790b6378b84aba3dd9858479913, type: 2}
-  - {fileID: 11400000, guid: 1037d3120f46f3549929ddf987ae03bd, type: 2}
-  - {fileID: 11400000, guid: 1528052777a9bd1488c6d5936496206d, type: 2}
-  colorRightPrefap:
-  - {fileID: 11400000, guid: c28793f8e35caac4aa8193f4f7e8c4f8, type: 2}
-  - {fileID: 11400000, guid: c9141327edeabbc48af9e65ae3cce669, type: 2}
-  - {fileID: 11400000, guid: aff2520c5a4c8e34cb2aaba0c4489ce2, type: 2}
-  - {fileID: 11400000, guid: 79e81f719e875be42b2dfe62ae7c1fa8, type: 2}
-  - {fileID: 11400000, guid: 7ad531c74c8e31f4090f0a297be185f5, type: 2}
-  - {fileID: 11400000, guid: 13eee6a75c274cf4b8f474a3e26206fa, type: 2}
-  - {fileID: 11400000, guid: c3b8a6baf09144642ae1e5390e404c6b, type: 2}
+  bodyPrefap:
+  - {fileID: 11400000, guid: 553984153b9cd1640ae6a675028966eb, type: 2}
+  - {fileID: 11400000, guid: 911a68f6af1435f468ca67af94b648bf, type: 2}
+  - {fileID: 11400000, guid: 41783982b9693204ea6616faabbc25bd, type: 2}
+  - {fileID: 11400000, guid: 1391911ecf0a3664e8f42060d5c82696, type: 2}
+  - {fileID: 11400000, guid: 94591d06ffee8cc4c94f8ebc1177c446, type: 2}
+  - {fileID: 11400000, guid: 2dd2f7a95ba5a7b4581ae58aafa3c956, type: 2}
+  - {fileID: 11400000, guid: 6d12ca4db203f9d449d2cf8ae622b43c, type: 2}
+  leftPrefap:
+  - {fileID: 11400000, guid: 2d55f85dfceac7042bd2cc929884be68, type: 2}
+  - {fileID: 11400000, guid: d069b8a0dd7e4b045ba7b17c07ffe1ee, type: 2}
+  - {fileID: 11400000, guid: 85da053a19cdbb64ba33148a53ef79fd, type: 2}
+  - {fileID: 11400000, guid: 738f5258f527ec74c9c902b21f414dd4, type: 2}
+  - {fileID: 11400000, guid: ab46d09fdf430884fa77f8c04ce3c833, type: 2}
+  - {fileID: 11400000, guid: 6878d869233c19f44ae2753d9f8249ea, type: 2}
+  - {fileID: 11400000, guid: b12b75e8e6770be419e1f25008022aae, type: 2}
+  rightPrefap:
+  - {fileID: 11400000, guid: 78f805dd82c38334aafea25ad48ef17c, type: 2}
+  - {fileID: 11400000, guid: 0507feab38ca7384fbe23de820f991b0, type: 2}
+  - {fileID: 11400000, guid: 997ed6290df11b841b3d032902e29b24, type: 2}
+  - {fileID: 11400000, guid: d63ad8e47e0dcec4fb1c4c0b664f97ee, type: 2}
+  - {fileID: 11400000, guid: 8fc487fe866a1d448873da121317b877, type: 2}
+  - {fileID: 11400000, guid: cf6ef2b2e7f0f3b4d83f1edce9c10404, type: 2}
+  - {fileID: 11400000, guid: 8d4330514acd63044aae4268dc13b0f9, type: 2}
   weaponPrefap:
-  - {fileID: 11400000, guid: 38ff87b95bd0dfc48a80ef22a9e38e7a, type: 2}
-  - {fileID: 11400000, guid: fbad40e5c1563d549b4b83f4d7b93685, type: 2}
-  - {fileID: 11400000, guid: a9368e25548053e4297c3c5e8e4e51b4, type: 2}
-  - {fileID: 11400000, guid: 2cfb486374a5742488ff19e0a2f04b66, type: 2}
-  - {fileID: 11400000, guid: fffa71557f98e6a42830f2b71c34d634, type: 2}
-  - {fileID: 11400000, guid: 077496f46c4ec6f44b6f84080d3f09ef, type: 2}
-  - {fileID: 11400000, guid: c80afcf280dfdb443bc8c0f31c13ff31, type: 2}
+  - {fileID: 11400000, guid: 20f661c4a8ac5534ea881f7cb7fd6e16, type: 2}
+  - {fileID: 11400000, guid: dc6fefca29604084db73d6a482f44f93, type: 2}
+  - {fileID: 11400000, guid: 9289a75a7d8924545a470672be7e5ce5, type: 2}
+  - {fileID: 11400000, guid: a1cee1c1a65133c4dbb2328a054bff2c, type: 2}
+  - {fileID: 11400000, guid: f6e9c7b2873c999479a88d4e12737dfb, type: 2}
+  - {fileID: 11400000, guid: 0fba006f28b39764b9de57b6ed4760d6, type: 2}
+  - {fileID: 11400000, guid: be5953f876f077d479198ee9e99f7fc1, type: 2}
   itemPrefap:
   - {fileID: 11400000, guid: 1f0c8603ceaed31409febd83de5f7a72, type: 2}
   - {fileID: 11400000, guid: 8a378503880fa8344906b320c6a1a356, type: 2}
@@ -3599,18 +3758,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 951262762}
-        m_TargetAssemblyTypeName: Popup, GameScript
-        m_MethodName: OpenPopup
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 662132430}
         m_TargetAssemblyTypeName: ButtonManager, GameScript
         m_MethodName: SelectThisBtn
@@ -3626,6 +3773,18 @@ MonoBehaviour:
       - m_Target: {fileID: 951262763}
         m_TargetAssemblyTypeName: PopupManager, GameScript
         m_MethodName: ActivatePopup
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 951262762}
+        m_TargetAssemblyTypeName: Popup, GameScript
+        m_MethodName: OpenPopup
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5174,18 +5333,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 951262762}
-        m_TargetAssemblyTypeName: Popup, GameScript
-        m_MethodName: OpenPopup
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 907881697}
         m_TargetAssemblyTypeName: ButtonManager, GameScript
         m_MethodName: SelectThisBtn
@@ -5201,6 +5348,18 @@ MonoBehaviour:
       - m_Target: {fileID: 951262763}
         m_TargetAssemblyTypeName: PopupManager, GameScript
         m_MethodName: ActivatePopup
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 951262762}
+        m_TargetAssemblyTypeName: Popup, GameScript
+        m_MethodName: OpenPopup
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8774,18 +8933,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 951262762}
-        m_TargetAssemblyTypeName: Popup, GameScript
-        m_MethodName: OpenPopup
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1567075893}
         m_TargetAssemblyTypeName: ButtonManager, GameScript
         m_MethodName: SelectThisBtn
@@ -8801,6 +8948,18 @@ MonoBehaviour:
       - m_Target: {fileID: 951262763}
         m_TargetAssemblyTypeName: PopupManager, GameScript
         m_MethodName: ActivatePopup
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 951262762}
+        m_TargetAssemblyTypeName: Popup, GameScript
+        m_MethodName: OpenPopup
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9102,6 +9261,141 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1583766156}
+  m_CullTransparentMesh: 1
+--- !u!1 &1593033931
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1593033932}
+  - component: {fileID: 1593033934}
+  - component: {fileID: 1593033933}
+  m_Layer: 5
+  m_Name: text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1593033932
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593033931}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 302036738}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1593033933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593033931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: TestGame
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4281479730
+  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 24
+  m_fontSizeBase: 24
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1593033934
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593033931}
   m_CullTransparentMesh: 1
 --- !u!1 &1609779790
 GameObject:
@@ -9420,6 +9714,7 @@ RectTransform:
   m_Children:
   - {fileID: 1196200693}
   - {fileID: 1798323865}
+  - {fileID: 302036738}
   m_Father: {fileID: 125249558}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11123,18 +11418,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 951262762}
-        m_TargetAssemblyTypeName: Popup, GameScript
-        m_MethodName: OpenPopup
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 2010611353}
         m_TargetAssemblyTypeName: ButtonManager, GameScript
         m_MethodName: SelectThisBtn
@@ -11150,6 +11433,18 @@ MonoBehaviour:
       - m_Target: {fileID: 951262763}
         m_TargetAssemblyTypeName: PopupManager, GameScript
         m_MethodName: ActivatePopup
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 951262762}
+        m_TargetAssemblyTypeName: Popup, GameScript
+        m_MethodName: OpenPopup
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

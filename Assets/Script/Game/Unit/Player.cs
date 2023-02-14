@@ -7,13 +7,13 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        foreach (Item item in PlayerManager.playerItem)
+        foreach (Item item in PlayerManager.PlayerItem)
         {
             this.startItem.Add(item);
         }
         for (int i = 0; i < startItem.Count; i++)
         {
-            Inventory.Instance.AcquireItem(startItem[i]);
+            //Inventory.Instance.AcquireItem(startItem[i]);
         }
     }
 }

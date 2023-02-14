@@ -24,8 +24,8 @@ public class GameoverControl : MonoBehaviour
     }
     public void GameOverWithVictory(bool isVictory)
     {
-        Debug.Log("∞‘¿”ø¿πˆµ•Ω∫");
         if (isPlaying == true) return;
+        Debug.Log("Í≤åÏûÑÏò§Î≤ÑÎç∞Ïä§");
         StartCoroutine(FadeOutPlay());
         if (isVictory)
         {
@@ -35,7 +35,6 @@ public class GameoverControl : MonoBehaviour
         {
             StartCoroutine(FadeOutText(DefeatText));
         }
-        isPlaying = false;
     }
     IEnumerator FadeOutPlay()
     {

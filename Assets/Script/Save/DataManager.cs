@@ -13,8 +13,8 @@ public class DataManager : MonoBehaviour
         if (instance != null) Destroy(gameObject);
         instance = this;
         data = new Data(true);
-        Save();
-        data = playerData.LoadJsonFile(playerData.FileName);//µ•¿Ã≈Õ µÈ∞Ìø¿±‚
+        //Save();
+        data = playerData.LoadJsonFile(playerData.FileName);//Îç∞Ïù¥ÌÑ∞ Îì§Í≥†Ïò§Í∏∞
     }
     public static void SetEquipmentData(equipment target, int value)
     {

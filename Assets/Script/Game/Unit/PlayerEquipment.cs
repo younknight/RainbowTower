@@ -11,7 +11,14 @@ public class PlayerEquipment : MonoBehaviour
     private void Start()
     {
         playerStatus = gameObject.GetComponent<UnitState>();
-        playerStatus.InitStatus(PlayerManager.playerStatus);
+        if (PlayerManager.PlayerStatus[equipment.body] != null)
+        {
+            playerStatus.InitStatus(PlayerManager.PlayerStatus);
+        }
+        foreach (Item item in PlayerManager.PlayerItem)
+        {
+            Inventory.Instance.AcquireItem(item);
+        }
         SetEquipment();
     }
     void SetEquipment()
@@ -21,9 +28,12 @@ public class PlayerEquipment : MonoBehaviour
         {
             playerEquipment.Add(keys[i], values[i]);
         }
-        foreach (KeyValuePair<equipment, Sprite> entry in PlayerManager.playerSprite)
+        if (PlayerManager.PlayerStatus[equipment.body] != null)
         {
-            if (entry.Value != null) playerEquipment[entry.Key].sprite = entry.Value;
+            foreach (KeyValuePair<equipment, EqujpmentPrefap> entry in PlayerManager.PlayerStatus)
+            {
+                if (entry.Value != null) playerEquipment[entry.Key].sprite = entry.Value.sprite;
+            }
         }
     }
 }

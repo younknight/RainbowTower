@@ -6,18 +6,14 @@ using UnityEngine.EventSystems;
 public class ItemSelector : MonoBehaviour
 {
     Item itemPrefap;
-    public void InitalizeButton(Item itemPrefap)//πˆ∆∞¿« ¡§∫∏øÕ ¿ÃπÃ¡ˆ √ ±‚»≠
+    public void InitalizeButton(Item itemPrefap)//Î≤ÑÌäºÏùò Ï†ïÎ≥¥ÏôÄ Ïù¥ÎØ∏ÏßÄ Ï¥àÍ∏∞Ìôî
     {
         this.itemPrefap = itemPrefap;
         gameObject.transform.GetChild(0).GetComponent<Image>().sprite = itemPrefap.sprite;
     }
     public void AddItem()
     {
-        foreach(Item item in PlayerManager.playerItem)
-        {
-            Debug.Log(item.itemIndex + "" + item.itemName);
-        }
-        if (!PlayerManager.playerItem.Contains(itemPrefap))
+        if (!PlayerManager.PlayerItem.Contains(itemPrefap))
         {
             DeleteItem();
             ButtonManager selectedBtn = ButtonManager.SelectedBtn.GetComponent<ButtonManager>();
@@ -27,7 +23,7 @@ public class ItemSelector : MonoBehaviour
             selectedBtn.transform.GetChild(0).GetComponent<Image>().color = color;
             selectedBtn.Item = itemPrefap;
             selectedBtn.SetNum(DataManager.Data.hasItem[itemPrefap.itemIndex]);
-            PlayerManager.playerItem.Add(itemPrefap);
+            PlayerManager.PlayerItem.Add(itemPrefap);
         }
         Popup.ClosePopup();
     }
@@ -37,7 +33,7 @@ public class ItemSelector : MonoBehaviour
         Color color = selectedBtn.transform.GetChild(0).GetComponent<Image>().color;
         color.a = 0f;
         selectedBtn.transform.GetChild(0).GetComponent<Image>().color = color;
-        PlayerManager.playerItem.Remove(selectedBtn.Item);
+        PlayerManager.PlayerItem.Remove(selectedBtn.Item);
         selectedBtn.SetNum(0);
         Popup.ClosePopup();
     }

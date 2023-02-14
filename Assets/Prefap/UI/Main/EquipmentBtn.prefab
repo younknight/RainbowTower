@@ -124,8 +124,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1842064428184752006}
-        m_TargetAssemblyTypeName: colorSelector, Assembly-CSharp
-        m_MethodName: ChangeColor
+        m_TargetAssemblyTypeName: EquipmentSelector, GameScript
+        m_MethodName: ChangeEquipment
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -147,7 +147,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 081ccbddb84fc5c4292dfa7280d288b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {fileID: 11400000, guid: e1c611d15e0333d4789e8e7f0ef34909, type: 2}
 --- !u!1 &8603417745702544946
 GameObject:
   m_ObjectHideFlags: 0

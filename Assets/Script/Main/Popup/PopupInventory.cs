@@ -4,10 +4,10 @@ using UnityEngine;
 using System;
 public class PopupInventory : MonoBehaviour
 {
-    [SerializeField] GameObject contents;//»ı¼ºµÉ À§Ä¡
-    [SerializeField] GameObject btnPrefap;//»ı¼ºÇÒ ¹öÆ°
-    [SerializeField] GameObject cancelBtn;//»ı¼ºÇÒ ¹öÆ°
-    List<GameObject> btnList = new List<GameObject>();//»ı¼ºµÈ ¹öÆ° ¸®½ºÆ®
+    [SerializeField] GameObject contents;//ìƒì„±ë  ìœ„ì¹˜
+    [SerializeField] GameObject btnPrefap;//ìƒì„±í•  ë²„íŠ¼
+    [SerializeField] GameObject cancelBtn;//ìƒì„±í•  ë²„íŠ¼
+    List<GameObject> btnList = new List<GameObject>();//ìƒì„±ëœ ë²„íŠ¼ ë¦¬ìŠ¤íŠ¸
     Item[] itemDatabase;
     Data playerData;
     // Start is called before the first frame update
@@ -17,9 +17,9 @@ public class PopupInventory : MonoBehaviour
         itemDatabase = Database.instance.ItemPrefap;
         InitBtn(itemDatabase);
     }
-    void InitBtn(Item[] prefap)//¹öÆ°µé ÃÊ±âÈ­ÇÏ±â
+    void InitBtn(Item[] prefap)//ë²„íŠ¼ë“¤ ì´ˆê¸°í™”í•˜ê¸°
     {
-        if (playerData.hasItem.Count != itemDatabase.Length) throw new System.Exception("º´½Å¾Æ ¹ö±×³µ¾î");
+        if (playerData.hasItem.Count != itemDatabase.Length) throw new System.Exception("ë³‘ì‹ ì•„ ë²„ê·¸ë‚¬ì–´");
         Instantiate<GameObject>(cancelBtn, contents.transform);
         for (int i = 0; i < playerData.hasItem.Count; i++)
         {

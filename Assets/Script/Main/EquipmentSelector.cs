@@ -5,20 +5,21 @@ using UnityEngine.UI;
 
 public class EquipmentSelector : MonoBehaviour
 {
-    ColorStatusPrefap colorPrefap;//°¡Áö°í ÀÖ´Â »ö±òÁ¤º¸
-
-    public ColorStatusPrefap Color { get => colorPrefap; }
-
-    public void InitalizeButton(ColorStatusPrefap colorStatusPrefap)//¹öÆ°ÀÇ Á¤º¸¿Í ÀÌ¹ÌÁö ÃÊ±âÈ­
+    EqujpmentPrefap colorPrefap;//ê°€ì§€ê³  ìˆëŠ” ìƒ‰ê¹”ì •ë³´
+    public void InitalizeButton(EqujpmentPrefap colorStatusPrefap)//ë²„íŠ¼ì˜ ì •ë³´ì™€ ì´ë¯¸ì§€ ì´ˆê¸°í™”
     {
         colorPrefap = colorStatusPrefap;
         gameObject.transform.GetChild(0).GetComponent<Image>().sprite = colorPrefap.sprite;
     }
-    public void ChangeColor()//»ö±ò ¹Ù²Ù±â
+    public void ChangeEquipment()//ìƒ‰ê¹” ë°”ê¾¸ê¸°
     {
-        PlayerManager.ChangeSprite(colorPrefap.spriteTarget, colorPrefap); //ÇÃ·¹ÀÌ¾î Á¤º¸ÀúÀå
-        StatusManager.instance.SetStatus(); //½ºÅ×ÀÌÅÍ½º Á¤º¸ Ç¥½Ã
-        DataManager.SetEquipmentData(colorPrefap.spriteTarget, colorPrefap.index);//µ¥ÀÌÅÍ ÀúÀå
+        PlayerManager.ChangeEquipment(colorPrefap.spriteTarget, colorPrefap); //í”Œë ˆì´ì–´ ì •ë³´ì €ì¥
+        foreach(int index in colorPrefap.hasItemsIndex)
+        {
+            PlayerManager.PlayerItem.Add(Database.instance.GetItemData(index));
+        }
+        StatusManager.Instance.SetStatus(); //ìŠ¤í…Œì´í„°ìŠ¤ ì •ë³´ í‘œì‹œ
+        DataManager.SetEquipmentData(colorPrefap.spriteTarget, colorPrefap.index);//ë°ì´í„° ì €ì¥
         Popup.ClosePopup();
         ButtonManager.SelectedBtn.GetComponent<ButtonManager>().ChangePortrait(colorPrefap.sprite);
     }

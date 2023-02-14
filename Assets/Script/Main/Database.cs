@@ -5,12 +5,12 @@ using UnityEngine;
 public class Database : MonoBehaviour
 {
     public static Database instance;
-    [SerializeField] ColorStatusPrefap[] colorBodyPrefap;
-    [SerializeField] ColorStatusPrefap[] colorLeftPrefap;
-    [SerializeField] ColorStatusPrefap[] colorRightPrefap;
-    [SerializeField] ColorStatusPrefap[] weaponPrefap;
+    [SerializeField] EqujpmentPrefap[] bodyPrefap;
+    [SerializeField] EqujpmentPrefap[] leftPrefap;
+    [SerializeField] EqujpmentPrefap[] rightPrefap;
+    [SerializeField] EqujpmentPrefap[] weaponPrefap;
     [SerializeField] Item[] itemPrefap;
-    Dictionary<equipment, ColorStatusPrefap[]> prefaps = new Dictionary<equipment, ColorStatusPrefap[]>();
+    Dictionary<equipment, EqujpmentPrefap[]> prefaps = new Dictionary<equipment, EqujpmentPrefap[]>();
 
     public Item[] ItemPrefap { get => itemPrefap; }
 
@@ -18,13 +18,17 @@ public class Database : MonoBehaviour
     {
         if (instance != null) Destroy(gameObject);
         instance = this;
-        prefaps.Add(equipment.body, colorBodyPrefap);
-        prefaps.Add(equipment.leftHand, colorLeftPrefap);
-        prefaps.Add(equipment.rightHand, colorRightPrefap);
+        prefaps.Add(equipment.body, bodyPrefap);
+        prefaps.Add(equipment.leftHand, leftPrefap);
+        prefaps.Add(equipment.rightHand, rightPrefap);
         prefaps.Add(equipment.weapon, weaponPrefap);
     }
-    public ColorStatusPrefap[] GetPrefaps(equipment target)
+    public EqujpmentPrefap[] GetPrefaps(equipment target)
     {
         return prefaps[target];
+    }
+    public Item GetItemData(int index)
+    {
+        return itemPrefap[index];
     }
 }

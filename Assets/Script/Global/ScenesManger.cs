@@ -12,4 +12,8 @@ public class ScenesManger : MonoBehaviour
     {
         SceneManager.LoadScene("Game");
     }
+    public void GoTest()
+    {
+        SceneManager.LoadScene("TestGame");
+    }
 }

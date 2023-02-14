@@ -39,5 +39,6 @@ public enum colorType
     yellow,
     green,
     blue,
-    purple
+    purple,
+    gray
 }

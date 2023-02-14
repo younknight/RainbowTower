@@ -5,13 +5,17 @@ using System;
 using TMPro;
 public class StatusManager: MonoBehaviour
 {
-    public static StatusManager instance;
-    //�ؽ�Ʈ
+    //캐릭터 스테이터스 초기화 매니저
+    static StatusManager instance;
+    //텍스트
     [SerializeField] status[] key;
     [SerializeField] TextMeshProUGUI[] valueText;//text
     [SerializeField] UnitPrefap defaultPrefap;
     Dictionary<status, double> defaultStatus = new Dictionary<status, double>();
     Dictionary<status, TextMeshProUGUI> textList = new Dictionary<status, TextMeshProUGUI>();
+
+    public static StatusManager Instance { get => instance;  }
+
     private void Awake()
     {
         if (instance != null) Destroy(gameObject);
@@ -39,7 +43,7 @@ public class StatusManager: MonoBehaviour
             { status.criticalRate, 0 },
             { status.criticalDamage, 0 },
         };
-        foreach (KeyValuePair<equipment, ColorStatusPrefap> entry in PlayerManager.playerStatus)
+        foreach (KeyValuePair<equipment, EqujpmentPrefap> entry in PlayerManager.PlayerStatus)
         {
             plusStatus[status.hp] += entry.Value.hp;
             plusStatus[status.attackDamage] += entry.Value.attackDamage;

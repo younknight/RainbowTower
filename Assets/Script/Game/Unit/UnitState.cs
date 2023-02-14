@@ -6,7 +6,6 @@ public class UnitState : MonoBehaviour
     [SerializeField] UnitPrefap thisCharacter;
     Dictionary<status, double> currentStatus = new Dictionary<status, double>();
     sangtae playerState;
-
     public sangtae PlayerState { get => playerState; }
     public UnitPrefap ThisCharacter { get => thisCharacter; }
 
@@ -16,11 +15,10 @@ public class UnitState : MonoBehaviour
         currentStatus.Add(status.attackDamage, ThisCharacter.attackDamage);
         currentStatus.Add(status.criticalRate, ThisCharacter.criticalRate);
         currentStatus.Add(status.criticalDamage, ThisCharacter.criticalDamage);
-
     }
-    public void InitStatus(Dictionary<equipment, ColorStatusPrefap> playerStatus)
+    public void InitStatus(Dictionary<equipment, EqujpmentPrefap> playerStatus)
     {
-        foreach(KeyValuePair<equipment, ColorStatusPrefap> entry in playerStatus)
+        foreach(KeyValuePair<equipment, EqujpmentPrefap> entry in playerStatus)
         {
             currentStatus[status.hp] += entry.Value.hp;
             currentStatus[status.attackDamage] += entry.Value.attackDamage;
@@ -57,6 +55,24 @@ public class UnitState : MonoBehaviour
         if (currentStatus[status.hp] <= 0)
         {
             playerState = sangtae.Dead;
+            if (CompareTag("Player"))
+            {
+                //Time.timeScale = 0;
+                if (EnemyManager.EnemyList.Count != 0)
+                {
+                    GameoverControl.instance.GameOverWithVictory(false);
+                    Destroy(gameObject);
+                }
+            }
+            else if (CompareTag("Enemy"))
+            {
+                EnemyManager.RemoveEnemy();
+                if (EnemyManager.EnemyList.Count == 0)
+                {
+                    GameoverControl.instance.GameOverWithVictory(true);
+                }
+            }
+            Debug.Log("사망");
         }
     }
 

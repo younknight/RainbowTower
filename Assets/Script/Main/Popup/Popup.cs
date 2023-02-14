@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Popup : MonoBehaviour
 {
-    public static bool isOpen = false;
+    static bool isOpen = false;
     static GameObject currentPopup;
+
+    public static bool IsOpen { get => isOpen; }
     private void Start()
     {
-        gameObject.SetActive(isOpen);
+        gameObject.SetActive(false);
     }
     public void OpenPopup()
     {
@@ -20,5 +22,10 @@ public class Popup : MonoBehaviour
     {
         currentPopup.SetActive(false);
         isOpen = false;
+    }
+    public void TogglePopup()
+    {
+        if (isOpen) ClosePopup();
+        else OpenPopup();
     }
 }

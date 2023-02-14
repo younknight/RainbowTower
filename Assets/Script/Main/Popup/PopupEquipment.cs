@@ -5,9 +5,9 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 public class PopupEquipment : MonoBehaviour
 {
-    [SerializeField] GameObject contents;//»ı¼ºµÉ À§Ä¡
-    [SerializeField] GameObject btnPrefap;//»ı¼ºÇÒ ¹öÆ°
-    List<GameObject> btnList;//»ı¼ºµÈ ¹öÆ° ¸®½ºÆ®
+    [SerializeField] GameObject contents;//ìƒì„±ë  ìœ„ì¹˜
+    [SerializeField] GameObject btnPrefap;//ìƒì„±í•  ë²„íŠ¼
+    List<GameObject> btnList;//ìƒì„±ëœ ë²„íŠ¼ ë¦¬ìŠ¤íŠ¸
     Dictionary<equipment, List<GameObject>> btnDict = new Dictionary<equipment, List<GameObject>>();
     Database colorDatabase;
     ButtonManager selectedBtn;
@@ -20,9 +20,8 @@ public class PopupEquipment : MonoBehaviour
         InitBtn(colorDatabase.GetPrefaps(equipment.leftHand), equipment.leftHand);
         InitBtn(colorDatabase.GetPrefaps(equipment.rightHand), equipment.rightHand);
         InitBtn(colorDatabase.GetPrefaps(equipment.weapon), equipment.weapon);
-        gameObject.SetActive(false);
     }
-    void InitBtn(ColorStatusPrefap[] prefap, equipment equipment)//¹öÆ°µé ÃÊ±âÈ­ÇÏ±â
+    void InitBtn(EqujpmentPrefap[] prefap, equipment equipment)//ë²„íŠ¼ë“¤ ì´ˆê¸°í™”í•˜ê¸°
     {
         List<GameObject> btnList = new List<GameObject>();
         for (int i = 0; i < playerData.equipment[equipment].hasEquipment.Count; i++)
@@ -37,26 +36,24 @@ public class PopupEquipment : MonoBehaviour
         }
         btnDict.Add(equipment, btnList);
     }
-    public void ActivatePopup()//²°´Ù ÄÑ±â
+    public void ActivatePopup()//ê»ë‹¤ ì¼œê¸°
     {
-        if (Popup.isOpen)
+        foreach (KeyValuePair<equipment, List<GameObject>> entry in btnDict)
         {
-            foreach (KeyValuePair<equipment, List<GameObject>> entry in btnDict)
-            {
-                if (entry.Key == ButtonManager.SelectedBtn.GetComponent<ButtonManager>().EquipmentType)
-                {
-                    foreach (var btn in entry.Value)
-                    {
-                        btn.SetActive(true);
-                    }
-                }
-                else
-                {
+            Debug.Log("sbk:" + ButtonManager.SelectedBtn.GetComponent<ButtonManager>().EquipmentType + "entk:" + entry.Key);
 
-                    foreach (var btn in entry.Value)
-                    {
-                        btn.SetActive(false);
-                    }
+            if (entry.Key == ButtonManager.SelectedBtn.GetComponent<ButtonManager>().EquipmentType)
+            {
+                foreach (var btn in entry.Value)
+                {
+                    btn.SetActive(true);
+                }
+            }
+            else
+            {
+                foreach (var btn in entry.Value)
+                {
+                    btn.SetActive(false);
                 }
             }
         }

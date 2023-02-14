@@ -5,9 +5,10 @@ using UnityEngine;
 using UnityEngine.UI;
 public class SpriteManager : MonoBehaviour
 {
+    //ìºë¦­í„° ì´ë¯¸ì§€ ì´ˆê¸°í™” ë§¤ë‹ˆì €
     Database colorDatabase;
-    //Ä³¸¯ÅÍ ¼±ÅÃÃ¢ UI
-    //ÀÌ¹ÌÁö
+    //ìºë¦­í„° ì„ íƒì°½ UI
+    //ì´ë¯¸ì§€
     [SerializeField] equipment[] keys;
     [SerializeField] Image[] values;
     Dictionary<equipment, Image> btnImages = new Dictionary<equipment, Image>();
@@ -18,15 +19,15 @@ public class SpriteManager : MonoBehaviour
         for (int i = 0; i < keys.Length; i++)
         {
             btnImages.Add(keys[i], values[i]);
-        }//»çÀü ÃÊ±âÈ­
-        colorDatabase = Database.instance;//µ¥ÀÌÅÍº£ÀÌ½º
+        }//ì‚¬ì „ ì´ˆê¸°í™”
+        colorDatabase = Database.instance;//ë°ì´í„°ë² ì´ìŠ¤
         playerData = DataManager.Data;
-        //ÀÌ¹ÌÁö ÃÊ±âÈ­
-        ColorStatusPrefap prefap;
+        //ì´ë¯¸ì§€ ì´ˆê¸°í™”
+        EqujpmentPrefap prefap;
         foreach (KeyValuePair<equipment, Equipment> entry in playerData.equipment)
         {
             prefap = colorDatabase.GetPrefaps(entry.Key)[entry.Value.currentIndex];
-            PlayerManager.ChangeSprite(entry.Key, prefap);
+            PlayerManager.ChangeEquipment(entry.Key, prefap);
             btnImages[entry.Key].sprite = prefap.sprite;
         }
     }

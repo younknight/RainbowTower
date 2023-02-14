@@ -4,22 +4,18 @@ using UnityEngine;
 
 public class PlayerManager
 {
-    public static Dictionary<equipment, Sprite> playerSprite = new Dictionary<equipment, Sprite>() {
+    static Dictionary<equipment, EqujpmentPrefap> playerEquipment = new Dictionary<equipment, EqujpmentPrefap>() {
         {equipment.body, null },
         {equipment.leftHand, null },
         {equipment.rightHand, null },
         {equipment.weapon, null },
     };
-    public static Dictionary<equipment, ColorStatusPrefap> playerStatus = new Dictionary<equipment, ColorStatusPrefap>() {
-        {equipment.body, null },
-        {equipment.leftHand, null },
-        {equipment.rightHand, null },
-        {equipment.weapon, null },
-    };
-    public static List<Item> playerItem = new List<Item>();
-    public static void ChangeSprite(equipment targetSprite, ColorStatusPrefap status)
+    static List<Item> playerItem = new List<Item>();
+    public static Dictionary<equipment, EqujpmentPrefap> PlayerStatus { get => playerEquipment; }
+    public static List<Item> PlayerItem { get => playerItem; }
+
+    public static void ChangeEquipment(equipment targetSprite, EqujpmentPrefap status)
     {
-        playerSprite[targetSprite] = status.sprite;
-        playerStatus[targetSprite] = status;
+        playerEquipment[targetSprite] = status;
     }
 }
