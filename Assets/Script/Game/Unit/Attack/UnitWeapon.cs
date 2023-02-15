@@ -9,7 +9,7 @@ public class UnitWeapon : MonoBehaviour
     [SerializeField] Transform spawnPoint;
     [SerializeField] float attackRate = 1f;
     WeaponState weaponState = WeaponState.SearchTarget;
-    Transform attackTarget = null;
+    public Transform attackTarget = null;
     UnitState thisUnit;
     bool isPlayer;
     private void Start()
@@ -17,7 +17,7 @@ public class UnitWeapon : MonoBehaviour
         if (gameObject.CompareTag("Player"))
         {
             isPlayer = true;
-            Debug.Log("player");
+            //Debug.Log("player");
         }
         else isPlayer = false;
         thisUnit = GetComponent<UnitState>();
@@ -31,11 +31,16 @@ public class UnitWeapon : MonoBehaviour
     }
     public IEnumerator SearchTarget()
     {
-        if (isPlayer && EnemyManager.EnemyList.Count != 0) attackTarget = EnemyManager.EnemyList[0].transform;
+        if (isPlayer && EnemyManager.EnemyList.Count != 0)
+        {
+            attackTarget = EnemyManager.EnemyList[0].transform;
+        }
         else
         {
-           
-            attackTarget = GameObject.FindWithTag("Player").GetComponent<UnitState>().transform;
+            if (!isPlayer && GameObject.FindWithTag("Player") != null)
+            {
+                attackTarget = GameObject.FindWithTag("Player").GetComponent<UnitState>().transform;
+            }
         }
         if(attackTarget != null)
         {
@@ -60,6 +65,6 @@ public class UnitWeapon : MonoBehaviour
     {
         GameObject clone = Instantiate(attackPrefap, spawnPoint.position, Quaternion.identity);
         float damage = (float)thisUnit.TotalDamage();
-        clone.GetComponent<AttackTile>().Setup(attackTarget, 10 , isPlayer);
+        clone.GetComponent<AttackTile>().Setup(attackTarget, damage , isPlayer);
     }
 }

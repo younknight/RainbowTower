@@ -18,3 +18,6 @@ MonoBehaviour:
   criticalRate: 0
   criticalDamage: 0
   defence: 0
+  dropItems:
+  - {fileID: 11400000, guid: 1f0c8603ceaed31409febd83de5f7a72, type: 2}
+  - {fileID: 11400000, guid: 8a378503880fa8344906b320c6a1a356, type: 2}

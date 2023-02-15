@@ -8,7 +8,7 @@ public class UnitState : MonoBehaviour
     sangtae playerState;
     public sangtae PlayerState { get => playerState; }
     public UnitPrefap ThisCharacter { get => thisCharacter; }
-
+    public Dictionary<status, double> CurrentStatus => currentStatus;
     private void Awake()
     {
         currentStatus.Add(status.hp, ThisCharacter.hp);
@@ -55,24 +55,30 @@ public class UnitState : MonoBehaviour
         if (currentStatus[status.hp] <= 0)
         {
             playerState = sangtae.Dead;
-            if (CompareTag("Player"))
+            //Debug.Log(gameObject.tag);
+            if (gameObject.CompareTag("Player"))
             {
                 //Time.timeScale = 0;
                 if (EnemyManager.EnemyList.Count != 0)
                 {
+                    Debug.Log("패배");
                     GameoverControl.instance.GameOverWithVictory(false);
                     Destroy(gameObject);
+                    return;
                 }
             }
-            else if (CompareTag("Enemy"))
+            else if (gameObject.CompareTag("Enemy"))
             {
-                EnemyManager.RemoveEnemy();
+                if(EnemyManager.EnemyList.Count > 0)
+                {
+                    EnemyManager.instance.RemoveEnemy();
+                }
                 if (EnemyManager.EnemyList.Count == 0)
                 {
+                    Debug.Log("승리");
                     GameoverControl.instance.GameOverWithVictory(true);
                 }
             }
-            Debug.Log("사망");
         }
     }
 

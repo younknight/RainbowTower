@@ -19,7 +19,6 @@ public class AttackTile : MonoBehaviour
         if(target != null)
         {
             Vector3 direction = (target.position - transform.position).normalized;
-           // Debug.Log(direction);
             movement2D.MoveTo(direction);
         }
         else
@@ -38,7 +37,7 @@ public class AttackTile : MonoBehaviour
             if (!collision.CompareTag("Player")) return;
         }
         if (collision.transform != target) return;
-        collision.GetComponent<UnitState>().PlayerDamaged(damage);
         Destroy(gameObject);
+        collision.GetComponent<UnitState>().PlayerDamaged(damage);
     }
 }

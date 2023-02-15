@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
 
             if (EnemyManager.EnemyList[0].PlayerState == sangtae.Dead)
             {
-                EnemyManager.RemoveEnemy();
+                EnemyManager.instance.RemoveEnemy();
                 if(EnemyManager.EnemyList.Count == 0)
                 {
                     Debug.Log("승리");

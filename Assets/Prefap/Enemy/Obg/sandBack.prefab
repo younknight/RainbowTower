@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 3563835066473518571}
   - component: {fileID: -6584636726682655158}
   m_Layer: 0
-  m_Name: EnemyOrigin
+  m_Name: sandBack
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682f28b3845d9824ea70a19bc3b1345f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisCharacter: {fileID: 11400000, guid: 8cc1365eea51853449fd497ddc012612, type: 2}
+  thisCharacter: {fileID: 11400000, guid: cd5a4504c09345347973f628ac3642db, type: 2}
 --- !u!114 &-5141161080650564852
 MonoBehaviour:
   m_ObjectHideFlags: 0
