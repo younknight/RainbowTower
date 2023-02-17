@@ -97,7 +97,7 @@ Transform:
   m_GameObject: {fileID: 3234629265257574477}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2707281611046279253}
@@ -186,6 +186,7 @@ MonoBehaviour:
   attackPrefap: {fileID: 535178623890809770, guid: 6291d2fb13185c84c81718375838b82c, type: 3}
   spawnPoint: {fileID: 4335752550713780270}
   attackRate: 1
+  attackTarget: {fileID: 0}
 --- !u!65 &5498245437980051516
 BoxCollider:
   m_ObjectHideFlags: 0

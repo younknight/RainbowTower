@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetState: 0
   itemType: 0
+  sprite: {fileID: 21300000, guid: cea235b3aba90934e9dcde49db777423, type: 3}
   itemName: redPotion
+  explain: this is redPotion
   itemIndex: 1
   duration: 0
   value: 0
-  sprite: {fileID: 21300000, guid: cea235b3aba90934e9dcde49db777423, type: 3}

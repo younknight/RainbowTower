@@ -12,7 +12,7 @@ public class PopupEquipment : MonoBehaviour
     Database colorDatabase;
     ButtonManager selectedBtn;
     Data playerData;
-    void Start()
+    void Awake()
     {
         playerData = DataManager.Data;
         colorDatabase = Database.instance;

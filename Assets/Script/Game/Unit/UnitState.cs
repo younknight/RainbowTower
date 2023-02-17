@@ -28,11 +28,11 @@ public class UnitState : MonoBehaviour
     }
     public IEnumerator TemporaryChangeStatus(Item item, bool isBuff)
     {
-        ActivatebyItemType(item, isBuff);
+        ActivateByItemType(item, isBuff);
         yield return new WaitForSeconds(item.duration);
-        ActivatebyItemType(item, !isBuff);
+        ActivateByItemType(item, !isBuff);
     }
-    void ActivatebyItemType(Item item, bool isBuff)
+    void ActivateByItemType(Item item, bool isBuff)
     {
         double status = currentStatus[item.targetState];
         currentStatus[item.targetState] = isBuff ? status + item.value : status - item.value;

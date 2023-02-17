@@ -25,6 +25,5 @@ public class ButtonManager : MonoBehaviour
     public void SelectThisBtn()
     {
         selectedBtn = gameObject;
-        Debug.Log(equipmentType);
     }
 }

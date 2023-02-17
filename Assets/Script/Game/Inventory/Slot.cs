@@ -8,14 +8,27 @@ public class Slot : MonoBehaviour, IPointerClickHandler
 {
     public Item item;
     public Image itemImage;
+    public int index;
+    Popup popup;
+    PopupItem popupItem;
+
+    public int Index { get => index; set => index = value; }
+
+    void Awake()
+    {
+        GameObject PopupObj = GameObject.Find("Popup");
+        popup = PopupObj.GetComponent<Popup>();
+        popupItem = PopupObj.GetComponent<PopupItem>();
+        itemImage = transform.GetChild(0).GetComponent<Image>();
+    }
     public void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Left)
         {
             if (item != null)
             {
-                ItemEffect.instance.UseItem(item);
-                ClearSlot();
+                popup.OpenPopup();
+                popupItem.Setup(item);
             }
         }
     }
@@ -25,7 +38,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         itemImage.sprite = item.sprite;
         SetColor(1);
     }
-    private void ClearSlot()
+    public void ClearSlot()
     {
         item = null;
         itemImage.sprite = null;
