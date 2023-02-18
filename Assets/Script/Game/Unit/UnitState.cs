@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 public class UnitState : MonoBehaviour
 {
     [SerializeField] UnitPrefap thisCharacter;
+    Popup popup;
+    popupUnit popupUnit;
     Dictionary<status, double> currentStatus = new Dictionary<status, double>();
     sangtae playerState;
     public sangtae PlayerState { get => playerState; }
@@ -15,6 +18,25 @@ public class UnitState : MonoBehaviour
         currentStatus.Add(status.attackDamage, ThisCharacter.attackDamage);
         currentStatus.Add(status.criticalRate, ThisCharacter.criticalRate);
         currentStatus.Add(status.criticalDamage, ThisCharacter.criticalDamage);
+        GameObject PopupObj = GameObject.Find("PopupUnit");//팝업
+        popup = PopupObj.GetComponent<Popup>();
+        popupUnit = PopupObj.GetComponent<popupUnit>();
+    }
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if(Physics.Raycast(ray, out hit))
+            {
+                if(hit.transform.gameObject == gameObject)
+                {
+                    popup.TogglePopup();
+                    popupUnit.Setup(this);
+                }
+            }
+        }
     }
     public void InitStatus(Dictionary<equipment, EqujpmentPrefap> playerStatus)
     {
@@ -26,13 +48,7 @@ public class UnitState : MonoBehaviour
             currentStatus[status.criticalDamage] += entry.Value.criticalDamage;
         }
     }
-    public IEnumerator TemporaryChangeStatus(Item item, bool isBuff)
-    {
-        ActivateByItemType(item, isBuff);
-        yield return new WaitForSeconds(item.duration);
-        ActivateByItemType(item, !isBuff);
-    }
-    void ActivateByItemType(Item item, bool isBuff)
+    public void StatusChange(Item item, bool isBuff)
     {
         double status = currentStatus[item.targetState];
         currentStatus[item.targetState] = isBuff ? status + item.value : status - item.value;

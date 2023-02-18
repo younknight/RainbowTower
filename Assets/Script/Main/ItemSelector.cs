@@ -6,6 +6,11 @@ using UnityEngine.EventSystems;
 public class ItemSelector : MonoBehaviour
 {
     Item itemPrefap;
+    Popup popup;
+    private void Start()
+    {
+        popup = GameObject.Find("InventoryPopup").GetComponent<Popup>();
+    }
     public void InitalizeButton(Item itemPrefap)//버튼의 정보와 이미지 초기화
     {
         this.itemPrefap = itemPrefap;
@@ -25,7 +30,7 @@ public class ItemSelector : MonoBehaviour
             selectedBtn.SetNum(DataManager.Data.hasItem[itemPrefap.itemIndex]);
             PlayerManager.PlayerItem.Add(itemPrefap);
         }
-        Popup.ClosePopup();
+        popup.ClosePopup();
     }
     public void DeleteItem()
     {
@@ -35,6 +40,6 @@ public class ItemSelector : MonoBehaviour
         selectedBtn.transform.GetChild(0).GetComponent<Image>().color = color;
         PlayerManager.PlayerItem.Remove(selectedBtn.Item);
         selectedBtn.SetNum(0);
-        Popup.ClosePopup();
+        popup.ClosePopup();
     }
 }

@@ -11,5 +11,6 @@ public class UnitPrefap : ScriptableObject
     public double criticalRate;
     public double criticalDamage;
     public double defence;
+    public string explain;
     public Item[] dropItems;
 }

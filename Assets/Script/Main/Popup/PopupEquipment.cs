@@ -40,7 +40,7 @@ public class PopupEquipment : MonoBehaviour
     {
         foreach (KeyValuePair<equipment, List<GameObject>> entry in btnDict)
         {
-            Debug.Log("sbk:" + ButtonManager.SelectedBtn.GetComponent<ButtonManager>().EquipmentType + "entk:" + entry.Key);
+           // Debug.Log("sbk:" + ButtonManager.SelectedBtn.GetComponent<ButtonManager>().EquipmentType + "entk:" + entry.Key);
 
             if (entry.Key == ButtonManager.SelectedBtn.GetComponent<ButtonManager>().EquipmentType)
             {

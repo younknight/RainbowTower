@@ -12,13 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c03550d72ae86544194be6392e49fad3, type: 3}
   m_Name: default
   m_EditorClassIdentifier: 
-  startItem: []
   portrait: {fileID: 21300000, guid: e3d359caa1bc76a4180d57c9023c018e, type: 3}
   hp: 100
   attackDamage: 5
-  critcalRate: 10
-  critcalDamage: 50
+  criticalRate: 0
+  criticalDamage: 0
   defence: 0
-  magicDamage: 0
-  skillType: 0
-  explain: 
+  explain: "\uC544\uC8FC \uAE30\uBCF8\uC801\uC778 \uC720\uB2DB"
+  dropItems: []

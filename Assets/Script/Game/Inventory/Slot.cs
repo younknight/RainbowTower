@@ -3,20 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-
+public enum SlotType { inventory, equipment }
 public class Slot : MonoBehaviour, IPointerClickHandler
 {
     public Item item;
     public Image itemImage;
     public int index;
+    [SerializeField] SlotType slotType;
     Popup popup;
     PopupItem popupItem;
 
     public int Index { get => index; set => index = value; }
+    public SlotType SlotType { get => slotType; }
 
     void Awake()
     {
-        GameObject PopupObj = GameObject.Find("Popup");
+        GameObject PopupObj = GameObject.Find("PopupItem");
         popup = PopupObj.GetComponent<Popup>();
         popupItem = PopupObj.GetComponent<PopupItem>();
         itemImage = transform.GetChild(0).GetComponent<Image>();
@@ -27,7 +29,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         {
             if (item != null)
             {
-                popup.OpenPopup();
+                popup.TogglePopup();
                 popupItem.Setup(item);
             }
         }

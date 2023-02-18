@@ -14,19 +14,14 @@ public class ItemEffect : MonoBehaviour
         playerStatus = GameObject.FindWithTag("Player").GetComponent<UnitState>();
 
     }
-    public void UseItem(Item _item)
-    {
-        BuffPlayer(_item, playerStatus);
-        return;
-    }
-    void  BuffPlayer(Item _item, UnitState player)
+    public void UseItem(Item _item, bool isActive)
     {
         switch (_item.itemType)
         {
             case ItemType.LevelUP:
-                StartCoroutine(player.TemporaryChangeStatus(_item, true));
+                playerStatus.StatusChange(_item, isActive);
                 break;
         }
+        return;
     }
-     
 }

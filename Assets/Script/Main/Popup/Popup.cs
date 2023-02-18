@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class Popup : MonoBehaviour
 {
-    static bool isOpen = false;
+    bool isOpen = false;
     static GameObject currentPopup;
 
-    public static bool IsOpen { get => isOpen; }
     private void Start()
     {
         gameObject.SetActive(false);
@@ -18,7 +17,7 @@ public class Popup : MonoBehaviour
         currentPopup.SetActive(true);
         isOpen = true;
     }
-    public static void ClosePopup()
+    public void ClosePopup()
     {
         currentPopup.SetActive(false);
         isOpen = false;

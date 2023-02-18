@@ -6,6 +6,11 @@ using UnityEngine.UI;
 public class EquipmentSelector : MonoBehaviour
 {
     EqujpmentPrefap colorPrefap;//가지고 있는 색깔정보
+    Popup popup;
+    private void Start()
+    {
+        popup = GameObject.Find("EquipmentPopup").GetComponent<Popup>();
+    }
     public void InitalizeButton(EqujpmentPrefap colorStatusPrefap)//버튼의 정보와 이미지 초기화
     {
         colorPrefap = colorStatusPrefap;
@@ -20,7 +25,7 @@ public class EquipmentSelector : MonoBehaviour
         }
         StatusManager.Instance.SetStatus(); //스테이터스 정보 표시
         DataManager.SetEquipmentData(colorPrefap.spriteTarget, colorPrefap.index);//데이터 저장
-        Popup.ClosePopup();
+        popup.ClosePopup();
         ButtonManager.SelectedBtn.GetComponent<ButtonManager>().ChangePortrait(colorPrefap.sprite);
     }
 }
