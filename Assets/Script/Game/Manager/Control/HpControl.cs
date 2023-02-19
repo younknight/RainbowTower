@@ -23,7 +23,14 @@ public class HpControl : MonoBehaviour
     {
         if (isSetup && unitState !=null)
         {
-            hpbar.value = (float)unitState.CurrentStatus[status.hp] / maxHp;
+            if((float)unitState.CurrentStatus[status.hp] / maxHp <= 1)
+            {
+                hpbar.value = (float)unitState.CurrentStatus[status.hp] / maxHp;
+            }
+            else
+            {
+                hpbar.value = 1f;
+            }
             hp = (float)unitState.CurrentStatus[status.hp];
             text.text = "" + unitState.CurrentStatus[status.hp] + "/" + maxHp;
         }

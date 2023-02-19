@@ -27,7 +27,6 @@ public class ItemSelector : MonoBehaviour
             color.a = 1f;
             selectedBtn.transform.GetChild(0).GetComponent<Image>().color = color;
             selectedBtn.Item = itemPrefap;
-            selectedBtn.SetNum(DataManager.Data.hasItem[itemPrefap.itemIndex]);
             PlayerManager.PlayerItem.Add(itemPrefap);
         }
         popup.ClosePopup();
@@ -39,7 +38,6 @@ public class ItemSelector : MonoBehaviour
         color.a = 0f;
         selectedBtn.transform.GetChild(0).GetComponent<Image>().color = color;
         PlayerManager.PlayerItem.Remove(selectedBtn.Item);
-        selectedBtn.SetNum(0);
         popup.ClosePopup();
     }
 }

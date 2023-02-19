@@ -23,7 +23,7 @@ public class SpriteManager : MonoBehaviour
         colorDatabase = Database.instance;//데이터베이스
         playerData = DataManager.Data;
         //이미지 초기화
-        EqujpmentPrefap prefap;
+        EquipmentPrefap prefap;
         foreach (KeyValuePair<equipment, Equipment> entry in playerData.equipment)
         {
             prefap = colorDatabase.GetPrefaps(entry.Key)[entry.Value.currentIndex];

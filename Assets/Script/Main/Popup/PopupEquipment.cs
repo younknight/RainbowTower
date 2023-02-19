@@ -21,7 +21,7 @@ public class PopupEquipment : MonoBehaviour
         InitBtn(colorDatabase.GetPrefaps(equipment.rightHand), equipment.rightHand);
         InitBtn(colorDatabase.GetPrefaps(equipment.weapon), equipment.weapon);
     }
-    void InitBtn(EqujpmentPrefap[] prefap, equipment equipment)//버튼들 초기화하기
+    void InitBtn(List<EquipmentPrefap> prefap, equipment equipment)//버튼들 초기화하기
     {
         List<GameObject> btnList = new List<GameObject>();
         for (int i = 0; i < playerData.equipment[equipment].hasEquipment.Count; i++)

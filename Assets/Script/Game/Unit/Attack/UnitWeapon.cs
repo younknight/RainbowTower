@@ -64,7 +64,7 @@ public class UnitWeapon : MonoBehaviour
     void SpawnAttackTile()
     {
         GameObject clone = Instantiate(attackPrefap, spawnPoint.position, Quaternion.identity);
-        float damage = (float)thisUnit.TotalDamage();
+        float damage = (float)thisUnit.TotalAttackDamage();
         clone.GetComponent<AttackTile>().Setup(attackTarget, damage , isPlayer);
     }
 }

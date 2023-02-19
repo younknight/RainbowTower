@@ -18,6 +18,7 @@ public class UnitState : MonoBehaviour
         currentStatus.Add(status.attackDamage, ThisCharacter.attackDamage);
         currentStatus.Add(status.criticalRate, ThisCharacter.criticalRate);
         currentStatus.Add(status.criticalDamage, ThisCharacter.criticalDamage);
+        currentStatus.Add(status.defence, ThisCharacter.defence);
         GameObject PopupObj = GameObject.Find("PopupUnit");//팝업
         popup = PopupObj.GetComponent<Popup>();
         popupUnit = PopupObj.GetComponent<popupUnit>();
@@ -38,26 +39,27 @@ public class UnitState : MonoBehaviour
             }
         }
     }
-    public void InitStatus(Dictionary<equipment, EqujpmentPrefap> playerStatus)
+    public void InitStatus(Dictionary<equipment, EquipmentPrefap> playerStatus)
     {
-        foreach(KeyValuePair<equipment, EqujpmentPrefap> entry in playerStatus)
+        foreach(KeyValuePair<equipment, EquipmentPrefap> entry in playerStatus)
         {
             currentStatus[status.hp] += entry.Value.hp;
             currentStatus[status.attackDamage] += entry.Value.attackDamage;
             currentStatus[status.criticalRate] += entry.Value.criticalRate;
             currentStatus[status.criticalDamage] += entry.Value.criticalDamage;
+            currentStatus[status.defence] += entry.Value.defence;
         }
     }
-    public void StatusChange(Item item, bool isBuff)
+    public void StatusChange(Item item,int index, bool isBuff)
     {
-        double status = currentStatus[item.targetState];
-        currentStatus[item.targetState] = isBuff ? status + item.value : status - item.value;
+        double status = currentStatus[item.targetState[index]];
+        currentStatus[item.targetState[index]] = isBuff ? status + item.value[index] : status - item.value[index];
     }
     public double GetStatus(status targetStatus)
     {
         return currentStatus[targetStatus];
     }
-    public double TotalDamage()
+    public double TotalAttackDamage()
     {
         if (Random.Range(0, 100) <= currentStatus[status.criticalRate])
         {
@@ -67,7 +69,14 @@ public class UnitState : MonoBehaviour
     }
     public void PlayerDamaged(double value)
     {
-        currentStatus[status.hp] -= value;
+        if(value - currentStatus[status.defence] > 0)
+        {
+            currentStatus[status.hp] -= value - currentStatus[status.defence];
+        }
+        else
+        {
+            currentStatus[status.hp] -= 1;
+        }
         if (currentStatus[status.hp] <= 0)
         {
             playerState = sangtae.Dead;
@@ -97,7 +106,11 @@ public class UnitState : MonoBehaviour
             }
         }
     }
-
+    public void Heal(float value)
+    {
+        Debug.Log("Healed");
+        currentStatus[status.hp] += value;
+    }
     public void PrintStatus()
     {
         foreach(KeyValuePair<status, double> entry in currentStatus)

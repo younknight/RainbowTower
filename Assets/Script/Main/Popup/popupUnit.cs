@@ -27,5 +27,6 @@ public class popupUnit : MonoBehaviour
         attack.text = "" + unitStatus[status.attackDamage];
         criRate.text = "" + unitStatus[status.criticalRate];
         criDamage.text = "" + unitStatus[status.criticalDamage];
+        defence.text = "" + unitStatus[status.defence];
     }
 }

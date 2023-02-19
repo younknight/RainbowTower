@@ -9,9 +9,15 @@ public enum equipment
     weapon,
     item
 }
+public enum ItemClass
+{
+    None,
+    portion
+}
 public enum ItemType
 {
     None,
+    Heal,
     LevelUP
 }
 public enum skillType
@@ -28,6 +34,7 @@ public enum sangtae
 public enum status
 {
     hp,
+    defence,
     attackDamage,
     criticalRate,
     criticalDamage

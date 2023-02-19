@@ -32,6 +32,7 @@ public class StatusManager: MonoBehaviour
         defaultStatus.Add(status.attackDamage, defaultPrefap.attackDamage);
         defaultStatus.Add(status.criticalDamage, defaultPrefap.criticalDamage);
         defaultStatus.Add(status.criticalRate, defaultPrefap.criticalRate);
+        defaultStatus.Add(status.defence, defaultPrefap.defence);
         SetStatus();
     }
 
@@ -42,13 +43,15 @@ public class StatusManager: MonoBehaviour
             { status.attackDamage, 0 },
             { status.criticalRate, 0 },
             { status.criticalDamage, 0 },
+            { status.defence, 0 },
         };
-        foreach (KeyValuePair<equipment, EqujpmentPrefap> entry in PlayerManager.PlayerStatus)
+        foreach (KeyValuePair<equipment, EquipmentPrefap> entry in PlayerManager.PlayerStatus)
         {
             plusStatus[status.hp] += entry.Value.hp;
             plusStatus[status.attackDamage] += entry.Value.attackDamage;
             plusStatus[status.criticalRate] += entry.Value.criticalRate;
             plusStatus[status.criticalDamage] += entry.Value.criticalDamage;
+            plusStatus[status.defence] += entry.Value.defence;
         }
         foreach (KeyValuePair<status, TextMeshProUGUI> entry in textList)
         {

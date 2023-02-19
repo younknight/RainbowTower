@@ -13,11 +13,6 @@ public class ButtonManager : MonoBehaviour
     public equipment EquipmentType { get => equipmentType; }
     public static GameObject SelectedBtn { get => selectedBtn;  }
     public Item Item { get => item; set => item = value; }
-    public void SetNum(int value)
-    {
-        if (value == 0) numText.text = "";
-        else numText.text = "" + value;
-    }
     public void ChangePortrait(Sprite sprite)
     {
         portrait.sprite = sprite;

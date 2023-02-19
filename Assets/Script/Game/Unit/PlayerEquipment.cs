@@ -30,7 +30,7 @@ public class PlayerEquipment : MonoBehaviour
         }
         if (PlayerManager.PlayerStatus[equipment.body] != null)
         {
-            foreach (KeyValuePair<equipment, EqujpmentPrefap> entry in PlayerManager.PlayerStatus)
+            foreach (KeyValuePair<equipment, EquipmentPrefap> entry in PlayerManager.PlayerStatus)
             {
                 if (entry.Value != null) playerEquipment[entry.Key].sprite = entry.Value.sprite;
             }

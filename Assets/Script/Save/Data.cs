@@ -22,7 +22,6 @@ public class Data
         { colorType.blue, 0 },
         { colorType.purple, 0 }
     };
-    public List<int> hasItem = Enumerable.Repeat<int>(0, 12).ToList<int>();
     public Data(bool isDebug) 
     {
         if (isDebug)
@@ -33,10 +32,6 @@ public class Data
                 {
                     entry.Value.hasEquipment[i] = true;
                 }
-            }
-            for(int i = 0; i < hasItem.Count; i++)
-            {
-                hasItem[i] = 3;
             }
         }
     }
