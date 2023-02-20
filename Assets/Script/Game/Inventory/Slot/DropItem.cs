@@ -17,6 +17,7 @@ public class DropItem : MonoBehaviour, IDropHandler
                 Inventory.Instance.GetSp(10);
                 dragSlot.item = null;
                 dragSlot.itemImage.sprite = defaultItem;
+                dragSlot.ClearSlot();
             }
         }
     }

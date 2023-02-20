@@ -7,10 +7,8 @@ public class Popup : MonoBehaviour
     bool isOpen = false;
     static GameObject currentPopup;
 
-    private void Start()
-    {
-        gameObject.SetActive(false);
-    }
+    public static GameObject CurrentPopup { get => currentPopup; set => currentPopup = value; }
+
     public void OpenPopup()
     {
         currentPopup = gameObject;
@@ -19,12 +17,14 @@ public class Popup : MonoBehaviour
     }
     public void ClosePopup()
     {
-        currentPopup.SetActive(false);
+        if(currentPopup != null) currentPopup.SetActive(false);
+        currentPopup = null;
         isOpen = false;
     }
     public void TogglePopup()
     {
-        if (isOpen) ClosePopup();
-        else OpenPopup();
+        //if (isOpen) 
+        ClosePopup();
+        if(!isOpen) OpenPopup();
     }
 }

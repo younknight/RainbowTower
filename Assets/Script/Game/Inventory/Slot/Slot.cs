@@ -22,6 +22,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         popup = PopupObj.GetComponent<Popup>();
         popupItem = PopupObj.GetComponent<PopupItem>();
         itemImage = transform.GetChild(0).GetComponent<Image>();
+        ClearSlot();
     }
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -29,16 +30,8 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         {
             if (item != null)
             {
-                if(popupItem.Slot == this)
-                {
-                    popup.ClosePopup();
-                    popupItem.Slot = null;
-                }
-                else
-                {
-                    popup.OpenPopup();
-                    popupItem.Setup(this);
-                }
+                popup.TogglePopup();
+                popupItem.Setup(this);
             }
         }
     }
@@ -48,20 +41,16 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         itemImage.sprite = item.sprite;
         SetColor(1);
     }
-    //public void ClearSlot()
-    //{
-    //    item = null;
-    //    itemImage.sprite = null;
-    //    SetColor(0);
-    //}
+    public void ClearSlot()
+    {
+        item = null;
+        itemImage.sprite = null;
+        SetColor(0);
+    }
     private void SetColor(float _alpha)
     {
         Color color = itemImage.color;
         color.a = _alpha;
         itemImage.color = color;
-    }
-    public void EnforceItem()
-    {
-
     }
 }

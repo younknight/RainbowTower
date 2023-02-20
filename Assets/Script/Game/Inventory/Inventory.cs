@@ -12,6 +12,7 @@ public class Inventory : MonoBehaviour
     public Slot[] slots = new Slot[12];
 
     public static Inventory Instance { get => instance; }
+    public int Sp { get => sp; }
 
     private void Awake()
     {

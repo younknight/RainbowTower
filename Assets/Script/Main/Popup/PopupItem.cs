@@ -8,12 +8,15 @@ public class PopupItem : MonoBehaviour
     [SerializeField] TextMeshProUGUI itemOfName;
     [SerializeField] TextMeshProUGUI explain;
     [SerializeField] TextMeshProUGUI enforce;
+    [SerializeField] TextMeshProUGUI cost;
     [SerializeField] Image portrait;
     Slot slot;
     Item item;
-
     public Slot Slot { get => slot; set => slot = value; }
-
+    private void Start()
+    {
+        gameObject.SetActive(false);
+    }
     public void Setup(Slot slot)
     {
         this.slot = slot;
@@ -27,16 +30,21 @@ public class PopupItem : MonoBehaviour
         }
         explain.text = str;
         enforce.text = "" + item.enforce;
+        cost.text = "" + item.cost;
         portrait.sprite = item.sprite;
     }
     public void EnforceItem()
     {
-        if (Random.Range(0, 100) <= item.enforce)
+        if (Inventory.Instance.Sp >= item.cost)
         {
-            Debug.Log("강화 성공");
-            slot.AddItem(item.nextItem);
-            Setup(slot);
+            if (Random.Range(0, 100) <= item.enforce)
+            {
+                Debug.Log("강화 성공");
+                slot.AddItem(item.nextItem);
+                Setup(slot);
+            }
+            else Debug.Log("강화 실패");
+            Inventory.Instance.GetSp(-(item.cost));
         }
-        else Debug.Log("강화 실패");
     }
 }

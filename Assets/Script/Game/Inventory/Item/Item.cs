@@ -12,8 +12,8 @@ public class Item : ScriptableObject
     public string explain; //설명
     //아이템 강화
     public int level;
-    public float enforce;
     public int cost;
+    public float enforce;
     public Item nextItem;
     //아이템 효과
     public ItemType[] itemType; //아이템 타입

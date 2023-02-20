@@ -7,13 +7,19 @@ public class ItemSelector : MonoBehaviour
 {
     Item itemPrefap;
     Popup popup;
+    public colorType color;
+
+    public colorType Color { get => color; }
+
     private void Start()
     {
         popup = GameObject.Find("InventoryPopup").GetComponent<Popup>();
+        if(itemPrefap != null)color = itemPrefap.colorType;
     }
     public void InitalizeButton(Item itemPrefap)//버튼의 정보와 이미지 초기화
     {
         this.itemPrefap = itemPrefap;
+        color = itemPrefap.colorType;
         gameObject.transform.GetChild(0).GetComponent<Image>().sprite = itemPrefap.sprite;
     }
     public void AddItem()
@@ -29,7 +35,7 @@ public class ItemSelector : MonoBehaviour
             selectedBtn.Item = itemPrefap;
             PlayerManager.PlayerItem.Add(itemPrefap);
         }
-        popup.ClosePopup();
+        else popup.ClosePopup();
     }
     public void DeleteItem()
     {

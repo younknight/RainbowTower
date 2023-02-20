@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be7679be769e45c468e2fd55b81eb418, type: 3}
   m_Name: orangePotion 4
   m_EditorClassIdentifier: 
-  sprite: {fileID: -986241969, guid: 88aedf85c55b56640a45e25552f3cd6a, type: 3}
+  sprite: {fileID: -1305209713, guid: 88aedf85c55b56640a45e25552f3cd6a, type: 3}
   colorType: 1
   itemClass: 1
   itemName: "\uC8FC\uD669\uC0C9 \uD3EC\uC158"
   explain: "\uCE58\uD53C\uAC00 @Value1\uB9CC\uD07C \uC99D\uAC00\uD569\uB2C8\uB2E4."
   level: 4
-  enforce: 0
   cost: 10
+  enforce: 0
   nextItem: {fileID: 0}
   itemType: 02000000
   targetState: 04000000

@@ -6,6 +6,7 @@ using TMPro;
 public class popupUnit : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI charName;
+    [SerializeField] TextMeshProUGUI hp;
     [SerializeField] TextMeshProUGUI attack;
     [SerializeField] TextMeshProUGUI defence;
     [SerializeField] TextMeshProUGUI criRate;
@@ -13,6 +14,10 @@ public class popupUnit : MonoBehaviour
     [SerializeField] TextMeshProUGUI explain;
     [SerializeField] Image portrait;
     UnitState unit;
+    private void Start()
+    {
+        gameObject.SetActive(false);
+    }
     private void Update()
     {
         if (unit != null) Setup(unit);
@@ -24,6 +29,7 @@ public class popupUnit : MonoBehaviour
         portrait.sprite = unit.ThisCharacter.portrait;
         explain.text = unit.ThisCharacter.explain;
         charName.text = unit.ThisCharacter.name;
+        hp.text = "" + unit.ThisCharacter.hp;
         attack.text = "" + unitStatus[status.attackDamage];
         criRate.text = "" + unitStatus[status.criticalRate];
         criDamage.text = "" + unitStatus[status.criticalDamage];

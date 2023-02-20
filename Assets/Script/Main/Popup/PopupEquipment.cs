@@ -12,7 +12,7 @@ public class PopupEquipment : MonoBehaviour
     Database colorDatabase;
     ButtonManager selectedBtn;
     Data playerData;
-    void Awake()
+    void Start()
     {
         playerData = DataManager.Data;
         colorDatabase = Database.instance;
@@ -20,6 +20,7 @@ public class PopupEquipment : MonoBehaviour
         InitBtn(colorDatabase.GetPrefaps(equipment.leftHand), equipment.leftHand);
         InitBtn(colorDatabase.GetPrefaps(equipment.rightHand), equipment.rightHand);
         InitBtn(colorDatabase.GetPrefaps(equipment.weapon), equipment.weapon);
+        gameObject.SetActive(false);
     }
     void InitBtn(List<EquipmentPrefap> prefap, equipment equipment)//버튼들 초기화하기
     {
@@ -38,11 +39,10 @@ public class PopupEquipment : MonoBehaviour
     }
     public void ActivatePopup()//껐다 켜기
     {
+        equipment equipment = ButtonManager.SelectedBtn.GetComponent<ButtonManager>().EquipmentType;
         foreach (KeyValuePair<equipment, List<GameObject>> entry in btnDict)
         {
-           // Debug.Log("sbk:" + ButtonManager.SelectedBtn.GetComponent<ButtonManager>().EquipmentType + "entk:" + entry.Key);
-
-            if (entry.Key == ButtonManager.SelectedBtn.GetComponent<ButtonManager>().EquipmentType)
+            if (entry.Key == equipment)
             {
                 foreach (var btn in entry.Value)
                 {

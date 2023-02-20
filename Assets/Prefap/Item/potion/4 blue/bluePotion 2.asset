@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be7679be769e45c468e2fd55b81eb418, type: 3}
   m_Name: bluePotion 2
   m_EditorClassIdentifier: 
-  sprite: {fileID: -459284794, guid: 88aedf85c55b56640a45e25552f3cd6a, type: 3}
+  sprite: {fileID: 2004273241, guid: 88aedf85c55b56640a45e25552f3cd6a, type: 3}
   colorType: 4
   itemClass: 1
   itemName: "\uD30C\uB780\uC0C9 \uD3EC\uC158"
   explain: "\uBC29\uC5B4\uB825\uC774 @Value1\uB9CC\uD07C \uC99D\uAC00\uD569\uB2C8\uB2E4."
   level: 2
-  enforce: 60
   cost: 10
+  enforce: 60
   nextItem: {fileID: 11400000, guid: 55e18603ffcd6654795efdc53b87f7a6, type: 2}
   itemType: 02000000
   targetState: 01000000

@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be7679be769e45c468e2fd55b81eb418, type: 3}
   m_Name: redPotion 0
   m_EditorClassIdentifier: 
-  sprite: {fileID: 158960854, guid: 88aedf85c55b56640a45e25552f3cd6a, type: 3}
+  sprite: {fileID: -1270943366, guid: 88aedf85c55b56640a45e25552f3cd6a, type: 3}
   colorType: 0
   itemClass: 1
   itemName: "\uBE68\uAC04\uC0C9 \uD3EC\uC158"
   explain: "\uCCB4\uB825\uC744 @Cool1\uCD08\uB9C8\uB2E4 @Value1\uB9CC\uD07C \uD68C\uBCF5\uD569\uB2C8\uB2E4."
   level: 0
-  enforce: 80
   cost: 10
+  enforce: 80
   nextItem: {fileID: 11400000, guid: ba436b004b5c6204faeebbbe7595df6c, type: 2}
   itemType: 01000000
   targetState: 00000000
