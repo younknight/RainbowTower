@@ -11,8 +11,10 @@ public enum equipment
 }
 public enum ItemClass
 {
-    None,
-    portion
+    portion,
+    test,
+    test2,
+    None
 }
 public enum ItemType
 {

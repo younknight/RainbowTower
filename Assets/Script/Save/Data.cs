@@ -6,6 +6,7 @@ using UnityEngine;
 using Newtonsoft.Json;
 public class Data
 {
+    
     public Dictionary<equipment, Equipment> equipment = new Dictionary<equipment, Equipment>()
     {
         { global::equipment.body, new Equipment(0, new List<bool>(){ true, false, false, false, false, false, false })},
@@ -21,6 +22,11 @@ public class Data
         { colorType.green, 0 },
         { colorType.blue, 0 },
         { colorType.purple, 0 }
+    };
+    public int[] itemIndex = new int[6] { 0,0,0,0,0,0} ;//들고있는 아이템
+    public Dictionary<ItemClass, bool[]> hasItems = new Dictionary<ItemClass, bool[]>()//가지고 있는 아이템
+    {
+        {ItemClass.portion, new bool[6]{ true, true, true, true, true, true } }
     };
     public Data(bool isDebug) 
     {

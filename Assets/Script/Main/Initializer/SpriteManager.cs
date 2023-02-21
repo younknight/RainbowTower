@@ -11,9 +11,10 @@ public class SpriteManager : MonoBehaviour
     //이미지
     [SerializeField] equipment[] keys;
     [SerializeField] Image[] values;
+    [SerializeField] List<Image> itemImage;
     Dictionary<equipment, Image> btnImages = new Dictionary<equipment, Image>();
     Data playerData;
-    void Awake()
+    void Start()
     {
         if (keys.Length != values.Length) throw new SystemException("keyNum != vlaueNum");
         for (int i = 0; i < keys.Length; i++)
@@ -29,6 +30,13 @@ public class SpriteManager : MonoBehaviour
             prefap = colorDatabase.GetPrefaps(entry.Key)[entry.Value.currentIndex];
             PlayerManager.ChangeEquipment(entry.Key, prefap);
             btnImages[entry.Key].sprite = prefap.sprite;
+        }
+        int index = 0;
+        foreach (int itemClass in playerData.itemIndex)
+        {
+            ItemListPrefap find = colorDatabase.ItemPrefap.Find(x => x.index == itemClass);
+            itemImage[index].sprite = find.items[index].sprite;
+            index++;
         }
     }
 }

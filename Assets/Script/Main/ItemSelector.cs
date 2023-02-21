@@ -5,9 +5,9 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 public class ItemSelector : MonoBehaviour
 {
-    Item itemPrefap;
+    public Item itemPrefap;//
     Popup popup;
-    public colorType color;
+    public colorType color;//
 
     public colorType Color { get => color; }
 
@@ -32,8 +32,12 @@ public class ItemSelector : MonoBehaviour
             Color color = selectedBtn.transform.GetChild(0).GetComponent<Image>().color;
             color.a = 1f;
             selectedBtn.transform.GetChild(0).GetComponent<Image>().color = color;
-            selectedBtn.Item = itemPrefap;
+            selectedBtn.item = itemPrefap;
             PlayerManager.PlayerItem.Add(itemPrefap);
+            DataManager.Data.itemIndex[(int)this.color] = (int)itemPrefap.itemClass;
+           // Debug.Log(itemPrefap.name);
+            //Debug.Log("i"+(int)itemPrefap.itemClass);
+            //Debug.Log("c"+(int)this.color);
         }
         else popup.ClosePopup();
     }

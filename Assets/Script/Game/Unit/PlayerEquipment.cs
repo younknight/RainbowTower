@@ -8,6 +8,7 @@ public class PlayerEquipment : MonoBehaviour
     [SerializeField] List<equipment> keys = new List<equipment>();
     [SerializeField] List<SpriteRenderer> values = new List<SpriteRenderer>();
     Dictionary<equipment, SpriteRenderer> playerEquipment = new Dictionary<equipment, SpriteRenderer>();
+    List<Item> items = new List<Item>();
     private void Start()
     {
         playerStatus = gameObject.GetComponent<UnitState>();
@@ -15,10 +16,7 @@ public class PlayerEquipment : MonoBehaviour
         {
             playerStatus.InitStatus(PlayerManager.PlayerStatus);
         }
-        foreach (Item item in PlayerManager.PlayerItem)
-        {
-            Inventory.Instance.AcquireItem(item);
-        }
+        items = PlayerManager.PlayerItem;
         SetEquipment();
     }
     void SetEquipment()

@@ -34,6 +34,13 @@ public class Slot : MonoBehaviour, IPointerClickHandler
                 popupItem.Setup(this);
             }
         }
+        if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            Inventory.Instance.GetSp(10);
+            item = null;
+            itemImage.sprite = null;
+            ClearSlot();
+        }
     }
     public void AddItem(Item _item)
     {

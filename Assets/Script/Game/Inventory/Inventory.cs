@@ -9,7 +9,7 @@ public class Inventory : MonoBehaviour
     int sp = 50;
     [SerializeField] TextMeshProUGUI spText;
     [SerializeField] GameObject SlotsParent;
-    public Slot[] slots = new Slot[12];
+    public Slot[] slots = new Slot[8];
 
     public static Inventory Instance { get => instance; }
     public int Sp { get => sp; }

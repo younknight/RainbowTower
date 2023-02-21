@@ -10,7 +10,7 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] equipment equipmentType;
     [SerializeField] colorType color;
     private static GameObject selectedBtn;
-    Item item;
+    public Item item;//
     public equipment EquipmentType { get => equipmentType; }
     public static GameObject SelectedBtn { get => selectedBtn;  }
     public Item Item { get => item; set => item = value; }

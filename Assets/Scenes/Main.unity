@@ -212,8 +212,8 @@ GameObject:
   - component: {fileID: 54438105}
   - component: {fileID: 54438109}
   - component: {fileID: 54438108}
-  - component: {fileID: 54438107}
   - component: {fileID: 54438111}
+  - component: {fileID: 54438107}
   - component: {fileID: 54438110}
   m_Layer: 5
   m_Name: InventoryPopup
@@ -363,7 +363,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   contents: {fileID: 2060613764}
   btnPrefap: {fileID: 8690479316133517101, guid: 61fc186a0b7ebd3458cffd8772015f32, type: 3}
-  cancelBtn: {fileID: 8690479316133517101, guid: 406c5db382cd25046a691fe477aa3832, type: 3}
 --- !u!1 &70064378
 GameObject:
   m_ObjectHideFlags: 0
@@ -1534,6 +1533,7 @@ MonoBehaviour:
   numText: {fileID: 0}
   equipmentType: 4
   color: 5
+  item: {fileID: 0}
 --- !u!114 &430218849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1578,18 +1578,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 54438110}
-        m_TargetAssemblyTypeName: Popup, GameScript
-        m_MethodName: OpenPopup
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 430218848}
         m_TargetAssemblyTypeName: ButtonManager, GameScript
         m_MethodName: SelectThisBtn
@@ -1614,6 +1602,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 54438110}
+        m_TargetAssemblyTypeName: Popup, GameScript
+        m_MethodName: OpenPopup
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &430218850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1627,7 +1627,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9736996, g: 0.66415095, b: 1, a: 1}
+  m_Color: {r: 0.9880211, g: 0.8528302, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1730,6 +1730,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7a4db91fc80a3444d9c2bc6da3b1e6e8, type: 2}
   itemPrefap:
   - {fileID: 11400000, guid: e9e5e4acc56b52648909fdfc89c03c9e, type: 2}
+  - {fileID: 11400000, guid: 667e3e5a4b8dd2a468e49953e8a77be4, type: 2}
+  - {fileID: 11400000, guid: 66e4a28f108d70e4a8768ff322ad5902, type: 2}
 --- !u!1 &449626715
 GameObject:
   m_ObjectHideFlags: 0
@@ -1781,14 +1783,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e3d359caa1bc76a4180d57c9023c018e, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2103,6 +2105,7 @@ MonoBehaviour:
   numText: {fileID: 0}
   equipmentType: 0
   color: 6
+  item: {fileID: 0}
 --- !u!1 &675497703
 GameObject:
   m_ObjectHideFlags: 0
@@ -2295,6 +2298,7 @@ MonoBehaviour:
   numText: {fileID: 0}
   equipmentType: 4
   color: 2
+  item: {fileID: 0}
 --- !u!114 &683870443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2339,19 +2343,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 54438110}
-        m_TargetAssemblyTypeName: Popup, GameScript
-        m_MethodName: OpenPopup
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 430218848}
+      - m_Target: {fileID: 683870442}
         m_TargetAssemblyTypeName: ButtonManager, GameScript
         m_MethodName: SelectThisBtn
         m_Mode: 1
@@ -2375,6 +2367,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 54438110}
+        m_TargetAssemblyTypeName: Popup, GameScript
+        m_MethodName: OpenPopup
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &683870444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2388,7 +2392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.9871177, b: 0.63584906, a: 1}
+  m_Color: {r: 1, g: 0.99190503, b: 0.7490566, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2642,6 +2646,7 @@ MonoBehaviour:
   numText: {fileID: 0}
   equipmentType: 4
   color: 0
+  item: {fileID: 0}
 --- !u!114 &772893534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2686,19 +2691,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 54438110}
-        m_TargetAssemblyTypeName: Popup, GameScript
-        m_MethodName: OpenPopup
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 430218848}
+      - m_Target: {fileID: 772893533}
         m_TargetAssemblyTypeName: ButtonManager, GameScript
         m_MethodName: SelectThisBtn
         m_Mode: 1
@@ -2722,6 +2715,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 54438110}
+        m_TargetAssemblyTypeName: Popup, GameScript
+        m_MethodName: OpenPopup
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &772893535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2735,7 +2740,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.53207546, b: 0.53207546, a: 1}
+  m_Color: {r: 1, g: 0.7972447, b: 0.7773585, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3111,6 +3116,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 820886068}
+  - component: {fileID: 820886069}
   m_Layer: 5
   m_Name: playerStatus
   m_TagString: Untagged
@@ -3140,6 +3146,31 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 274, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &820886069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820886067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df4d655ebb2ae6f4d904b984dc7d2d46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keys: 01000000000000000200000003000000
+  values:
+  - {fileID: 1561712421}
+  - {fileID: 1786081222}
+  - {fileID: 239928891}
+  - {fileID: 358832098}
+  itemImage:
+  - {fileID: 2098941135}
+  - {fileID: 1774048641}
+  - {fileID: 449626717}
+  - {fileID: 1619277690}
+  - {fileID: 1712598546}
+  - {fileID: 1635774348}
 --- !u!1 &878841295
 GameObject:
   m_ObjectHideFlags: 0
@@ -3324,7 +3355,7 @@ Transform:
   - {fileID: 437064323}
   - {fileID: 477239741}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &907881692
 GameObject:
@@ -3501,6 +3532,7 @@ MonoBehaviour:
   numText: {fileID: 0}
   equipmentType: 1
   color: 6
+  item: {fileID: 0}
 --- !u!1 &917658591
 GameObject:
   m_ObjectHideFlags: 0
@@ -3788,9 +3820,9 @@ GameObject:
   - component: {fileID: 951262758}
   - component: {fileID: 951262761}
   - component: {fileID: 951262760}
+  - component: {fileID: 951262763}
   - component: {fileID: 951262759}
   - component: {fileID: 951262762}
-  - component: {fileID: 951262763}
   m_Layer: 5
   m_Name: EquipmentPopup
   m_TagString: Untagged
@@ -4326,7 +4358,6 @@ GameObject:
   - component: {fileID: 1106060406}
   - component: {fileID: 1106060408}
   - component: {fileID: 1106060407}
-  - component: {fileID: 1106060410}
   - component: {fileID: 1106060411}
   m_Layer: 5
   m_Name: Inventory
@@ -4399,20 +4430,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1106060405}
   m_CullTransparentMesh: 1
---- !u!114 &1106060410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1106060405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f6ad8b0dada3af42a1ee9b133a384a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventory: {fileID: 0}
-  itemBtn: {fileID: 8690479316133517101, guid: d74b3e35785122e428adff5a44bbfefb, type: 3}
 --- !u!114 &1106060411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5318,6 +5335,7 @@ MonoBehaviour:
   numText: {fileID: 0}
   equipmentType: 4
   color: 1
+  item: {fileID: 0}
 --- !u!114 &1282277078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5362,19 +5380,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 54438110}
-        m_TargetAssemblyTypeName: Popup, GameScript
-        m_MethodName: OpenPopup
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 430218848}
+      - m_Target: {fileID: 1282277077}
         m_TargetAssemblyTypeName: ButtonManager, GameScript
         m_MethodName: SelectThisBtn
         m_Mode: 1
@@ -5398,6 +5404,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 54438110}
+        m_TargetAssemblyTypeName: Popup, GameScript
+        m_MethodName: OpenPopup
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1282277079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5411,7 +5429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9811321, g: 0.8280891, b: 0.5775721, a: 1}
+  m_Color: {r: 0.990566, g: 0.90706015, b: 0.7700249, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5824,6 +5842,7 @@ MonoBehaviour:
   - {fileID: 675497705}
   - {fileID: 1555017100}
   defaultPrefap: {fileID: 11400000, guid: f6876ad9940896a4ab80f678058e4342, type: 2}
+  inventory: {fileID: 1106060406}
 --- !u!1 &1500890340
 GameObject:
   m_ObjectHideFlags: 0
@@ -6044,7 +6063,7 @@ RectTransform:
   - {fileID: 951262758}
   - {fileID: 54438105}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6437,6 +6456,7 @@ MonoBehaviour:
   numText: {fileID: 0}
   equipmentType: 3
   color: 6
+  item: {fileID: 0}
 --- !u!1 &1575945048
 GameObject:
   m_ObjectHideFlags: 0
@@ -6494,6 +6514,7 @@ MonoBehaviour:
   numText: {fileID: 0}
   equipmentType: 4
   color: 3
+  item: {fileID: 0}
 --- !u!114 &1575945051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6538,19 +6559,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 54438110}
-        m_TargetAssemblyTypeName: Popup, GameScript
-        m_MethodName: OpenPopup
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 430218848}
+      - m_Target: {fileID: 1575945050}
         m_TargetAssemblyTypeName: ButtonManager, GameScript
         m_MethodName: SelectThisBtn
         m_Mode: 1
@@ -6574,6 +6583,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 54438110}
+        m_TargetAssemblyTypeName: Popup, GameScript
+        m_MethodName: OpenPopup
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1575945052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6587,7 +6608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6381818, g: 0.9811321, b: 0.5683161, a: 1}
+  m_Color: {r: 0.8155256, g: 1, b: 0.7773585, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6739,14 +6760,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e3d359caa1bc76a4180d57c9023c018e, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -6950,14 +6971,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e3d359caa1bc76a4180d57c9023c018e, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -7064,14 +7085,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e3d359caa1bc76a4180d57c9023c018e, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -7284,14 +7305,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e3d359caa1bc76a4180d57c9023c018e, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -8162,6 +8183,7 @@ MonoBehaviour:
   numText: {fileID: 0}
   equipmentType: 2
   color: 6
+  item: {fileID: 0}
 --- !u!1 &2026893843
 GameObject:
   m_ObjectHideFlags: 0
@@ -8171,7 +8193,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2026893844}
-  - component: {fileID: 2026893845}
   m_Layer: 5
   m_Name: Equipment
   m_TagString: Untagged
@@ -8204,24 +8225,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 274, y: 260}
   m_Pivot: {x: 0.5, y: 1}
---- !u!114 &2026893845
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2026893843}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df4d655ebb2ae6f4d904b984dc7d2d46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keys: 01000000000000000200000003000000
-  values:
-  - {fileID: 1561712421}
-  - {fileID: 1786081222}
-  - {fileID: 239928891}
-  - {fileID: 358832098}
 --- !u!1 &2046368606
 GameObject:
   m_ObjectHideFlags: 0
@@ -8562,14 +8565,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e3d359caa1bc76a4180d57c9023c018e, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -8644,6 +8647,7 @@ MonoBehaviour:
   numText: {fileID: 0}
   equipmentType: 4
   color: 4
+  item: {fileID: 0}
 --- !u!114 &2123990177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8688,19 +8692,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 54438110}
-        m_TargetAssemblyTypeName: Popup, GameScript
-        m_MethodName: OpenPopup
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 430218848}
+      - m_Target: {fileID: 2123990176}
         m_TargetAssemblyTypeName: ButtonManager, GameScript
         m_MethodName: SelectThisBtn
         m_Mode: 1
@@ -8724,6 +8716,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 54438110}
+        m_TargetAssemblyTypeName: Popup, GameScript
+        m_MethodName: OpenPopup
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2123990178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8737,7 +8741,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.56037736, g: 0.9782454, b: 1, a: 1}
+  m_Color: {r: 0.81509435, g: 0.9900943, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

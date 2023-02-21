@@ -57,8 +57,8 @@ public class UnitWeapon : MonoBehaviour
                 ChangeState(WeaponState.SearchTarget);
                 break;
             }
-            yield return new WaitForSeconds(attackRate);
             SpawnAttackTile();
+            yield return new WaitForSeconds(attackRate);
         }
     }
     void SpawnAttackTile()

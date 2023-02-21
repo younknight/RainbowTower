@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 1363210429, guid: 88aedf85c55b56640a45e25552f3cd6a, type: 3}
   colorType: 5
-  itemClass: 1
+  itemClass: 0
   itemName: "\uBCF4\uB77C\uC0C9 \uD3EC\uC158"
   explain: "\uBAA8\uB4E0 \uB2A5\uB825\uCE58\uAC00 @Value1 \uC99D\uAC00\uD569\uB2C8\uB2E4."
   level: 0

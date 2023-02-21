@@ -15,11 +15,11 @@ public class EnemyManager : MonoBehaviour
     private void Awake()
     {
         if (instance == null) instance = this;
-        if (EnemyDatabase.EnemyList.Count != 0)
+        if (MapSelector.EnemyList.Count != 0)
         {
 
             enemyList.RemoveAll(x => true);
-            foreach (GameObject enemyPrefap in EnemyDatabase.EnemyList)
+            foreach (GameObject enemyPrefap in MapSelector.EnemyList)
             {
                 //Debug.Log("소환");
                 GameObject enemy = Instantiate(enemyPrefap, this.transform.position, Quaternion.identity);

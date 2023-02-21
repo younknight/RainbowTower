@@ -11,8 +11,12 @@ public class StatusManager: MonoBehaviour
     [SerializeField] status[] key;
     [SerializeField] TextMeshProUGUI[] valueText;//text
     [SerializeField] UnitPrefap defaultPrefap;
+    [SerializeField] Transform inventory;
+    ButtonManager[] buttonManagers = new ButtonManager[6];
     Dictionary<status, double> defaultStatus = new Dictionary<status, double>();
     Dictionary<status, TextMeshProUGUI> textList = new Dictionary<status, TextMeshProUGUI>();
+    Data playerData;
+    Database colorDatabase;
 
     public static StatusManager Instance { get => instance;  }
 
@@ -20,6 +24,8 @@ public class StatusManager: MonoBehaviour
     {
         if (instance != null) Destroy(gameObject);
         instance = this;
+        colorDatabase = Database.instance;//데이터베이스
+        playerData = DataManager.Data;
     }
     private void Start()
     {
@@ -34,6 +40,15 @@ public class StatusManager: MonoBehaviour
         defaultStatus.Add(status.criticalRate, defaultPrefap.criticalRate);
         defaultStatus.Add(status.defence, defaultPrefap.defence);
         SetStatus();
+        buttonManagers = inventory.GetComponentsInChildren<ButtonManager>();
+        int index = 0;
+        //Debug.Log(PlayerManager.PlayerItem.Count);
+        foreach (Item item in PlayerManager.PlayerItem)
+        {
+           // Debug.Log(buttonManagers[index].gameObject.name + "  " + item.name);
+            buttonManagers[index].item = item;
+            index++;
+        }
     }
 
     public void SetStatus()
@@ -56,6 +71,14 @@ public class StatusManager: MonoBehaviour
         foreach (KeyValuePair<status, TextMeshProUGUI> entry in textList)
         {
             entry.Value.text = "" + (defaultStatus[entry.Key] + plusStatus[entry.Key]);
+        }
+        int index = 0;
+        PlayerManager.PlayerItem.RemoveAll(x=>true);
+        foreach(int itemClass in playerData.itemIndex)
+        {
+            ItemListPrefap find = colorDatabase.ItemPrefap.Find(x => x.index == itemClass);
+            PlayerManager.PlayerItem.Add(find.items[index]);
+            index++;
         }
     }
 }
