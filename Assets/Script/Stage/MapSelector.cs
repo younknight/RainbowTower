@@ -9,6 +9,10 @@ public class MapSelector : MonoBehaviour
     Popup popupTower;
     Popup popupHome;
     PopupSelectMap popupSelectMap;
+    float interval = 0.25f;
+    float doubleClickedTime = -1.0f;
+    bool isDoubleClicked = false;
+
     static List<GameObject> enemyList = new List<GameObject>();
     public static List<GameObject> EnemyList { get => enemyList; set => enemyList = value; }
 
@@ -20,30 +24,38 @@ public class MapSelector : MonoBehaviour
         popupSelectMap = popupT.GetComponent<PopupSelectMap>();
         popupHome = popup.transform.GetChild(1).GetComponent<Popup>();
     }
-    public void SetEnemyList()
+    void Update()
     {
-        //enemyList.RemoveAll(x => true);
-        //foreach (GameObject enemy in thisEnemyList.enemyList)
-        //{
-        //    enemyList.Add(enemy);
-        //}
-    }
-    public void OnMouseDown()
-    {
-        if (!EventSystem.current.IsPointerOverGameObject())
+        if (isDoubleClicked)
         {
-            if (transform.name == "Home")
-            {
-                popupHome.TogglePopup();
-                return;
-            }
-            if (thisEnemyList != null)
-            {
-                popupSelectMap.Setup(thisEnemyList,gameObject.name);
-                popupTower.TogglePopup();
-                SetEnemyList();
-                //SceneManager.LoadScene("Game");
-            }
+            OpenPopup();
+            isDoubleClicked = false;
+        }
+    }
+    private void OnMouseUp()
+    {
+        if ((Time.time - doubleClickedTime) < interval)
+        {
+            isDoubleClicked = true;
+            doubleClickedTime = -1.0f;
+        }
+        else
+        {
+            isDoubleClicked = false;
+            doubleClickedTime = Time.time;
+        }
+    }
+    private void OpenPopup()
+    {
+        if (transform.name == "Home")
+        {
+            popupHome.TogglePopup();
+            return;
+        }
+        if (thisEnemyList != null)
+        {
+            popupSelectMap.Setup(thisEnemyList, gameObject.name);
+            popupTower.TogglePopup();
         }
     }
 }

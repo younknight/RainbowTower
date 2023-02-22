@@ -5,5 +5,6 @@ using UnityEngine;
 public class EnemyListPrefap : ScriptableObject
 {
     public List<GameObject> enemyList = new List<GameObject>();
+    public Sprite portrait;
     public string explain;
 }

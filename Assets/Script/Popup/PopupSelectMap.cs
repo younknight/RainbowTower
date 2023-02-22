@@ -5,6 +5,7 @@ using TMPro;
 public class PopupSelectMap : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI towerName;
+    [SerializeField] TextMeshProUGUI explain;
     [SerializeField] Transform floorFarent;
     [SerializeField] GameObject gameStart;
     [SerializeField] List<EnemyListPrefap> thisEnemyList;
@@ -31,5 +32,6 @@ public class PopupSelectMap : MonoBehaviour
         }
         gameStart.SetActive(false);
         towerName.text = name;
+        explain.text = "";
     }
 }

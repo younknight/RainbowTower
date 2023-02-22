@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class DragCamera : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    public static bool isClicked = false;
     // Update is called once per frame
     void Update()
     {
-        
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            isClicked = true;
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            isClicked = false;
+        }
     }
 }
