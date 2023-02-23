@@ -2394,7 +2394,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: items_109
+      name: gold
       rect:
         serializedVersion: 2
         x: 208
@@ -6415,8 +6415,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      items_275: 2083290472
-      items_192: 350030159
+      items_290: -717164008
+      items_279: -1997519330
       items_281: -2117343819
       items_125: -714554513
       items_243: 147283999
@@ -6478,6 +6478,7 @@ TextureImporter:
       items_180: -2053905284
       items_297: -1904332526
       items_225: 773540640
+      gold: 305013659
       items_26: -1073778856
       items_295: -1829338631
       items_15: 540021492
@@ -6548,7 +6549,6 @@ TextureImporter:
       items_190: -1024240721
       items_56: -2091173469
       items_78: 649020234
-      items_109: 305013659
       items_284: 2118099030
       items_25: 446073826
       items_44: -866181765
@@ -6713,8 +6713,8 @@ TextureImporter:
       items_277: 811677150
       items_238: 447626782
       items_257: -390032793
-      items_279: -1997519330
-      items_290: -717164008
+      items_192: 350030159
+      items_275: 2083290472
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

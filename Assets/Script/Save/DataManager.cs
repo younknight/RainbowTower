@@ -20,9 +20,9 @@ public class DataManager : MonoBehaviour
     {
         data.equipment[target].currentIndex = value;
     }
-    public static void SetColorResource(colorType target, int value)
+    public static void SetColorResource(int value)
     {
-        data.hasColor[target] = value;
+        data.gold = value;
     }
     public void Save()
     {

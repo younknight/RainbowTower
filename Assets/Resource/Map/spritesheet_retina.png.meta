@@ -1680,7 +1680,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheet_retina_78
+      name: selector
       rect:
         serializedVersion: 2
         x: 128
@@ -2546,6 +2546,7 @@ TextureImporter:
       spritesheet_retina_5: -309967316
       spritesheet_retina_16: -667442054
       spritesheet_retina_93: 699142584
+      selector: 1528361543
       spritesheet_retina_84: 242032330
       spritesheet_retina_66: -941341378
       spritesheet_retina_22: -647273390
@@ -2556,7 +2557,6 @@ TextureImporter:
       spritesheet_retina_62: -439835841
       spritesheet_retina_113: 953002084
       spritesheet_retina_80: 709480961
-      spritesheet_retina_78: 1528361543
       spritesheet_retina_106: -1726600529
       spritesheet_retina_21: 1960513355
       spritesheet_retina_71: 1539920034

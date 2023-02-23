@@ -14,15 +14,7 @@ public class Data
         { global::equipment.rightHand, new Equipment(0, new List<bool>(){ true, false, false, false, false, false, false })},
         { global::equipment.weapon, new Equipment(0, new List<bool>(){ true, false, false, false, false, false, false })}
     };
-    public Dictionary<colorType, int> hasColor = new Dictionary<colorType, int>()
-    {
-        { colorType.red, 0 },
-        { colorType.orange, 0 },
-        { colorType.yellow, 0 },
-        { colorType.green, 0 },
-        { colorType.blue, 0 },
-        { colorType.purple, 0 }
-    };
+    public int gold;
     public int[] itemIndex = new int[6] { 0,0,0,0,0,0} ;//들고있는 아이템
     public Dictionary<ItemClass, bool[]> hasItems = new Dictionary<ItemClass, bool[]>()//가지고 있는 아이템
     {
