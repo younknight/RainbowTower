@@ -23,7 +23,7 @@ public class PopupInventory : MonoBehaviour
         {
             foreach(Item item in itemListPrefap.items)
             {
-                if(item.level == 0)
+                if(item.level == 0 && playerData.hasItems[item.itemClass][(int)item.colorType])
                 {
                     var newBtn = Instantiate<GameObject>(btnPrefap, contents.transform);
                     ItemSelector itemSelector = newBtn.GetComponent<ItemSelector>();

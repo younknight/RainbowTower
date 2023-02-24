@@ -9,6 +9,6 @@ public class ResourceManager : MonoBehaviour
     void Start()
     {
         data = DataManager.Data;
-        goldText.text = ""+data.gold;
+        goldText.text = "" + data.gold;
     }
 }

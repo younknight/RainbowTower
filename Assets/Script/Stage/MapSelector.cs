@@ -52,6 +52,11 @@ public class MapSelector : MonoBehaviour
             popupHome.TogglePopup();
             return;
         }
+        if (transform.name == "Shop")
+        {
+            SceneManager.LoadScene("Shop");
+            return;
+        }
         if (thisEnemyList != null)
         {
             popupSelectMap.Setup(thisEnemyList, gameObject.name);

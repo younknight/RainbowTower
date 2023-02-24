@@ -7,30 +7,40 @@ using Newtonsoft.Json;
 public class Data
 {
     
-    public Dictionary<equipment, Equipment> equipment = new Dictionary<equipment, Equipment>()
-    {
-        { global::equipment.body, new Equipment(0, new List<bool>(){ true, false, false, false, false, false, false })},
-        { global::equipment.leftHand, new Equipment(0, new List<bool>(){ true, false, false, false, false, false, false })},
-        { global::equipment.rightHand, new Equipment(0, new List<bool>(){ true, false, false, false, false, false, false })},
-        { global::equipment.weapon, new Equipment(0, new List<bool>(){ true, false, false, false, false, false, false })}
-    };
     public int gold;
     public int[] itemIndex = new int[6] { 0,0,0,0,0,0} ;//들고있는 아이템
-    public Dictionary<ItemClass, bool[]> hasItems = new Dictionary<ItemClass, bool[]>()//가지고 있는 아이템
-    {
-        {ItemClass.portion, new bool[6]{ true, true, true, true, true, true } }
-    };
+    public Dictionary<ItemClass, bool[]> hasItems = new Dictionary<ItemClass, bool[]>();//가지고 있는 아이템
+    public Dictionary<equipment, Equipment> hasEquipment = new Dictionary<equipment, Equipment>();//가지고 있는 장비
     public Data(bool isDebug) 
     {
+        //장비
+        hasEquipment.Add(equipment.body, new Equipment(0, new List<bool>() { true, false, false, false, false, false, false }));
+        hasEquipment.Add(equipment.leftHand, new Equipment(0, new List<bool>() { true, false, false, false, false, false, false }));
+        hasEquipment.Add(equipment.rightHand, new Equipment(0, new List<bool>() { true, false, false, false, false, false, false }));
+        hasEquipment.Add(equipment.weapon, new Equipment(0, new List<bool>() { true, false, false, false, false, false, false }));
+        //아이템
+        hasItems.Add(ItemClass.portion, new bool[6] { true, true, true, true, true, true }); //기본템
+        hasItems.Add(ItemClass.test, new bool[6] { false, false, false, false, false, false });
+        hasItems.Add(ItemClass.test2, new bool[6] { false, false, false, false, false, false }); 
+
+        //디버그모드 앵간한거 들고있기
         if (isDebug)
         {
-            foreach(KeyValuePair<equipment, Equipment> entry in equipment)
+            gold = 9999;
+            foreach (KeyValuePair<equipment, Equipment> entry in hasEquipment)//올장비
             {
-                for(int i=0;i< entry.Value.hasEquipment.Count; i++)
+                for (int i = 0; i < entry.Value.hasEquipment.Count; i++)
                 {
                     entry.Value.hasEquipment[i] = true;
                 }
             }
+            //foreach (KeyValuePair<ItemClass, bool[]> entry in hasItems)//올아이템
+            //{
+            //    for (int i = 0; i < entry.Value.Length; i++)
+            //    {
+            //        entry.Value[i] = true;
+            //    }
+            //}
         }
     }
 }

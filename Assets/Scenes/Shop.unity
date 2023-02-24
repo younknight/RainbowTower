@@ -697,8 +697,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 810846487}
-        m_TargetAssemblyTypeName: Popup, GameScript
+      - m_Target: {fileID: 810846486}
+        m_TargetAssemblyTypeName: PopupShop, GameScript
         m_MethodName: ClosePopup
         m_Mode: 1
         m_Arguments:
@@ -1159,7 +1159,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 668283968}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 810846486}
+        m_TargetAssemblyTypeName: PopupShop, GameScript
+        m_MethodName: BuyThisItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &668283968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1443,7 +1455,7 @@ RectTransform:
   - {fileID: 512289161}
   - {fileID: 710813236}
   m_Father: {fileID: 1058765335}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1500,11 +1512,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1265e21cb59a1a8448b1a600d0923ddb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shopKeeper: {fileID: 120882484}
   itemName: {fileID: 614763419}
   gold: {fileID: 1120072518}
   explain: {fileID: 2048019724}
   portrait: {fileID: 1606231148}
   item: {fileID: 0}
+  slot: {fileID: 0}
 --- !u!114 &810846487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1766,8 +1780,8 @@ RectTransform:
   - {fileID: 1661319385}
   - {fileID: 1776914929}
   - {fileID: 2111250180}
-  - {fileID: 810846483}
   - {fileID: 1163062410}
+  - {fileID: 810846483}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2059,7 +2073,7 @@ RectTransform:
   m_Children:
   - {fileID: 1818878860}
   m_Father: {fileID: 1058765335}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

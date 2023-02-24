@@ -25,9 +25,9 @@ public class PopupEquipment : MonoBehaviour
     void InitBtn(List<EquipmentPrefap> prefap, equipment equipment)//버튼들 초기화하기
     {
         List<GameObject> btnList = new List<GameObject>();
-        for (int i = 0; i < playerData.equipment[equipment].hasEquipment.Count; i++)
+        for (int i = 0; i < playerData.hasEquipment[equipment].hasEquipment.Count; i++)
         {
-            if (playerData.equipment[equipment].hasEquipment[i])
+            if (playerData.hasEquipment[equipment].hasEquipment[i])
             {
                 var newBtn = Instantiate<GameObject>(this.btnPrefap, contents.transform);
                 btnList.Add(newBtn);

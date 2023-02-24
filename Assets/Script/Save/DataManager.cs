@@ -18,7 +18,7 @@ public class DataManager : MonoBehaviour
     }
     public static void SetEquipmentData(equipment target, int value)
     {
-        data.equipment[target].currentIndex = value;
+        data.hasEquipment[target].currentIndex = value;
     }
     public static void SetColorResource(int value)
     {

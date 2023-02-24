@@ -25,7 +25,6 @@ public class ShopItemSlot : MonoBehaviour
     public void SetPopup()
     {
         popup.TogglePopup();
-        popupShop.Setup(item);
+        popupShop.Setup(this);
     }
-
 }
