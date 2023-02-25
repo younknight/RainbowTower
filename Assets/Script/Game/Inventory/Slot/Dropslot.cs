@@ -49,25 +49,38 @@ public class Dropslot : MonoBehaviour, IPointerEnterHandler, IDropHandler, IPoin
             item = transform.GetChild(0).gameObject;
             Dropslot dropslot = dragleitem.GetComponent<Dropslot>();
             dropslot.item = dragleitem.transform.GetChild(0).gameObject;
-            Item tmp = thisSlot.item;
-            thisSlot.item = dragSlot.item;
-            dragSlot.item = tmp;
+            //Item tmp = thisSlot.item;
+            //thisSlot.item = dragSlot.item;
+            //dragSlot.item = tmp;
+            Inventory.Instance.SwapSlot(thisSlot, dragSlot);
             //아이템 사용
             if (thisSlot.SlotType == SlotType.equipment && dragSlot.SlotType == SlotType.inventory)//인벤토리에서 장비창으로 떨굴때
             {
                 //Debug.Log("1:인벤토리에서 장비창으로 떨굴때");
 
-                if (dragSlot.item != null) equipmentSlot.UseItem(true, dragSlot.index);
-                if (thisSlot.item != null) equipmentSlot.UseItem(true, thisSlot.index);
+                if (dragSlot.item != null)
+                {
+                    ItemEffect.instance.EndItem(dragSlot.item);
+                }
+                if (thisSlot.item != null)
+                {
+                    ItemEffect.instance.UseItem(thisSlot.item);
+                    Slot.Graph[colorType.red].Active(thisSlot.index);
+                }
             }
             if (thisSlot.SlotType == SlotType.inventory && dragSlot.SlotType == SlotType.equipment)//장비창에서 인벤토리로 떨굴때
             {
                 //Debug.Log("2:장비창에서 인벤토리로 떨굴때");
-                if (dragSlot.item != null) equipmentSlot.UseItem(false, dragSlot.index);
-                if (thisSlot.item != null) equipmentSlot.UseItem(false, thisSlot.index);
+                if (dragSlot.item != null)
+                {
+                    ItemEffect.instance.UseItem(dragSlot.item);
+                }
+                if (thisSlot.item != null)
+                {
+                    ItemEffect.instance.EndItem(thisSlot.item);
+                }
             }
-            Inventory.Instance.SwapSlot(thisSlot, dragSlot);
-           
+
         }
     }
 

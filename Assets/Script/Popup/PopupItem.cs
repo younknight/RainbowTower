@@ -32,6 +32,7 @@ public class PopupItem : MonoBehaviour
         enforce.text = "" + item.enforce;
         cost.text = "" + item.cost;
         portrait.sprite = item.sprite;
+        Show();
     }
     public void EnforceItem()
     {
@@ -46,5 +47,10 @@ public class PopupItem : MonoBehaviour
             else Debug.Log("강화 실패");
             Inventory.Instance.GetSp(-(item.cost));
         }
+    }
+    /////
+    void Show()
+    {
+        Debug.Log("해당 아이템의 링크 수 = " +Slot.Graph[colorType.red].BFS(slot.index));
     }
 }

@@ -8,6 +8,7 @@ public class EquipmentSlot : MonoBehaviour
     public Slot[] slots = new Slot[16];//
     LinkCalculatter LinkCalculater;
     public static EquipmentSlot instance;
+
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -19,11 +20,6 @@ public class EquipmentSlot : MonoBehaviour
         {
             slots[i].Index = i;
         }
-        LinkCalculater = new LinkCalculatter(slots);
     }
-    public void UseItem(bool isActive, int index)
-    {
-        if (isActive) ItemEffect.instance.UseItem(slots[index].item);
-        else ItemEffect.instance.EndItem(slots[index].item);
-    }
+
 }

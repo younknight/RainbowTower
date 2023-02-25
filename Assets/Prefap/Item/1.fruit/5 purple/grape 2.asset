@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be7679be769e45c468e2fd55b81eb418, type: 3}
   m_Name: grape 2
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
+  sprite: {fileID: 2064296822, guid: 7a778232627b65f44ae6e079857af50b, type: 3}
   itemValue: 0
-  colorType: 0
-  itemClass: 0
-  linkType: 0
+  colorType: 5
+  itemClass: 1
+  linkType: 1
   itemName: "\uD3EC\uB3C4 \uBB49\uD145\uC774"
   explain: 
   level: 2

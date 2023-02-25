@@ -8,13 +8,23 @@ public class Slot : MonoBehaviour, IPointerClickHandler
 {
     public Item item;
     public Image itemImage;
-    public int index;
+    public int index;//
     [SerializeField] SlotType slotType;
     Popup popup;
     PopupItem popupItem;
 
+    static Dictionary<colorType, Graph> graph = new Dictionary<colorType, Graph>()
+    {
+        {colorType.red, new Graph(16)},
+        {colorType.orange, new Graph(16)},
+        {colorType.yellow, new Graph(16)},
+        {colorType.green, new Graph(16)},
+        {colorType.blue, new Graph(16)},
+        {colorType.purple, new Graph(16)}
+    };
     public int Index { get => index; set => index = value; }
     public SlotType SlotType { get => slotType; }
+    public static Dictionary<colorType, Graph> Graph { get => graph; set => graph = value; }
 
     void Awake()
     {
@@ -23,6 +33,11 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         popupItem = PopupObj.GetComponent<PopupItem>();
         itemImage = transform.GetChild(0).GetComponent<Image>();
         ClearSlot();
+    }
+    public int likedNum()
+    {
+        Debug.Log("탐색 결과" + graph[item.colorType].BFS(index));
+        return graph[item.colorType].BFS(index);
     }
     public void OnPointerClick(PointerEventData eventData)
     {
