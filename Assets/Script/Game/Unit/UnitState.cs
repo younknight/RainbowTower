@@ -50,10 +50,10 @@ public class UnitState : MonoBehaviour
             currentStatus[status.defence] += entry.Value.defence;
         }
     }
-    public void StatusChange(Item item,int index, bool isBuff)
+    public void StatusChange(status targrtStatus, float value, bool isBuff)
     {
-        double status = currentStatus[item.targetState[index]];
-        currentStatus[item.targetState[index]] = isBuff ? status + item.value[index] : status - item.value[index];
+        double status = currentStatus[targrtStatus];
+        currentStatus[targrtStatus] = isBuff ? status + value : status - value;
     }
     public double GetStatus(status targetStatus)
     {

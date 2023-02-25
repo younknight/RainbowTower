@@ -20,8 +20,7 @@ public class Data
         hasEquipment.Add(equipment.weapon, new Equipment(0, new List<bool>() { true, false, false, false, false, false, false }));
         //아이템
         hasItems.Add(ItemClass.portion, new bool[6] { true, true, true, true, true, true }); //기본템
-        hasItems.Add(ItemClass.test, new bool[6] { false, false, false, false, false, false });
-        hasItems.Add(ItemClass.test2, new bool[6] { false, false, false, false, false, false }); 
+        hasItems.Add(ItemClass.fruit, new bool[6] { false, false, false, false, false, false });
 
         //디버그모드 앵간한거 들고있기
         if (isDebug)
@@ -34,13 +33,13 @@ public class Data
                     entry.Value.hasEquipment[i] = true;
                 }
             }
-            //foreach (KeyValuePair<ItemClass, bool[]> entry in hasItems)//올아이템
-            //{
-            //    for (int i = 0; i < entry.Value.Length; i++)
-            //    {
-            //        entry.Value[i] = true;
-            //    }
-            //}
+            foreach (KeyValuePair<ItemClass, bool[]> entry in hasItems)//올아이템
+            {
+                for (int i = 0; i < entry.Value.Length; i++)
+                {
+                    entry.Value[i] = true;
+                }
+            }
         }
     }
 }

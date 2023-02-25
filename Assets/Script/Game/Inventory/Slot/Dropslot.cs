@@ -8,8 +8,9 @@ public class Dropslot : MonoBehaviour, IPointerEnterHandler, IDropHandler, IPoin
 {
     Image image;
     RectTransform rect;
-    public GameObject item;//slot 밑에 있는 녀석
     popupUnit popup;
+    public GameObject item;//slot 밑에 있는 녀석//
+    EquipmentSlot equipmentSlot;
     // Start is called before the first frame update
     void Awake()
     {
@@ -17,7 +18,10 @@ public class Dropslot : MonoBehaviour, IPointerEnterHandler, IDropHandler, IPoin
         rect = GetComponent<RectTransform>();
         item = transform.GetChild(0).gameObject;
     }
-
+    void Start()
+    {
+        equipmentSlot = EquipmentSlot.instance;
+    }
     void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
     {
         image.color = Color.yellow;
@@ -41,23 +45,28 @@ public class Dropslot : MonoBehaviour, IPointerEnterHandler, IDropHandler, IPoin
             //slots 인덱스 스왑
             Slot thisSlot = gameObject.GetComponent<Slot>();//떨굴 슬롯
             Slot dragSlot = dragleitem.GetComponent<Slot>();//들고있는 슬롯
-            if (thisSlot.SlotType == SlotType.equipment && dragSlot.SlotType == SlotType.inventory)//인벤토리에서 장비창으로 떨굴때
-            {
-                //Debug.Log("1:인벤토리에서 장비창으로 떨굴때");
-                if (dragSlot.item != null) ItemEffect.instance.UseItem(dragSlot.item);
-                if (thisSlot.item != null) ItemEffect.instance.EndItem(thisSlot.item);
-            }
-            if (thisSlot.SlotType == SlotType.inventory && dragSlot.SlotType == SlotType.equipment)//장비창에서 인벤토리로 떨굴때
-            {
-                //Debug.Log("2:장비창에서 인벤토리로 떨굴때");
-                if (dragSlot.item != null) ItemEffect.instance.EndItem(dragSlot.item);
-                if (thisSlot.item != null) ItemEffect.instance.UseItem(thisSlot.item);
-            }
-            Inventory.Instance.SwapSlot(thisSlot, dragSlot);
             //각 슬롯의 아이템 변경
             item = transform.GetChild(0).gameObject;
             Dropslot dropslot = dragleitem.GetComponent<Dropslot>();
             dropslot.item = dragleitem.transform.GetChild(0).gameObject;
+            Item tmp = thisSlot.item;
+            thisSlot.item = dragSlot.item;
+            dragSlot.item = tmp;
+            //아이템 사용
+            if (thisSlot.SlotType == SlotType.equipment && dragSlot.SlotType == SlotType.inventory)//인벤토리에서 장비창으로 떨굴때
+            {
+                //Debug.Log("1:인벤토리에서 장비창으로 떨굴때");
+
+                if (dragSlot.item != null) equipmentSlot.UseItem(true, dragSlot.index);
+                if (thisSlot.item != null) equipmentSlot.UseItem(true, thisSlot.index);
+            }
+            if (thisSlot.SlotType == SlotType.inventory && dragSlot.SlotType == SlotType.equipment)//장비창에서 인벤토리로 떨굴때
+            {
+                //Debug.Log("2:장비창에서 인벤토리로 떨굴때");
+                if (dragSlot.item != null) equipmentSlot.UseItem(false, dragSlot.index);
+                if (thisSlot.item != null) equipmentSlot.UseItem(false, thisSlot.index);
+            }
+            Inventory.Instance.SwapSlot(thisSlot, dragSlot);
            
         }
     }

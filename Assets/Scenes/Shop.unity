@@ -2730,8 +2730,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7a4db91fc80a3444d9c2bc6da3b1e6e8, type: 2}
   itemPrefap:
   - {fileID: 11400000, guid: e9e5e4acc56b52648909fdfc89c03c9e, type: 2}
-  - {fileID: 11400000, guid: 667e3e5a4b8dd2a468e49953e8a77be4, type: 2}
-  - {fileID: 11400000, guid: 66e4a28f108d70e4a8768ff322ad5902, type: 2}
+  - {fileID: 11400000, guid: c551789fb905b044c9774550604f7b91, type: 2}
 --- !u!1 &1498705477
 GameObject:
   m_ObjectHideFlags: 0

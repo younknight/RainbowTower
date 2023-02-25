@@ -9,6 +9,7 @@ public class Item : ScriptableObject
     public int itemValue;//상점가
     public colorType colorType;
     public ItemClass itemClass;
+    public linkType linkType;
     public string itemName;//이름
     public string explain; //설명
     //아이템 강화

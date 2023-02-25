@@ -24,7 +24,7 @@ public class ItemEffect : MonoBehaviour
             switch (item.itemType[index])
             {
                 case ItemType.LevelUP:
-                    playerStatus.StatusChange(item,index, true);
+                    playerStatus.StatusChange(item.targetState[index], item.value[index], true);
                     break;
                 case ItemType.Heal:
                     IEnumerator coroutine = Heal(item, index);
@@ -42,7 +42,7 @@ public class ItemEffect : MonoBehaviour
             switch (item.itemType[index])
             {
                 case ItemType.LevelUP:
-                    playerStatus.StatusChange(item,index, false);
+                    playerStatus.StatusChange(item.targetState[index], item.value[index], false);
                     break;
                 case ItemType.Heal:
                     StopCoroutine(usedItemList[ItemType.Heal][0]);

@@ -5,14 +5,25 @@ using UnityEngine.UI;
 public class EquipmentSlot : MonoBehaviour
 {
     [SerializeField] GameObject SlotsParent;
-    public Slot[] slots = new Slot[9];
+    public Slot[] slots = new Slot[16];//
+    LinkCalculatter LinkCalculater;
+    public static EquipmentSlot instance;
+    private void Awake()
+    {
+        if (instance == null) instance = this;
+    }
     void Start()
     {
         slots = SlotsParent.GetComponentsInChildren<Slot>();
         for (int i = 0; i < SlotsParent.transform.childCount; i++)
         {
-            //slots[i] = SlotsParent.transform.GetChild(i).transform.GetChild(0).transform.GetComponent<Slot>();
             slots[i].Index = i;
         }
+        LinkCalculater = new LinkCalculatter(slots);
+    }
+    public void UseItem(bool isActive, int index)
+    {
+        if (isActive) ItemEffect.instance.UseItem(slots[index].item);
+        else ItemEffect.instance.EndItem(slots[index].item);
     }
 }

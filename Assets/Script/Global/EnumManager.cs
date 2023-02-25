@@ -12,7 +12,7 @@ public enum equipment
 public enum ItemClass
 {
     portion,
-    test,
+    fruit,
     test2,
     None
 }
@@ -21,6 +21,12 @@ public enum ItemType
     None,
     Heal,
     LevelUP
+}
+public enum linkType
+{
+    None,
+    single
+
 }
 public enum skillType
 {
