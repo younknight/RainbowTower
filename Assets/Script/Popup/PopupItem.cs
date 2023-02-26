@@ -22,11 +22,13 @@ public class PopupItem : MonoBehaviour
         this.slot = slot;
         this.item = slot.item;
         itemOfName.text = item.itemName;
-        string str = "";
+        string str = item.explain;
         for(int index = 0; index < item.itemType.Length;index++)
         {
-            str = item.explain.Replace("@Cool" + (index + 1), "<color=red>" + item.coolTime[index] + "</color>");
+            //Debug.Log(index);
+            str = str.Replace("@Cool" + (index + 1), "<color=red>" + item.coolTime[index] + "</color>");
             str = str.Replace("@Value" + (index + 1), "<color=red>" + item.value[index] + "</color>");
+            str = str.Replace("@Link","<color=blue>" + Slot.Graph[colorType.red].BFS(slot.index) + "</color>");
         }
         explain.text = str;
         enforce.text = "" + item.enforce;
@@ -51,6 +53,6 @@ public class PopupItem : MonoBehaviour
     /////
     void Show()
     {
-        Debug.Log("해당 아이템의 링크 수 = " +Slot.Graph[colorType.red].BFS(slot.index));
+        //Debug.Log("해당 아이템의 링크 수 = " +Slot.Graph[colorType.red].BFS(slot.index));
     }
 }

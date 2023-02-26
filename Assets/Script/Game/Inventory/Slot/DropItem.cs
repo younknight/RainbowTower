@@ -18,6 +18,7 @@ public class DropItem : MonoBehaviour, IDropHandler
                 dragSlot.item = null;
                 dragSlot.itemImage.sprite = defaultItem;
                 dragSlot.ClearSlot();
+                Slot.Graph[colorType.red].Active(false, dragSlot.index);
             }
         }
     }

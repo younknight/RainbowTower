@@ -108,7 +108,7 @@ public class UnitState : MonoBehaviour
     }
     public void Heal(float value)
     {
-        Debug.Log("Healed");
+       // Debug.Log("Healed");
         currentStatus[status.hp] += value;
     }
     public void PrintStatus()

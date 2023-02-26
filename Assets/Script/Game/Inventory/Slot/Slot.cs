@@ -8,6 +8,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
 {
     public Item item;
     public Image itemImage;
+    [SerializeField] int linkedItemNum = 1;
     public int index;//
     [SerializeField] SlotType slotType;
     Popup popup;
@@ -25,6 +26,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     public int Index { get => index; set => index = value; }
     public SlotType SlotType { get => slotType; }
     public static Dictionary<colorType, Graph> Graph { get => graph; set => graph = value; }
+    public int LinkedItemNum { get => linkedItemNum; set => linkedItemNum = value; }
 
     void Awake()
     {
@@ -34,11 +36,8 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         itemImage = transform.GetChild(0).GetComponent<Image>();
         ClearSlot();
     }
-    public int likedNum()
-    {
-        Debug.Log("탐색 결과" + graph[item.colorType].BFS(index));
-        return graph[item.colorType].BFS(index);
-    }
+
+
     public void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Left)
@@ -56,6 +55,10 @@ public class Slot : MonoBehaviour, IPointerClickHandler
             itemImage.sprite = null;
             ClearSlot();
         }
+    }
+    public void test()
+    {
+        graph[colorType.red].test();
     }
     public void AddItem(Item _item)
     {

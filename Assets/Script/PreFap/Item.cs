@@ -11,7 +11,7 @@ public class Item : ScriptableObject
     public ItemClass itemClass;
     public linkType linkType;
     public string itemName;//이름
-    public string explain; //설명
+    [TextArea] public string explain; //설명
     //아이템 강화
     public int level;
     public int cost;

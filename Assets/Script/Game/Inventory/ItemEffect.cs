@@ -17,14 +17,14 @@ public class ItemEffect : MonoBehaviour
         usedItemList.Add(ItemType.Heal, new List<IEnumerator>());
 
     }
-    public void UseItem(Item item)
+    public void UseItem(Item item, float plus)
     {
         for (int index = 0; index < item.itemType.Length; index++)
         {
             switch (item.itemType[index])
             {
                 case ItemType.LevelUP:
-                    playerStatus.StatusChange(item.targetState[index], item.value[index], true);
+                    playerStatus.StatusChange(item.targetState[index], item.value[index] + plus, true);
                     break;
                 case ItemType.Heal:
                     IEnumerator coroutine = Heal(item, index);
@@ -35,14 +35,14 @@ public class ItemEffect : MonoBehaviour
         }
         return;
     }
-    public void EndItem(Item item)
+    public void EndItem(Item item, float plus)
     {
         for (int index = 0; index < item.itemType.Length; index++)
         {
             switch (item.itemType[index])
             {
                 case ItemType.LevelUP:
-                    playerStatus.StatusChange(item.targetState[index], item.value[index], false);
+                    playerStatus.StatusChange(item.targetState[index], item.value[index] + plus, false);
                     break;
                 case ItemType.Heal:
                     StopCoroutine(usedItemList[ItemType.Heal][0]);

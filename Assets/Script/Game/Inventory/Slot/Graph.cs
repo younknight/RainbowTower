@@ -5,6 +5,8 @@ using UnityEngine;
 public class Graph
 {
     myGraph graph;
+
+
     struct myGraph
     {
         public int numV; // 정점의 수
@@ -27,6 +29,17 @@ public class Graph
             graph.isActive.Add(false);
         }
         SetEdge();
+    }
+    public List<bool> IsActive()
+    {
+        return graph.isActive;
+    }
+    public void test()
+    {
+        for(int i=0;i< graph.isActive.Count; i++)
+        {
+            if (graph.isActive[i]) Debug.Log(i);
+        }
     }
     void SetEdge()
     {
@@ -60,7 +73,7 @@ public class Graph
 
         AddEdge(7, 3);
         AddEdge(7, 6);
-        AddEdge(6, 11);
+        AddEdge(7, 11);
 
         AddEdge(8, 4);
         AddEdge(8, 9);
@@ -100,10 +113,8 @@ public class Graph
         {
             graph.numE++;
             graph.vArray[fromV].Add(toV);
-            graph.vArray[toV].Add(fromV);
         }
     }
-
     public void ShowGraphEdgeInfo()
     {
         for (int i = 0; i < graph.numV; i++)
@@ -115,9 +126,9 @@ public class Graph
             }
         }
     }
-    public void Active(int index)
+    public void Active(bool isActive, int index)
     {
-        graph.isActive[index] = true;
+        graph.isActive[index] = isActive;
     }
     public int BFS(int start)
     {
@@ -130,6 +141,7 @@ public class Graph
         while (q.Count > 0)
         {
             int now = q.Dequeue();
+            count++;
             foreach (int next in graph.vArray[now])
             {
                 // 이미 방문했는가?
@@ -138,11 +150,10 @@ public class Graph
                 if (visited[next])
                     continue;
                 q.Enqueue(next);
-                count++;
                 visited[next] = true;
             }
         }
-        Debug.Log(count);
+       // Debug.Log(count);
         return count;
     }
 }

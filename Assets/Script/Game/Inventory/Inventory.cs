@@ -6,7 +6,7 @@ using TMPro;
 public class Inventory : MonoBehaviour
 {
     static Inventory instance;
-    int sp = 50;
+    int sp = 150;
     [SerializeField] TextMeshProUGUI spText;
     [SerializeField] GameObject SlotsParent;
     public Slot[] slots = new Slot[8];
