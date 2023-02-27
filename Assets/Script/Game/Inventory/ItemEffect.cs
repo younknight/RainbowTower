@@ -5,8 +5,7 @@ public class ItemEffect : MonoBehaviour
 {
     public static ItemEffect instance;
     UnitState playerStatus;
-    List<IEnumerator> coroutines = new List<IEnumerator>();
-    Dictionary<ItemType, List<IEnumerator>> usedItemList = new Dictionary<ItemType, List<IEnumerator>>();
+    Dictionary<ItemType, List<IEnumerator>> usedDelayItemList = new Dictionary<ItemType, List<IEnumerator>>();
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -14,8 +13,8 @@ public class ItemEffect : MonoBehaviour
     private void Start()
     {
         playerStatus = GameObject.FindWithTag("Player").GetComponent<UnitState>();
-        usedItemList.Add(ItemType.Heal, new List<IEnumerator>());
-
+        //delayItem
+        usedDelayItemList.Add(ItemType.Heal, new List<IEnumerator>());
     }
     public void UseItem(Item item, float plus)
     {
@@ -29,7 +28,7 @@ public class ItemEffect : MonoBehaviour
                 case ItemType.Heal:
                     IEnumerator coroutine = Heal(item, index);
                     StartCoroutine(coroutine);
-                    usedItemList[ItemType.Heal].Add(coroutine);
+                    usedDelayItemList[ItemType.Heal].Add(coroutine);
                     break;
             }
         }
@@ -45,8 +44,8 @@ public class ItemEffect : MonoBehaviour
                     playerStatus.StatusChange(item.targetState[index], item.value[index] + plus, false);
                     break;
                 case ItemType.Heal:
-                    StopCoroutine(usedItemList[ItemType.Heal][0]);
-                    usedItemList[ItemType.Heal].RemoveAt(0);
+                    StopCoroutine(usedDelayItemList[ItemType.Heal][0]);
+                    usedDelayItemList[ItemType.Heal].RemoveAt(0);
                     break;
             }
         }

@@ -43,7 +43,7 @@ public class Dropslot : MonoBehaviour, IPointerEnterHandler, IDropHandler, IPoin
             item.GetComponent<RectTransform>().position = dragleitem.position;
             eventData.pointerDrag.GetComponent<RectTransform>().position = rect.position;
             //slot 초기화
-            Slot thisSlot = gameObject.GetComponent<Slot>();//떨굴 슬롯
+            Slot thisSlot = gameObject.GetComponent<Slot>();//떨궈지는 슬롯
             Slot dragSlot = dragleitem.GetComponent<Slot>();//들고있는 슬롯
             //각 슬롯의 아이템 변경
             item = transform.GetChild(0).gameObject;
@@ -51,51 +51,43 @@ public class Dropslot : MonoBehaviour, IPointerEnterHandler, IDropHandler, IPoin
             dropslot.item = dragleitem.transform.GetChild(0).gameObject;
             Inventory.Instance.SwapSlot(thisSlot, dragSlot);
             //아이템 사용
+            //인벤토리 바뀜
             if (thisSlot.SlotType == SlotType.equipment && dragSlot.SlotType == SlotType.inventory)//인벤토리에서 장비창으로 떨굴때
             {
-                //Debug.Log("1:인벤토리에서 장비창으로 떨굴때");
-                if (thisSlot.item != null)
+                //떨군 곳
+                Slot.Graph[colorType.red].Active(true, thisSlot.index);
+                equipmentSlot.UseItem(thisSlot);
+                //ItemEffect.instance.UseItem(thisSlot.item, 0);
+                if (dragSlot.item != null)//스왑
                 {
-                    Slot.Graph[colorType.red].Active(true, thisSlot.index);
-                    equipmentSlot.UseItem(thisSlot);
-                    //thisSlot.UseItem();
-                    //ItemEffect.instance.UseItem(thisSlot.item, 0);
-                }
-                if (dragSlot.item != null)
-                {
-                    Slot.Graph[colorType.red].Active(false, thisSlot.index);
-                    equipmentSlot.EndItem(dragSlot);
-                    //dragSlot.EndItem();
+                    Debug.Log("인장 스왑");
+                    equipmentSlot.EndItem(dragSlot.item, thisSlot);
                     //ItemEffect.instance.EndItem(dragSlot.item, 0);
                 }
             }
             if (thisSlot.SlotType == SlotType.inventory && dragSlot.SlotType == SlotType.equipment)//장비창에서 인벤토리로 떨굴때
             {
-                //Debug.Log("2:장비창에서 인벤토리로 떨굴때");
-                if (thisSlot.item != null)
+                //떨군 곳
+                Slot.Graph[colorType.red].Active(false, dragSlot.index);
+                equipmentSlot.EndItem(thisSlot.item, dragSlot);
+                //ItemEffect.instance.EndItem(thisSlot.item, 0);
+                if (dragSlot.item != null)//스왑
                 {
-                    //Debug.Log("장비에서 인벤 무공간");
-                    //Debug.Log(thisSlot.item.itemName + "" + thisSlot.item.itemType.Length);
-                    Slot.Graph[colorType.red].Active(false, dragSlot.index);
-                    equipmentSlot.EndItem(thisSlot);
-                    //thisSlot.EndItem();
-                    //ItemEffect.instance.EndItem(thisSlot.item,0);
-                }
-                if (dragSlot.item != null)
-                {
+                    Debug.Log("장인 스왑");
                     Slot.Graph[colorType.red].Active(true, dragSlot.index);
                     equipmentSlot.UseItem(dragSlot);
-                    //dragSlot.UseItem();
-                    //ItemEffect.instance.UseItem(dragSlot.item,0);
+                    //ItemEffect.instance.UseItem(dragSlot.item, 0);
                 }
             }
-            if (thisSlot.SlotType == SlotType.equipment && dragSlot.SlotType == SlotType.equipment)//장비창에서 인벤토리로 떨굴때
+            if (thisSlot.SlotType == SlotType.equipment && dragSlot.SlotType == SlotType.equipment)//장비창에서 장비창
             {
-                if (dragSlot.item == null) Slot.Graph[colorType.red].Active(false, dragSlot.index);
+                Slot.Graph[colorType.red].Active(false, dragSlot.index);
                 Slot.Graph[colorType.red].Active(true, thisSlot.index);
-                if(thisSlot.item.linkType == linkType.single)equipmentSlot.UseItem(thisSlot);
+                if (dragSlot.item != null)//스왑
+                {
+                    Slot.Graph[colorType.red].Active(true, dragSlot.index);
+                }
             }
-
         }
     }
 

@@ -27,7 +27,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     public SlotType SlotType { get => slotType; }
     public static Dictionary<colorType, Graph> Graph { get => graph; set => graph = value; }
     public int LinkedItemNum { get => linkedItemNum; set => linkedItemNum = value; }
-
     void Awake()
     {
         GameObject PopupObj = GameObject.Find("PopupItem");
@@ -36,8 +35,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         itemImage = transform.GetChild(0).GetComponent<Image>();
         ClearSlot();
     }
-
-
     public void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Left)

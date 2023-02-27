@@ -2,11 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+//public class UsedItem
+//{
+//    public Item item;
+//    public int link;
+//    public int index;
+
+//    public UsedItem(Slot slot)
+//    {
+//        this.item = slot.item;
+//        slot.LinkedItemNum = Slot.Graph[colorType.red].BFS(slot.index);
+//        this.link = slot.LinkedItemNum;
+//        this.index = slot.index;
+//    }
+//}
 public class EquipmentSlot : MonoBehaviour
 {
     [SerializeField] GameObject SlotsParent;
     public Slot[] slots = new Slot[16];//
     public static EquipmentSlot instance;
+
+    Dictionary<colorType, List<Slot>> usedItemList = new Dictionary<colorType, List<Slot>>();
 
     private void Awake()
     {
@@ -19,62 +35,63 @@ public class EquipmentSlot : MonoBehaviour
         {
             slots[i].Index = i;
         }
+        usedItemList.Add(colorType.red, new List<Slot>());
     }
-    public void UseItem(Slot slot)
+    public void Test()
     {
-        if (slot.item.linkType == linkType.single)
+        Debug.Log("test:");
+        foreach(Slot slot in slots)
         {
-            slot.LinkedItemNum = Slot.Graph[colorType.red].BFS(slot.index);
-
-            ItemEffect.instance.UseItem(slot.item, slot.LinkedItemNum);
-            ResetItem();
-            return;
+            Debug.Log(slot.index+"/"+slot.LinkedItemNum);
         }
-        ItemEffect.instance.UseItem(slot.item, 0);
     }
-    void UseLinkedItem(Slot slot)
+    public void UseItem(Slot itemSlot)
     {
-       // Debug.Log(slot.item.itemName +"index = " + slot.index);
-        slot.LinkedItemNum = Slot.Graph[colorType.red].BFS(slot.index);
-
-        ItemEffect.instance.UseItem(slot.item, slot.LinkedItemNum);
+        usedItemList[colorType.red].Add(itemSlot);
+        ItemEffect.instance.UseItem(itemSlot.item, itemSlot.LinkedItemNum);
+        ResetItem();
     }
-    void EndLinkedItem(Slot slot)
+    public void EndItem(Item item, Slot previousSlot)
     {
-        ItemEffect.instance.EndItem(slot.item, slot.LinkedItemNum);
+        Debug.Log(previousSlot.index+"el" + previousSlot.LinkedItemNum);
+        ItemEffect.instance.EndItem(item, previousSlot.LinkedItemNum);
+        usedItemList[colorType.red].Remove(previousSlot);
+        if (Slot.Graph[colorType.red].IsActive(previousSlot.index)) previousSlot.LinkedItemNum = Slot.Graph[colorType.red].BFS(previousSlot.index);
+        else previousSlot.LinkedItemNum = 1;
+       ResetItem();
     }
-    private void ResetItem()
+    public void ResetItem()
     {
-        List<bool> isActive = new List<bool>();
-        isActive = Slot.Graph[colorType.red].IsActive();
-        for (int i = 0; i < isActive.Count; i++)
+        foreach (KeyValuePair<colorType, List<Slot>> entry in usedItemList)
         {
-            if (isActive[i])
+            foreach (Slot slot in entry.Value)
             {
-                EndLinkedItem(slots[i]);
+                Debug.Log("s"+ slot.item.itemName + "/"+ slot.index+ "/"+ slot.LinkedItemNum);
             }
         }
-        for (int i = 0; i < isActive.Count; i++)
+        //제거
+        foreach (KeyValuePair<colorType, List<Slot>> entry in usedItemList)
         {
-            if (isActive[i])
+            foreach (Slot slot in entry.Value)
             {
-                UseLinkedItem(slots[i]);
+                ItemEffect.instance.EndItem(slot.item, slot.LinkedItemNum);
             }
         }
-    }
-    public void EndItem(Slot slot)
-    {
-        int plus = 0;
-        if (slot.item.linkType == linkType.single)
+        //정리
+        foreach (KeyValuePair<colorType, List<Slot>> entry in usedItemList)
         {
-            if (slot.LinkedItemNum != 1) plus = 1;
-            Debug.Log("P:" + plus);
-            ItemEffect.instance.EndItem(slot.item, slot.LinkedItemNum + plus);
-
-            ResetItem();
-
-            return;
+            foreach (Slot slot in entry.Value)
+            {
+                slot.LinkedItemNum = Slot.Graph[entry.Key].BFS(slot.index);
+            }
         }
-        ItemEffect.instance.EndItem(slot.item, 0);
+        //사용
+        foreach (KeyValuePair<colorType, List<Slot>> entry in usedItemList)
+        {
+            foreach (Slot slot in entry.Value)
+            {
+                ItemEffect.instance.UseItem(slot.item, slot.LinkedItemNum);
+            }
+        }
     }
 }

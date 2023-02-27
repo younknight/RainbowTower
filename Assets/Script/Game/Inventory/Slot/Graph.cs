@@ -30,9 +30,9 @@ public class Graph
         }
         SetEdge();
     }
-    public List<bool> IsActive()
+    public bool IsActive(int index)
     {
-        return graph.isActive;
+        return graph.isActive[index];
     }
     public void test()
     {
