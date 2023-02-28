@@ -36,6 +36,11 @@ public class EquipmentSlot : MonoBehaviour
             slots[i].Index = i;
         }
         usedItemList.Add(colorType.red, new List<Slot>());
+        usedItemList.Add(colorType.orange, new List<Slot>());
+        usedItemList.Add(colorType.yellow, new List<Slot>());
+        usedItemList.Add(colorType.green, new List<Slot>());
+        usedItemList.Add(colorType.blue, new List<Slot>());
+        usedItemList.Add(colorType.purple, new List<Slot>());
     }
     public void Test()
     {
@@ -47,23 +52,21 @@ public class EquipmentSlot : MonoBehaviour
     }
     public void UseItem(Slot itemSlot)
     {
-        usedItemList[colorType.red].Add(itemSlot);
+        usedItemList[itemSlot.item.colorType].Add(itemSlot);
         for (int index = 0; index < itemSlot.item.itemType.Length; index++)
         {
             ItemEffect.instance.UseItem(index, itemSlot.item, itemSlot.LinkedItemNum);
         }
-        //ItemEffect.instance.UseItem(itemSlot.item, itemSlot.LinkedItemNum);
         ResetItem();
     }
     public void EndItem(Item item, Slot previousSlot)
     {
-        //Debug.Log(previousSlot.index+"el" + previousSlot.LinkedItemNum + "/" + item.itemName);
         for (int index = 0; index < item.itemType.Length; index++)
         {
             ItemEffect.instance.EndItem(index, item, previousSlot.LinkedItemNum);
         }
-        usedItemList[colorType.red].Remove(previousSlot);
-        if (Slot.Graph[colorType.red].IsActive(previousSlot.index)) previousSlot.LinkedItemNum = Slot.Graph[colorType.red].BFS(previousSlot.index);
+        usedItemList[item.colorType].Remove(previousSlot);//아마 여기
+        if (Slot.Graph[item.colorType].IsActive(previousSlot.index)) previousSlot.LinkedItemNum = Slot.Graph[item.colorType].BFS(previousSlot.index);
         else previousSlot.LinkedItemNum = 1;
         ResetItem();
     }

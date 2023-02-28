@@ -4,14 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class Dropslot : MonoBehaviour, IPointerEnterHandler, IDropHandler, IPointerExitHandler
+public class Dropslot : MonoBehaviour, IDropHandler
 {
     Image image;
     RectTransform rect;
     popupUnit popup;
     public GameObject item;//slot 밑에 있는 녀석//
     EquipmentSlot equipmentSlot;
-    // Start is called before the first frame update
+    Color originColor;
     void Awake()
     {
         image = GetComponent<Image>();
@@ -21,15 +21,6 @@ public class Dropslot : MonoBehaviour, IPointerEnterHandler, IDropHandler, IPoin
     void Start()
     {
         equipmentSlot = EquipmentSlot.instance;
-    }
-    void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
-    {
-        image.color = Color.yellow;
-    }
-
-    void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
-    {
-        image.color = Color.white;
     }
     void IDropHandler.OnDrop(PointerEventData eventData)//드랍됬을때
     {
@@ -51,29 +42,25 @@ public class Dropslot : MonoBehaviour, IPointerEnterHandler, IDropHandler, IPoin
             dropslot.item = dragleitem.transform.GetChild(0).gameObject;
             Inventory.Instance.SwapSlot(thisSlot, dragSlot);
             //아이템 사용
-            //인벤토리 바뀜
             if (thisSlot.SlotType == SlotType.equipment && dragSlot.SlotType == SlotType.inventory)//인벤토리에서 장비창으로 떨굴때
             {
-                Debug.Log("인장");
-                //떨군 곳
-                Slot.Graph[colorType.red].Active(true, thisSlot.index);
+                Slot.Graph[thisSlot.item.colorType].Active(true, thisSlot.index);
+                thisSlot.SetFrameColor(thisSlot.item.colorType);
                 equipmentSlot.UseItem(thisSlot);
                 if (dragSlot.item != null)//스왑
                 {
-                    Debug.Log("인장 스왑");
                     equipmentSlot.EndItem(dragSlot.item, thisSlot);
                 }
             }
             if (thisSlot.SlotType == SlotType.inventory && dragSlot.SlotType == SlotType.equipment)//장비창에서 인벤토리로 떨굴때
             {
-                Slot.Graph[colorType.red].Active(false, dragSlot.index);
+                Slot.Graph[thisSlot.item.colorType].Active(false, dragSlot.index);
+                dragSlot.SetFrameColor(colorType.gray);
                 equipmentSlot.EndItem(thisSlot.item, dragSlot);
-                // Debug.Log("장인");
-                //떨군 곳
                 if (dragSlot.item != null)//스왑
                 {
-                    //Debug.Log("장인 스왑");
-                    Slot.Graph[colorType.red].Active(true, dragSlot.index);
+                    Slot.Graph[dragSlot.item.colorType].Active(true, dragSlot.index);
+                    dragSlot.SetFrameColor(dragSlot.item.colorType);
                     equipmentSlot.UseItem(dragSlot);
                 }
             }
@@ -81,18 +68,24 @@ public class Dropslot : MonoBehaviour, IPointerEnterHandler, IDropHandler, IPoin
             {
                 if (dragSlot.item != null)//스왑
                 {
-                    //Debug.Log("장장스");
+                    Slot.Graph[thisSlot.item.colorType].Active(false, dragSlot.index);
                     equipmentSlot.EndItem(thisSlot.item, dragSlot);
+                    Slot.Graph[dragSlot.item.colorType].Active(false, thisSlot.index);
                     equipmentSlot.EndItem(dragSlot.item, thisSlot);
+                    Slot.Graph[dragSlot.item.colorType].Active(true, dragSlot.index);
                     equipmentSlot.UseItem(dragSlot);
+                    Slot.Graph[thisSlot.item.colorType].Active(true, thisSlot.index);
                     equipmentSlot.UseItem(thisSlot);
+                    thisSlot.SetFrameColor(thisSlot.item.colorType);
+                    dragSlot.SetFrameColor(dragSlot.item.colorType);
                 }
                 else
                 {
-                    //Debug.Log("장장");
-                    Slot.Graph[colorType.red].Active(false, dragSlot.index);
+                    Slot.Graph[thisSlot.item.colorType].Active(false, dragSlot.index);
+                    dragSlot.SetFrameColor(colorType.gray);
                     equipmentSlot.EndItem(thisSlot.item, dragSlot);
-                    Slot.Graph[colorType.red].Active(true, thisSlot.index);
+                    Slot.Graph[thisSlot.item.colorType].Active(true, thisSlot.index);
+                    thisSlot.SetFrameColor(thisSlot.item.colorType);
                     equipmentSlot.UseItem(thisSlot);
                 }
             }

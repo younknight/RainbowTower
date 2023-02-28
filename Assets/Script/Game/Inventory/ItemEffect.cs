@@ -48,9 +48,9 @@ public class ItemEffect : MonoBehaviour
     {
         while (true)
         {
+            yield return new WaitForSeconds(item.coolTime[index]);
             Debug.Log("healed");
             playerStatus.Heal(item.value[index]);
-            yield return new WaitForSeconds(item.coolTime[index]);
         }
     }
 }

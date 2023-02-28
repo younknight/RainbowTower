@@ -28,7 +28,7 @@ public class PopupItem : MonoBehaviour
             //Debug.Log(index);
             str = str.Replace("@Cool" + (index + 1), "<color=red>" + item.coolTime[index] + "</color>");
             str = str.Replace("@Value" + (index + 1), "<color=red>" + item.value[index] + "</color>");
-            str = str.Replace("@Link","<color=blue>" + Slot.Graph[colorType.red].BFS(slot.index) + "</color>");
+            str = str.Replace("@Link","<color=blue>" + Slot.Graph[item.colorType].BFS(slot.index) + "</color>");
         }
         explain.text = str;
         enforce.text = "" + item.enforce;

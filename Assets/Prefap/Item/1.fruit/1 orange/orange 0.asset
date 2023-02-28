@@ -25,7 +25,7 @@ MonoBehaviour:
   enforce: 50
   nextItem: {fileID: 11400000, guid: b62fc4fec1ed05d48ba429d6673f7eab, type: 2}
   itemType: 02000000
-  targetState: 03000000
+  targetState: 04000000
   value:
   - 5
   coolTime:

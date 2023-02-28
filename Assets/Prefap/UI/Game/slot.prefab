@@ -106,6 +106,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   itemImage: {fileID: 6618629033484714991}
+  FrameColor: {fileID: 2735530644902054111}
+  linkedItemNum: 1
   index: 0
   slotType: 0
 --- !u!1 &6135156513182424156

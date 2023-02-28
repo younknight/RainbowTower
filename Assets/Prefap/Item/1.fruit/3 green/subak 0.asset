@@ -18,12 +18,16 @@ MonoBehaviour:
   itemClass: 1
   linkType: 1
   itemName: "\uC218\uBC15"
-  explain: 
+  explain: "\uACF5\uACA9\uB825\uC774 @Value1 + \uC5F0\uACB0\uB41C \uB9C1\uD06C\uC758
+    \uC218\uB9CC\uD07C \uC99D\uAC00\uD569\uB2C8\uB2E4.\n\uC5F0\uACB0\uB41C \uC544\uC774\uD15C:
+    @Link"
   level: 0
   cost: 10
   enforce: 50
   nextItem: {fileID: 11400000, guid: 4298660d32c3b8247bb1d212eea363ad, type: 2}
-  itemType: 
-  targetState: 
-  value: []
-  coolTime: []
+  itemType: 02000000
+  targetState: 02000000
+  value:
+  - 1
+  coolTime:
+  - 0
