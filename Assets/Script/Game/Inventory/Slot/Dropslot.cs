@@ -54,38 +54,46 @@ public class Dropslot : MonoBehaviour, IPointerEnterHandler, IDropHandler, IPoin
             //인벤토리 바뀜
             if (thisSlot.SlotType == SlotType.equipment && dragSlot.SlotType == SlotType.inventory)//인벤토리에서 장비창으로 떨굴때
             {
+                Debug.Log("인장");
                 //떨군 곳
                 Slot.Graph[colorType.red].Active(true, thisSlot.index);
                 equipmentSlot.UseItem(thisSlot);
-                //ItemEffect.instance.UseItem(thisSlot.item, 0);
                 if (dragSlot.item != null)//스왑
                 {
                     Debug.Log("인장 스왑");
                     equipmentSlot.EndItem(dragSlot.item, thisSlot);
-                    //ItemEffect.instance.EndItem(dragSlot.item, 0);
                 }
             }
             if (thisSlot.SlotType == SlotType.inventory && dragSlot.SlotType == SlotType.equipment)//장비창에서 인벤토리로 떨굴때
             {
-                //떨군 곳
                 Slot.Graph[colorType.red].Active(false, dragSlot.index);
                 equipmentSlot.EndItem(thisSlot.item, dragSlot);
-                //ItemEffect.instance.EndItem(thisSlot.item, 0);
+                // Debug.Log("장인");
+                //떨군 곳
                 if (dragSlot.item != null)//스왑
                 {
-                    Debug.Log("장인 스왑");
+                    //Debug.Log("장인 스왑");
                     Slot.Graph[colorType.red].Active(true, dragSlot.index);
                     equipmentSlot.UseItem(dragSlot);
-                    //ItemEffect.instance.UseItem(dragSlot.item, 0);
                 }
             }
             if (thisSlot.SlotType == SlotType.equipment && dragSlot.SlotType == SlotType.equipment)//장비창에서 장비창
             {
-                Slot.Graph[colorType.red].Active(false, dragSlot.index);
-                Slot.Graph[colorType.red].Active(true, thisSlot.index);
                 if (dragSlot.item != null)//스왑
                 {
-                    Slot.Graph[colorType.red].Active(true, dragSlot.index);
+                    //Debug.Log("장장스");
+                    equipmentSlot.EndItem(thisSlot.item, dragSlot);
+                    equipmentSlot.EndItem(dragSlot.item, thisSlot);
+                    equipmentSlot.UseItem(dragSlot);
+                    equipmentSlot.UseItem(thisSlot);
+                }
+                else
+                {
+                    //Debug.Log("장장");
+                    Slot.Graph[colorType.red].Active(false, dragSlot.index);
+                    equipmentSlot.EndItem(thisSlot.item, dragSlot);
+                    Slot.Graph[colorType.red].Active(true, thisSlot.index);
+                    equipmentSlot.UseItem(thisSlot);
                 }
             }
         }

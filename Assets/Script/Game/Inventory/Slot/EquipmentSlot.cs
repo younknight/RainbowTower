@@ -48,33 +48,36 @@ public class EquipmentSlot : MonoBehaviour
     public void UseItem(Slot itemSlot)
     {
         usedItemList[colorType.red].Add(itemSlot);
-        ItemEffect.instance.UseItem(itemSlot.item, itemSlot.LinkedItemNum);
+        for (int index = 0; index < itemSlot.item.itemType.Length; index++)
+        {
+            ItemEffect.instance.UseItem(index, itemSlot.item, itemSlot.LinkedItemNum);
+        }
+        //ItemEffect.instance.UseItem(itemSlot.item, itemSlot.LinkedItemNum);
         ResetItem();
     }
     public void EndItem(Item item, Slot previousSlot)
     {
-        Debug.Log(previousSlot.index+"el" + previousSlot.LinkedItemNum);
-        ItemEffect.instance.EndItem(item, previousSlot.LinkedItemNum);
+        //Debug.Log(previousSlot.index+"el" + previousSlot.LinkedItemNum + "/" + item.itemName);
+        for (int index = 0; index < item.itemType.Length; index++)
+        {
+            ItemEffect.instance.EndItem(index, item, previousSlot.LinkedItemNum);
+        }
         usedItemList[colorType.red].Remove(previousSlot);
         if (Slot.Graph[colorType.red].IsActive(previousSlot.index)) previousSlot.LinkedItemNum = Slot.Graph[colorType.red].BFS(previousSlot.index);
         else previousSlot.LinkedItemNum = 1;
-       ResetItem();
+        ResetItem();
     }
     public void ResetItem()
     {
-        foreach (KeyValuePair<colorType, List<Slot>> entry in usedItemList)
-        {
-            foreach (Slot slot in entry.Value)
-            {
-                Debug.Log("s"+ slot.item.itemName + "/"+ slot.index+ "/"+ slot.LinkedItemNum);
-            }
-        }
         //제거
         foreach (KeyValuePair<colorType, List<Slot>> entry in usedItemList)
         {
             foreach (Slot slot in entry.Value)
             {
-                ItemEffect.instance.EndItem(slot.item, slot.LinkedItemNum);
+                for (int index = 0; index < slot.item.itemType.Length; index++)
+                {
+                    if (slot.item.itemType[index] != ItemType.Heal) ItemEffect.instance.EndItem(index, slot.item, slot.LinkedItemNum);
+                }
             }
         }
         //정리
@@ -90,7 +93,10 @@ public class EquipmentSlot : MonoBehaviour
         {
             foreach (Slot slot in entry.Value)
             {
-                ItemEffect.instance.UseItem(slot.item, slot.LinkedItemNum);
+                for (int index = 0; index < slot.item.itemType.Length; index++)
+                {
+                    if (slot.item.itemType[index] != ItemType.Heal) ItemEffect.instance.UseItem(index, slot.item, slot.LinkedItemNum);
+                }
             }
         }
     }
