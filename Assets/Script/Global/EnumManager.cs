@@ -9,6 +9,15 @@ public enum equipment
     weapon,
     item
 }
+public enum DungeonType
+{
+    redTower,
+    orangeTower,
+    yellowTower,
+    greenTower,
+    blueTower,
+    purpleTower
+}
 public enum ItemClass
 {
     portion,

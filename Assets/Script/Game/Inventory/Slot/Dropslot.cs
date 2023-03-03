@@ -44,19 +44,20 @@ public class Dropslot : MonoBehaviour, IDropHandler
             //아이템 사용
             if (thisSlot.SlotType == SlotType.equipment && dragSlot.SlotType == SlotType.inventory)//인벤토리에서 장비창으로 떨굴때
             {
-                Slot.Graph[thisSlot.item.colorType].Active(true, thisSlot.index);
-                thisSlot.SetFrameColor(thisSlot.item.colorType);
-                equipmentSlot.UseItem(thisSlot);
                 if (dragSlot.item != null)//스왑
                 {
                     equipmentSlot.EndItem(dragSlot.item, thisSlot);
+                    Slot.Graph[dragSlot.item.colorType].Active(false, thisSlot.index);
                 }
+                Slot.Graph[thisSlot.item.colorType].Active(true, thisSlot.index);
+                thisSlot.SetFrameColor(thisSlot.item.colorType);
+                equipmentSlot.UseItem(thisSlot);
             }
             if (thisSlot.SlotType == SlotType.inventory && dragSlot.SlotType == SlotType.equipment)//장비창에서 인벤토리로 떨굴때
             {
-                Slot.Graph[thisSlot.item.colorType].Active(false, dragSlot.index);
                 dragSlot.SetFrameColor(colorType.gray);
                 equipmentSlot.EndItem(thisSlot.item, dragSlot);
+                Slot.Graph[thisSlot.item.colorType].Active(false, dragSlot.index);
                 if (dragSlot.item != null)//스왑
                 {
                     Slot.Graph[dragSlot.item.colorType].Active(true, dragSlot.index);

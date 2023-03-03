@@ -1,14 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 public class MapSelector : MonoBehaviour
 {
     [SerializeField] List<EnemyListPrefap> thisEnemyList;
     Popup popupTower;
-    Popup popupHome;
+    Popup popupTown;
     PopupSelectMap popupSelectMap;
+    PopupTown popupSelectTown;
     float interval = 0.25f;
     float doubleClickedTime = -1.0f;
     bool isDoubleClicked = false;
@@ -22,7 +22,8 @@ public class MapSelector : MonoBehaviour
         var popupT = popup.transform.GetChild(0);
         popupTower = popupT.GetComponent<Popup>();
         popupSelectMap = popupT.GetComponent<PopupSelectMap>();
-        popupHome = popup.transform.GetChild(1).GetComponent<Popup>();
+        popupTown = popup.transform.GetChild(1).GetComponent<Popup>();
+        popupSelectTown = popup.transform.GetChild(1).GetComponent<PopupTown>();
     }
     void Update()
     {
@@ -49,12 +50,14 @@ public class MapSelector : MonoBehaviour
     {
         if (transform.name == "Home")
         {
-            popupHome.TogglePopup();
+            popupSelectTown.Setup(TownType.Home);
+            popupTown.TogglePopup();
             return;
         }
         if (transform.name == "Shop")
         {
-            SceneManager.LoadScene("Shop");
+            popupSelectTown.Setup(TownType.Shop);
+            popupTown.TogglePopup();
             return;
         }
         if (thisEnemyList != null)

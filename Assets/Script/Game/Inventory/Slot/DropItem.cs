@@ -5,6 +5,18 @@ using UnityEngine.EventSystems;
 public class DropItem : MonoBehaviour, IDropHandler
 {
     [SerializeField] Sprite defaultItem;
+    static DropItem instance;
+    EquipmentSlot equipmentSlot;
+    public static DropItem Instance { get => instance; set => instance = value; }
+    void Awake()
+    {
+        if (instance == null) instance = this;
+    }
+    void Start()
+    {
+        equipmentSlot = EquipmentSlot.instance;
+    }
+
     void IDropHandler.OnDrop(PointerEventData eventData)//드랍됬을때
     {
         if (eventData.pointerDrag != null)//들고 있는 녀석
@@ -14,12 +26,21 @@ public class DropItem : MonoBehaviour, IDropHandler
 
             if (dragSlot.item != null)
             {
-                Inventory.Instance.GetSp(10);
-                dragSlot.item = null;
-                dragSlot.itemImage.sprite = defaultItem;
-                dragSlot.ClearSlot();
-                Slot.Graph[colorType.red].Active(false, dragSlot.index);
+                DropSlotInItem(dragSlot);
             }
         }
+    }
+    public void DropSlotInItem(Slot slot)
+    {
+        if (slot.SlotType == SlotType.equipment)
+        {
+            Slot.Graph[slot.item.colorType].Active(false, slot.index);
+            slot.SetFrameColor(colorType.gray);
+            equipmentSlot.EndItem(slot.item, slot);
+        }
+        Inventory.Instance.GetSp(10);
+        slot.item = null;
+        slot.itemImage.sprite = null;
+        slot.ClearSlot();
     }
 }

@@ -8,7 +8,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
 {
     public Item item;
     public Image itemImage;
-    [SerializeField] Image FrameColor;
+    [SerializeField] Image frameColor;
     [SerializeField] int linkedItemNum = 1;
     public int index;//
     [SerializeField] SlotType slotType;
@@ -20,6 +20,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     public SlotType SlotType { get => slotType; }
     public static Dictionary<colorType, Graph> Graph { get => graph; set => graph = value; }
     public int LinkedItemNum { get => linkedItemNum; set => linkedItemNum = value; }
+
     void Awake()
     {
         ResetGraph();
@@ -58,10 +59,11 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         }
         if (eventData.button == PointerEventData.InputButton.Right)
         {
-            Inventory.Instance.GetSp(10);
-            item = null;
-            itemImage.sprite = null;
-            ClearSlot();
+            DropItem.Instance.DropSlotInItem(this);
+            //Inventory.Instance.GetSp(10);
+            //item = null;
+            //itemImage.sprite = null;
+            //ClearSlot();
         }
     }
     public void test()
@@ -120,6 +122,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler
                 color.a = 1f;
                 break;
         }
-        FrameColor.color = color;
+        frameColor.color = color;
     }
 }

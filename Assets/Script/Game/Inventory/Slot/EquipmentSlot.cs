@@ -1,21 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-//public class UsedItem
-//{
-//    public Item item;
-//    public int link;
-//    public int index;
-
-//    public UsedItem(Slot slot)
-//    {
-//        this.item = slot.item;
-//        slot.LinkedItemNum = Slot.Graph[colorType.red].BFS(slot.index);
-//        this.link = slot.LinkedItemNum;
-//        this.index = slot.index;
-//    }
-//}
 public class EquipmentSlot : MonoBehaviour
 {
     [SerializeField] GameObject SlotsParent;
@@ -55,6 +40,7 @@ public class EquipmentSlot : MonoBehaviour
         usedItemList[itemSlot.item.colorType].Add(itemSlot);
         for (int index = 0; index < itemSlot.item.itemType.Length; index++)
         {
+            itemSlot.LinkedItemNum = Slot.Graph[itemSlot.item.colorType].BFS(itemSlot.index);
             ItemEffect.instance.UseItem(index, itemSlot.item, itemSlot.LinkedItemNum);
         }
         ResetItem();

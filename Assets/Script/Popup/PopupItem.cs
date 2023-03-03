@@ -34,7 +34,6 @@ public class PopupItem : MonoBehaviour
         enforce.text = "" + item.enforce;
         cost.text = "" + item.cost;
         portrait.sprite = item.sprite;
-        Show();
     }
     public void EnforceItem()
     {
@@ -42,17 +41,18 @@ public class PopupItem : MonoBehaviour
         {
             if (Random.Range(0, 100) <= item.enforce)
             {
-                Debug.Log("강화 성공");
+                for (int index = 0; index < item.itemType.Length; index++)
+                {
+                    ItemEffect.instance.EndItem(index, item, slot.LinkedItemNum);
+                }
                 slot.AddItem(item.nextItem);
+                for (int index = 0; index < item.nextItem.itemType.Length; index++)
+                {
+                    ItemEffect.instance.UseItem(index, item.nextItem, slot.LinkedItemNum);
+                }
                 Setup(slot);
             }
-            else Debug.Log("강화 실패");
             Inventory.Instance.GetSp(-(item.cost));
         }
-    }
-    /////
-    void Show()
-    {
-        //Debug.Log("해당 아이템의 링크 수 = " +Slot.Graph[colorType.red].BFS(slot.index));
     }
 }
