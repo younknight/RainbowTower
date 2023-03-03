@@ -46,6 +46,10 @@ public class Data
                     entry.Value[i] = true;
                 }
             }
+            for(int i=0;i< clearFloor.Count; i++)
+            {
+                clearFloor[clearFloor.Keys.ToList()[i]] = 1;
+            }
         }
     }
 }

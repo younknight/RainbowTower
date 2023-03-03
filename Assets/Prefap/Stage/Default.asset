@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 933895b495afc0946800d7ed1389a15b, type: 3}
   m_Name: Default
   m_EditorClassIdentifier: 
+  height: 3
+  dungeonType: 0
   enemyList:
   - {fileID: 734628024742327608, guid: 106007d24ec8c204093f633054bf9a62, type: 3}
   - {fileID: 734628024742327608, guid: 106007d24ec8c204093f633054bf9a62, type: 3}
@@ -23,4 +25,5 @@ MonoBehaviour:
   - {fileID: 734628024742327608, guid: 106007d24ec8c204093f633054bf9a62, type: 3}
   - {fileID: 734628024742327608, guid: d7499d62fe5ed8e46b50c7e57fd5d691, type: 3}
   - {fileID: 734628024742327608, guid: d7499d62fe5ed8e46b50c7e57fd5d691, type: 3}
+  portrait: {fileID: 0}
   explain: "\uBD89\uC740 \uD0D1\uC758 \uC2DC\uC791\uC810"

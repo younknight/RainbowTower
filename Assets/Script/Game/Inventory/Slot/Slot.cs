@@ -57,7 +57,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
                 popupItem.Setup(this);
             }
         }
-        if (eventData.button == PointerEventData.InputButton.Right)
+        if (eventData.button == PointerEventData.InputButton.Right && item != null)
         {
             DropItem.Instance.DropSlotInItem(this);
             //Inventory.Instance.GetSp(10);

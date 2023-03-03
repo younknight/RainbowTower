@@ -5,29 +5,47 @@ using UnityEngine.UI;
 using TMPro;
 public class Floor : MonoBehaviour
 {
+    [SerializeField] Image mapPortrait;
+    [SerializeField] Sprite locked;
     [SerializeField] TextMeshProUGUI floor;
-    [SerializeField] EnemyListPrefap enemyListPrefap;
-    public TextMeshProUGUI explain;//
-    GameObject button;
+    [SerializeField] FloorPrefap floorPrefap;
+    [SerializeField] TextMeshProUGUI explain;
+    int height;
+    GameObject goGameBtn;
+    GameObject lockedBtn;
+    DungeonType dungeonType;
+    public int Height { get => height; set => height = value; }
+
     private void Awake()
     {
         var setting = GameObject.Find("setting");
         explain = setting.transform.Find("explain").GetChild(0).GetComponent<TextMeshProUGUI>();
-        button = setting.transform.Find("GoGame").gameObject;
+        goGameBtn = setting.transform.Find("GoGame").gameObject;
+        lockedBtn = setting.transform.Find("Locked").gameObject;
     }
-    public void Setup(int height, EnemyListPrefap enemyListPrefap)
+    public void Setup(int height, FloorPrefap floorPrefap, DungeonType dungeonType)
     {
         floor.text = (height + 1) + "F";
-        this.enemyListPrefap = enemyListPrefap;
+        this.floorPrefap = floorPrefap;
+        this.dungeonType = dungeonType;
     }
     public void SetStage()
     {
-        MapSelector.EnemyList.RemoveAll(x => true);
-        foreach (GameObject enemy in enemyListPrefap.enemyList)
+        goGameBtn.SetActive(false);
+        lockedBtn.SetActive(false);
+        //MapSelector.EnemyList.RemoveAll(x => true);
+        MapSelector.FloorPrefap = floorPrefap;
+        explain.text = floorPrefap.explain;
+        if (DataManager.Data.clearFloor[dungeonType] >= height) goGameBtn.SetActive(true);
+        else lockedBtn.SetActive(true);
+    }
+    public void SetMapPortrait(bool isLocekd)
+    {
+        if (isLocekd)
         {
-            MapSelector.EnemyList.Add(enemy);
+            mapPortrait.sprite = locked;
+            return;
         }
-        explain.text = enemyListPrefap.explain;
-        button.SetActive(true);
+        mapPortrait.sprite = floorPrefap.portrait;
     }
 }

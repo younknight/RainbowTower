@@ -28,7 +28,7 @@ public class popupUnit : MonoBehaviour
         Dictionary<status, double> unitStatus = unit.CurrentStatus;
         portrait.sprite = unit.ThisCharacter.portrait;
         explain.text = unit.ThisCharacter.explain;
-        charName.text = unit.ThisCharacter.name;
+        charName.text = unit.ThisCharacter.unitName;
         hp.text = "" + unit.ThisCharacter.hp;
         attack.text = "" + unitStatus[status.attackDamage];
         criRate.text = "" + unitStatus[status.criticalRate];

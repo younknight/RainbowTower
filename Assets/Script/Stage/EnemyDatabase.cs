@@ -5,13 +5,13 @@ using UnityEngine;
 public class EnemyDatabase : MonoBehaviour
 {
     static List<GameObject> enemyList = new List<GameObject>();
-    [SerializeField] EnemyListPrefap thisEnemyList;
+    [SerializeField] FloorPrefap floorPrefap;
     public static List<GameObject> EnemyList { get => enemyList; }
 
     public void SetEnemyList()
     {
         enemyList.RemoveAll(x => true);
-        foreach(GameObject enemy in thisEnemyList.enemyList)
+        foreach(GameObject enemy in floorPrefap.enemyList)
         {
             enemyList.Add(enemy);
         }

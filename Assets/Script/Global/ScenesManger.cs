@@ -15,6 +15,7 @@ public class ScenesManger : MonoBehaviour
     public void GoHome()
     {
         SceneManager.LoadScene("Main");
+        DataManager.instance.Save();
     }
     public void GoTest()
     {

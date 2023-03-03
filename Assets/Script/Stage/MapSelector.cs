@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 public class MapSelector : MonoBehaviour
 {
-    [SerializeField] List<EnemyListPrefap> thisEnemyList;
+    [SerializeField] List<FloorPrefap> thisFloorList;
+    [SerializeField] DungeonType dungeonType;
     Popup popupTower;
     Popup popupTown;
     PopupSelectMap popupSelectMap;
@@ -13,8 +14,8 @@ public class MapSelector : MonoBehaviour
     float doubleClickedTime = -1.0f;
     bool isDoubleClicked = false;
 
-    static List<GameObject> enemyList = new List<GameObject>();
-    public static List<GameObject> EnemyList { get => enemyList; set => enemyList = value; }
+    static FloorPrefap floorPrefap;
+    public static FloorPrefap FloorPrefap { get => floorPrefap; set => floorPrefap = value; }
 
     private void Awake()
     {
@@ -60,9 +61,9 @@ public class MapSelector : MonoBehaviour
             popupTown.TogglePopup();
             return;
         }
-        if (thisEnemyList != null)
+        if (thisFloorList != null)
         {
-            popupSelectMap.Setup(thisEnemyList, gameObject.name);
+            popupSelectMap.Setup(thisFloorList, gameObject.name, dungeonType);
             popupTower.TogglePopup();
         }
     }

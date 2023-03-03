@@ -9,19 +9,21 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] GameObject defaultEnemy;
     [SerializeField] GameObject enemyHpSlider;
     HpControl enemyHp;
+    FloorPrefap floorPrefap;
     public static List<UnitState> EnemyList { get => enemyList; }
+    public FloorPrefap FloorPrefap { get => floorPrefap; }
+
     //public static EnemyManager Instance => instance;
 
     private void Awake()
     {
         if (instance == null) instance = this;
-        if (MapSelector.EnemyList.Count != 0)
+        if (MapSelector.FloorPrefap.enemyList.Count != 0)
         {
-
+            floorPrefap = MapSelector.FloorPrefap;
             enemyList.RemoveAll(x => true);
-            foreach (GameObject enemyPrefap in MapSelector.EnemyList)
+            foreach (GameObject enemyPrefap in floorPrefap.enemyList)
             {
-                //Debug.Log("소환");
                 GameObject enemy = Instantiate(enemyPrefap, this.transform.position, Quaternion.identity);
                 enemy.SetActive(false);
                 enemyList.Add(enemy.GetComponent<UnitState>());
@@ -41,11 +43,10 @@ public class EnemyManager : MonoBehaviour
     }
     public void RemoveEnemy()//적 제거
     {
-        //EnemyCountControl.instance.DeleteCount(EnemyList.Count - 1);
-        foreach(Item item in enemyList[0].ThisCharacter.dropItems)
-        {
-            Inventory.Instance.AcquireItem(item);
-        }
+        //드랍
+        Inventory.Instance.GetSp(enemyList[0].ThisCharacter.dropSpRate);
+        DataManager.instance.AddGold(enemyList[0].ThisCharacter.dropGold);
+        //제거
         Destroy(enemyList[0].gameObject);
         enemyList.RemoveAt(0);
         if (enemyList.Count != 0)

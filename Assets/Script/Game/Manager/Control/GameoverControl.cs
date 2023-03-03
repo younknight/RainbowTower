@@ -29,14 +29,19 @@ public class GameoverControl : MonoBehaviour
         Debug.Log("게임오버데스");
         StartCoroutine(FadeOutPlay());
         StartCoroutine(FadeOutText(buttonText));
-        if (isVictory)
+        if (isVictory)//승리
         {
             StartCoroutine(FadeOutText(VictoryText));
+            if (DataManager.Data.clearFloor[EnemyManager.instance.FloorPrefap.dungeonType] < EnemyManager.instance.FloorPrefap.height)
+            {
+                DataManager.Data.clearFloor[EnemyManager.instance.FloorPrefap.dungeonType] = EnemyManager.instance.FloorPrefap.height;
+            }
         }
-        else
+        else//패배
         {
             StartCoroutine(FadeOutText(DefeatText));
         }
+        DataManager.instance.Save();
     }
     IEnumerator FadeOutPlay()
     {

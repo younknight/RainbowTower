@@ -3,5 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 public class StoryManager : MonoBehaviour
 {
-
+    TalkManager talkManager = new TalkManager();
+    
 }

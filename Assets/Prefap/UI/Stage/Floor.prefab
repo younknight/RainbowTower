@@ -304,8 +304,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff05d68c9437da345b0166ad9922fc52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mapPortrait: {fileID: 3188766688889836201}
+  locked: {fileID: 21300000, guid: f2922696a9e782e4cb909ba7e81716da, type: 3}
   floor: {fileID: 752725209107737786}
-  enemyListPrefap: {fileID: 0}
+  floorPrefap: {fileID: 0}
   explain: {fileID: 0}
 --- !u!114 &2701262892367921705
 MonoBehaviour:

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Database : MonoBehaviour
 {
     public static Database instance;
+    DataManager dataManager;
     [SerializeField] List<EquipmentPrefap> bodyPrefap;
     [SerializeField] List<EquipmentPrefap> leftPrefap;
     [SerializeField] List<EquipmentPrefap> rightPrefap;
@@ -25,7 +26,7 @@ public class Database : MonoBehaviour
         //foreach(Item item in itemPrefap.FindAll(x => x.itemClass == ItemClass.portion))
         //{
         //    Debug.Log(item.itemName);
-        //}
+        //}-
     }
     public List<EquipmentPrefap> GetPrefaps(equipment target)
     {
