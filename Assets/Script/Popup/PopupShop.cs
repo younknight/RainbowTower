@@ -8,6 +8,7 @@ public class PopupShop : MonoBehaviour
     [SerializeField] ShopKeeper shopKeeper;
     [SerializeField] TextMeshProUGUI itemName;
     [SerializeField] TextMeshProUGUI gold;
+    [SerializeField] TextMeshProUGUI paint;
     [SerializeField] TextMeshProUGUI explain;
     [SerializeField] Image portrait;
     [SerializeField] GameObject purItem;
@@ -41,7 +42,8 @@ public class PopupShop : MonoBehaviour
         this.item = slot.item;
         explain.text = textChanger.ExplainChangeInShop(item); ;
         itemName.text = item.itemName;
-        gold.text = "" + item.price;
+        gold.text = "" + item.priceGold;
+        paint.text = "0";
         portrait.sprite = item.sprite;
         shopKeeper.ChangeText(2);
     }
@@ -52,8 +54,9 @@ public class PopupShop : MonoBehaviour
         this.slot = slot;
         this.equipment = slot.equipment;
         explain.text = equipment.explain;
-        itemName.text = equipment.name;
-        gold.text = "" + equipment.price;
+        itemName.text = equipment.equipmentName;
+        gold.text = "" + equipment.priceGold;
+        paint.text = "" + equipment.pricePaint;
         portrait.sprite = equipment.sprite;
         shopKeeper.ChangeText(2);
     }
@@ -64,16 +67,17 @@ public class PopupShop : MonoBehaviour
     }
     public void BuyThisItem()
     {
-        if (data.gold >= item.price)
+        if (data.gold >= item.priceGold)
         {
             data.hasItems[item.itemClass][(int)item.colorType] = true;
             DataManager.instance.Save();
-            data.gold -= item.price;
+            data.gold -= item.priceGold;
             shopKeeper.ChangeText(1);
             slot.Close();
             popup.ClosePopup();
             popupInventory.AddBtn(item);
             ShopKeeper.Items.Remove(item);
+            DataManager.instance.Save();
             return;
         }
         shopKeeper.ChangeText(4);
@@ -81,16 +85,18 @@ public class PopupShop : MonoBehaviour
     }
     public void BuyThisEquip()
     {
-        if (data.gold >= equipment.price)
+        if (data.gold >= equipment.priceGold && data.paint >= equipment.pricePaint)
         {
             data.hasEquipment[equipment.spriteTarget].hasEquipment[equipment.index] = true;
             DataManager.instance.Save();
-            data.gold -= equipment.price;
+            data.gold -= equipment.priceGold;
+            data.paint -= equipment.pricePaint;
             shopKeeper.ChangeText(1);
             slot.Close();
             popup.ClosePopup();
             popupEquipment.AddEquip(equipment);
             ShopKeeper.Equipments.Remove(equipment);
+            DataManager.instance.Save();
             return;
         }
         shopKeeper.ChangeText(4);

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: banana 0
   m_EditorClassIdentifier: 
   sprite: {fileID: -1062120173, guid: 7a778232627b65f44ae6e079857af50b, type: 3}
-  price: 300
+  priceGold: 300
+  pricePaint: 0
   colorType: 2
   itemClass: 1
   linkType: 1
@@ -23,6 +24,7 @@ MonoBehaviour:
   level: 0
   cost: 10
   enforce: 50
+  destroyed: 0
   nextItem: {fileID: 11400000, guid: ac8e489e975cd8743974fe0871838787, type: 2}
   itemType: 02000000
   targetState: 03000000

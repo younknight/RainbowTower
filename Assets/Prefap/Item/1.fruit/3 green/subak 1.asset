@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: subak 1
   m_EditorClassIdentifier: 
   sprite: {fileID: -365780841, guid: 7a778232627b65f44ae6e079857af50b, type: 3}
-  itemValue: 0
+  price: 0
   colorType: 3
   itemClass: 1
   linkType: 1
@@ -24,6 +24,7 @@ MonoBehaviour:
   level: 1
   cost: 10
   enforce: 50
+  destroyed: 100
   nextItem: {fileID: 11400000, guid: f7ddb120e6d4a1f4aa00f7291556bf53, type: 2}
   itemType: 02000000
   targetState: 02000000

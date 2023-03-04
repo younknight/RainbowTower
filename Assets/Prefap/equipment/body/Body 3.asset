@@ -15,9 +15,12 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 59731da334af26d44a5bb6921552e3bd, type: 3}
   spriteTarget: 2
   index: 3
+  equipmentName: "\uC0C9\uAE54 \uAC11\uC637"
   hp: 0
   defence: 0
   attackDamage: 0
   criticalRate: 0
   criticalDamage: 0
-  hasItemsIndex: 
+  priceGold: 300
+  pricePaint: 100
+  explain: "\uBAB8"

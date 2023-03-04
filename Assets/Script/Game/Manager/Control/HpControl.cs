@@ -32,7 +32,7 @@ public class HpControl : MonoBehaviour
                 hpbar.value = 1f;
             }
             hp = (float)unitState.CurrentStatus[status.hp];
-            text.text = "" + unitState.CurrentStatus[status.hp] + "/" + maxHp;
+            text.text = "" + (int)unitState.CurrentStatus[status.hp] + "/" + maxHp;
         }
     }
     public void Setup(UnitState unitState)

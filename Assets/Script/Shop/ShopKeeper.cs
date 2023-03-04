@@ -26,10 +26,10 @@ public class ShopKeeper : MonoBehaviour
     void Start()
     {
         data = DataManager.Data;
-        itemListPrefaps = Database.instance.ItemPrefap;
         shopItemSlots = itemsParents.GetComponentsInChildren<ShopSlot>();
         shopEquipSlots = equipsParents.GetComponentsInChildren<ShopSlot>();
         //아이템
+        itemListPrefaps = Database.instance.ItemPrefap;
         foreach (ItemListPrefap itemListPrefap in itemListPrefaps)
         {
             for(int i=0;i< itemListPrefap.items.Count;i++)
@@ -38,6 +38,7 @@ public class ShopKeeper : MonoBehaviour
             }
         }
         //장비
+        equipments.RemoveAll(x => true);
         List<EquipmentPrefap> equipmentPrefaps;
         equipmentPrefaps = Database.instance.GetPrefaps(equipment.body);
         for (int i = 0; i < equipmentPrefaps.Count; i++)
@@ -92,9 +93,9 @@ public class ShopKeeper : MonoBehaviour
                 slot.gameObject.SetActive(false);
                 continue;
             }
-            int itemIndex = Random.Range(0, copyEquipList.Count);
-            slot.SetupEquipment(copyEquipList[itemIndex]);
-            copyEquipList.RemoveAt(itemIndex);
+            int equipIndex = Random.Range(0, copyEquipList.Count);
+            slot.SetupEquipment(copyEquipList[equipIndex]);
+            copyEquipList.RemoveAt(equipIndex);
         }
 
     }

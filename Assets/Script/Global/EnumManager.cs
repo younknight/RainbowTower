@@ -22,7 +22,7 @@ public enum ItemClass
 {
     portion,
     fruit,
-    test2,
+    highPortion,
     None
 }
 public enum ItemType

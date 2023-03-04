@@ -15,9 +15,12 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: ef68db080391cb841b1925300dd92ab0, type: 3}
   spriteTarget: 3
   index: 6
+  equipmentName: "\uBB34\uAE30"
   hp: 0
   defence: 0
   attackDamage: 0
   criticalRate: 0
   criticalDamage: 0
-  hasItemsIndex: 
+  priceGold: 300
+  pricePaint: 100
+  explain: "\uBB34\uAE30"

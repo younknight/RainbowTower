@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: apple 0
   m_EditorClassIdentifier: 
   sprite: {fileID: -1514043223, guid: 7a778232627b65f44ae6e079857af50b, type: 3}
-  price: 300
+  priceGold: 300
+  pricePaint: 0
   colorType: 0
   itemClass: 1
   linkType: 1
@@ -24,6 +25,7 @@ MonoBehaviour:
   level: 0
   cost: 10
   enforce: 50
+  destroyed: 0
   nextItem: {fileID: 11400000, guid: a1d10ba2d4da7c94b9736dc9473923dc, type: 2}
   itemType: 01000000
   targetState: 00000000

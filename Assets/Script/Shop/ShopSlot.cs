@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.U2D;
 public class ShopSlot : MonoBehaviour
 {
+    [SerializeField] SpriteAtlas partsImage;
     [SerializeField] goodsType goodsType;
     [SerializeField] TextMeshProUGUI gold;
-    [SerializeField] TextMeshProUGUI parts;
+    [SerializeField] TextMeshProUGUI paint;
+    [SerializeField] Image parts;
     [SerializeField] Image portrait;
     public Item item;//
     public EquipmentPrefap equipment;//
@@ -21,15 +24,35 @@ public class ShopSlot : MonoBehaviour
     public void Setup(Item item)
     {
         this.item = item;
-        gold.text = "" + item.price;
+        gold.text = "" + item.priceGold;
         portrait.sprite = item.sprite;
     }
     public void SetupEquipment(EquipmentPrefap equipment)
     {
         this.equipment = equipment;
-        gold.text = "" + equipment.price;
-        parts.text = "" + equipment.spriteTarget.ToString();
+        gold.text = "" + equipment.priceGold;
+        paint.text = "" + equipment.pricePaint;
         portrait.sprite = equipment.sprite;
+        SetImage(equipment.spriteTarget);
+    }
+    void SetImage(equipment equipment)
+    {
+        switch (equipment)
+        {
+            case equipment.rightHand:
+                parts.sprite = partsImage.GetSprite("selector");
+                break;
+            case equipment.leftHand:
+                parts.sprite = partsImage.GetSprite("selector");
+                parts.transform.localScale = new Vector3(-1f, 1f, 1f);
+                break;
+            case equipment.body:
+                parts.sprite = partsImage.GetSprite("helmat");
+                break;
+            case equipment.weapon:
+                parts.sprite = partsImage.GetSprite("battle");
+                break;
+        }
     }
     public void Close()
     {

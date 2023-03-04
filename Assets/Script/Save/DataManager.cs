@@ -13,7 +13,7 @@ public class DataManager : MonoBehaviour
         if (instance != null) Destroy(gameObject);
         instance = this;
         data = new Data(false);
-        //Save();
+        Save();
         data = playerData.LoadJsonFile(playerData.FileName);//데이터 들고오기
     }
     public static void SetEquipmentData(equipment target, int value)
@@ -23,6 +23,10 @@ public class DataManager : MonoBehaviour
     public void AddGold(int value)
     {
         data.gold += value;
+    }
+    public void AddPaint(int value)
+    {
+        data.paint += value;
     }
     public void Save()
     {

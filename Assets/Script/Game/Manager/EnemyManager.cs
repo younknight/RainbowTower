@@ -18,7 +18,7 @@ public class EnemyManager : MonoBehaviour
     private void Awake()
     {
         if (instance == null) instance = this;
-        if (MapSelector.FloorPrefap.enemyList.Count != 0)
+        if (MapSelector.FloorPrefap != null)
         {
             floorPrefap = MapSelector.FloorPrefap;
             enemyList.RemoveAll(x => true);

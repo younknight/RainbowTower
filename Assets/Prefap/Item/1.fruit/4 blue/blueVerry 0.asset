@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: blueVerry 0
   m_EditorClassIdentifier: 
   sprite: {fileID: -1823075400, guid: 7a778232627b65f44ae6e079857af50b, type: 3}
-  price: 300
+  priceGold: 300
+  pricePaint: 0
   colorType: 4
   itemClass: 1
   linkType: 1
@@ -24,6 +25,7 @@ MonoBehaviour:
   level: 0
   cost: 10
   enforce: 50
+  destroyed: 0
   nextItem: {fileID: 11400000, guid: e3376241179f0204f9c7c399cab9cb33, type: 2}
   itemType: 02000000
   targetState: 01000000

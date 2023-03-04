@@ -20,7 +20,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     public SlotType SlotType { get => slotType; }
     public static Dictionary<colorType, Graph> Graph { get => graph; set => graph = value; }
     public int LinkedItemNum { get => linkedItemNum; set => linkedItemNum = value; }
-
     void Awake()
     {
         ResetGraph();
@@ -90,32 +89,25 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         switch (colorType)
         {
             case colorType.red:
-                color = Color.red;
-                color.a = 0.5f;
+                color = new Color(1f, 0.79f, 0.77f);
                 break;
             case colorType.orange:
-                color = new Color(1f, 139/255f, 0f);
-                color.a = 0.5f;
+                color = new Color(0.99f, 0.9f, 0.77f);
                 break;
             case colorType.yellow:
-                color = Color.yellow;
-                color.a = 0.5f;
+                color = new Color(1f, 0.99f, 0.74f);
                 break;
             case colorType.green:
-                color = Color.green;
-                color.a = 0.5f;
+                color = new Color(0.81f, 1f, 0.73f);
                 break;
             case colorType.blue:
-                color = Color.blue;
-                color.a = 0.5f;
+                color = new Color(0.81f, 0.99f, 1f);
                 break;
             case colorType.purple:
-                color = new Color(1f, 60 / 255f, 1f);
-                color.a = 0.5f;
+                color = new Color(0.98f, 0.85f, 1f);
                 break;
             case colorType.gray:
                 color = Color.white;
-                color.a = 1f;
                 break;
         }
         frameColor.color = color;

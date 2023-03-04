@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca14bdc39e0304e4db8db4d6ea86264f, type: 3}
+  m_Name: highPotions
+  m_EditorClassIdentifier: 
+  index: 0
+  representImage: {fileID: 0}
+  itemClass: 2
+  items:
+  - {fileID: 11400000, guid: 19ee01b50a70a364f97735eafa0e8b5c, type: 2}
+  - {fileID: 11400000, guid: 433476475f196af4095ad62aa48aa4bb, type: 2}
+  - {fileID: 11400000, guid: 6dcd6728f2d66cd42b5c996d91f2d5f6, type: 2}
+  - {fileID: 11400000, guid: 6cd22439adfe8a042ac0026e0960ce81, type: 2}
+  - {fileID: 11400000, guid: 83823ce4538a36a418a47e7f1d6ca579, type: 2}
+  - {fileID: 11400000, guid: 338230afd9a1ada429ac086ae96166cd, type: 2}

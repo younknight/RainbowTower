@@ -6,6 +6,7 @@ public class ResourceManager : MonoBehaviour
 {
     Data data;
     [SerializeField] TextMeshProUGUI goldText;
+    [SerializeField] TextMeshProUGUI paintText;
     void Start()
     {
         data = DataManager.Data;
@@ -13,5 +14,6 @@ public class ResourceManager : MonoBehaviour
     private void Update()
     {
         goldText.text = "" + data.gold;
+        paintText.text = "" + data.paint;
     }
 }

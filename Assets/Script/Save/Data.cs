@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 public class Data
 {
     public int gold;
+    public int paint;
     public int[] itemIndex = new int[6] { 0,0,0,0,0,0} ;//들고있는 아이템
     public Dictionary<ItemClass, bool[]> hasItems = new Dictionary<ItemClass, bool[]>();//가지고 있는 아이템
     public Dictionary<equipment, Equipment> hasEquipment = new Dictionary<equipment, Equipment>();//가지고 있는 장비
@@ -21,6 +22,7 @@ public class Data
         //아이템
         hasItems.Add(ItemClass.portion, new bool[6] { true, true, true, true, true, true }); //기본템
         hasItems.Add(ItemClass.fruit, new bool[6] { false, false, false, false, false, false });
+        hasItems.Add(ItemClass.highPortion, new bool[6] { false, false, false, false, false, false });
         //클리어 던전
         clearFloor.Add(DungeonType.redTower, 0);
         clearFloor.Add(DungeonType.orangeTower, 0);
@@ -29,10 +31,12 @@ public class Data
         clearFloor.Add(DungeonType.blueTower, 0);
         clearFloor.Add(DungeonType.purpleTower, 0);
         gold = 1000;
+        paint = 500;
         //디버그모드 앵간한거 들고있기
         if (isDebug)
         {
             gold = 9999;
+            paint = 5500;
             foreach (KeyValuePair<equipment, Equipment> entry in hasEquipment)//올장비
             {
                 for (int i = 0; i < entry.Value.hasEquipment.Count; i++)

@@ -6,7 +6,8 @@ public class Item : ScriptableObject
 {
     //아이템 정보
     public Sprite sprite; //초상화
-    public int price;//상점가
+    public int priceGold;//상점가 골드
+    public int pricePaint;//상점가 물감
     public colorType colorType;
     public ItemClass itemClass;
     public linkType linkType;
@@ -16,6 +17,7 @@ public class Item : ScriptableObject
     public int level;
     public int cost;
     public float enforce;
+    public float destroyed;
     public Item nextItem;
     //아이템 효과
     public ItemType[] itemType; //아이템 타입

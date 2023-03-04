@@ -8,6 +8,7 @@ public class EquipmentPrefap : ScriptableObject
     public Sprite sprite;
     public equipment spriteTarget;
     public int index;
+    public string equipmentName;
     //스테이터스
     public int hp;
     public int defence;
@@ -15,6 +16,7 @@ public class EquipmentPrefap : ScriptableObject
     public int criticalRate;
     public int criticalDamage;
     //상점
-    public int price;
+    public int priceGold;
+    public int pricePaint;
     public string explain;
 }
