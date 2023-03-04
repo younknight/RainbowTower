@@ -37,6 +37,13 @@ public class PopupEquipment : MonoBehaviour
         }
         btnDict.Add(equipment, btnList);
     }
+    public void AddEquip(EquipmentPrefap equipment)
+    {
+        var newBtn = Instantiate<GameObject>(this.btnPrefap, contents.transform);
+        btnDict[equipment.spriteTarget].Add(newBtn);
+        newBtn.GetComponent<EquipmentSelector>().InitalizeButton(equipment);
+        newBtn.SetActive(false);
+    }
     public void ActivatePopup()//껐다 켜기
     {
         equipment equipment = ButtonManager.SelectedBtn.GetComponent<ButtonManager>().EquipmentType;

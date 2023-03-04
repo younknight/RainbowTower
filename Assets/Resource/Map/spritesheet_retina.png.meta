@@ -2079,7 +2079,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HandYellow
+      name: roundCharBlue
       rect:
         serializedVersion: 2
         x: 1152
@@ -2310,7 +2310,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HandRed
+      name: roundCharOrange
       rect:
         serializedVersion: 2
         x: 1153
@@ -2604,12 +2604,13 @@ TextureImporter:
       spritesheet_retina_110: 1229874405
       spritesheet_retina_94: -1316015239
       spritesheet_retina_89: 444675335
+      num 9: 1439578095
       spritesheet_retina_65: -287602180
       spritesheet_retina_83: 297490896
+      roundCharOrange: -1055860909
       spritesheet_retina_8: -2113086487
       squereCharGreen: -111156522
       spritesheet_retina_18: -1566180913
-      num 9: 1439578095
       spritesheet_retina_57: -1531910912
       spritesheet_retina_40: -654066570
       spritesheet_retina_69: 2032003934
@@ -2628,7 +2629,6 @@ TextureImporter:
       spritesheet_retina_15: -371606735
       spritesheet_retina_26: -328099822
       num 8: -941341378
-      HandYellow: -1768506456
       num 4: -797615048
       squereCharRed: 1154969889
       spritesheet_retina_5: -309967316
@@ -2636,7 +2636,7 @@ TextureImporter:
       spritesheet_retina_93: 699142584
       selector: 1528361543
       spritesheet_retina_84: 242032330
-      HandRed: -1055860909
+      roundCharBlue: -1768506456
       spritesheet_retina_22: -647273390
       spritesheet_retina_48: -1862708574
       num 2: 1265556366

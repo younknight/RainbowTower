@@ -60,10 +60,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         if (eventData.button == PointerEventData.InputButton.Right && item != null)
         {
             DropItem.Instance.DropSlotInItem(this);
-            //Inventory.Instance.GetSp(10);
-            //item = null;
-            //itemImage.sprite = null;
-            //ClearSlot();
         }
     }
     public void test()

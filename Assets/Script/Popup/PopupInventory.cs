@@ -25,13 +25,17 @@ public class PopupInventory : MonoBehaviour
             {
                 if(item.level == 0 && playerData.hasItems[item.itemClass][(int)item.colorType])
                 {
-                    var newBtn = Instantiate<GameObject>(btnPrefap, contents.transform);
-                    ItemSelector itemSelector = newBtn.GetComponent<ItemSelector>();
-                    itemSelector.InitalizeButton(item);
-                    btnList.Add(itemSelector);
+                    AddBtn(item);
                 }
             }
         }
+    }
+    public void AddBtn(Item item)
+    {
+        var newBtn = Instantiate<GameObject>(btnPrefap, contents.transform);
+        ItemSelector itemSelector = newBtn.GetComponent<ItemSelector>();
+        itemSelector.InitalizeButton(item);
+        btnList.Add(itemSelector);
     }
     public void ActivatePopup()//껐다 켜기
     {

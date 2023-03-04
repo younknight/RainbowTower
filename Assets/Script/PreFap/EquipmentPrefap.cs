@@ -14,4 +14,7 @@ public class EquipmentPrefap : ScriptableObject
     public int attackDamage;
     public int criticalRate;
     public int criticalDamage;
+    //상점
+    public int price;
+    public string explain;
 }

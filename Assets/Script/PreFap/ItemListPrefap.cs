@@ -6,5 +6,6 @@ public class ItemListPrefap : ScriptableObject
 {
     public int index;
     public Item representImage;
+    public ItemClass itemClass;
     public List<Item> items;
 }

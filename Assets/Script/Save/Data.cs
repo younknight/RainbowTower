@@ -28,6 +28,7 @@ public class Data
         clearFloor.Add(DungeonType.greenTower, 0);
         clearFloor.Add(DungeonType.blueTower, 0);
         clearFloor.Add(DungeonType.purpleTower, 0);
+        gold = 1000;
         //디버그모드 앵간한거 들고있기
         if (isDebug)
         {

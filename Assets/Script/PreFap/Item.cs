@@ -6,7 +6,7 @@ public class Item : ScriptableObject
 {
     //아이템 정보
     public Sprite sprite; //초상화
-    public int itemValue;//상점가
+    public int price;//상점가
     public colorType colorType;
     public ItemClass itemClass;
     public linkType linkType;

@@ -23,10 +23,6 @@ public class Database : MonoBehaviour
         prefaps.Add(equipment.leftHand, leftPrefap);
         prefaps.Add(equipment.rightHand, rightPrefap);
         prefaps.Add(equipment.weapon, weaponPrefap);
-        //foreach(Item item in itemPrefap.FindAll(x => x.itemClass == ItemClass.portion))
-        //{
-        //    Debug.Log(item.itemName);
-        //}-
     }
     public List<EquipmentPrefap> GetPrefaps(equipment target)
     {

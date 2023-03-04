@@ -1,32 +1,103 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+public enum goodsType
+{
+    equipment,
+    item
+}
 public class ShopKeeper : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI keepersTalk;
     [SerializeField] Transform itemsParents;
-    public ShopItemSlot[] shopItemSlots;//
+    [SerializeField] Transform equipsParents;
+    public ShopSlot[] shopItemSlots;//
+    public ShopSlot[] shopEquipSlots;//
     TalkManager talkManager = new TalkManager();
     Data data;
     List<ItemListPrefap> itemListPrefaps = new List<ItemListPrefap>();
+
+    static List<Item> items = new List<Item>();
+    static List<EquipmentPrefap> equipments = new List<EquipmentPrefap>();
+
+    public static List<Item> Items { get => items; set => items = value; }
+    public static List<EquipmentPrefap> Equipments { get => equipments; set => equipments = value; }
+
     void Start()
     {
         data = DataManager.Data;
         itemListPrefaps = Database.instance.ItemPrefap;
-        shopItemSlots = itemsParents.GetComponentsInChildren<ShopItemSlot>();
+        shopItemSlots = itemsParents.GetComponentsInChildren<ShopSlot>();
+        shopEquipSlots = equipsParents.GetComponentsInChildren<ShopSlot>();
+        //아이템
+        foreach (ItemListPrefap itemListPrefap in itemListPrefaps)
+        {
+            for(int i=0;i< itemListPrefap.items.Count;i++)
+            {
+                if (!data.hasItems[itemListPrefap.itemClass][i]) items.Add(itemListPrefap.items[i]);
+            }
+        }
+        //장비
+        List<EquipmentPrefap> equipmentPrefaps;
+        equipmentPrefaps = Database.instance.GetPrefaps(equipment.body);
+        for (int i = 0; i < equipmentPrefaps.Count; i++)
+        {
+            if (!data.hasEquipment[equipment.body].hasEquipment[i]) equipments.Add(equipmentPrefaps[i]);
+
+        }
+        equipmentPrefaps = Database.instance.GetPrefaps(equipment.leftHand);
+        for (int i = 0; i < equipmentPrefaps.Count; i++)
+        {
+            if (!data.hasEquipment[equipment.leftHand].hasEquipment[i]) equipments.Add(equipmentPrefaps[i]);
+
+        }
+        equipmentPrefaps = Database.instance.GetPrefaps(equipment.rightHand);
+        for (int i = 0; i < equipmentPrefaps.Count; i++)
+        {
+            if (!data.hasEquipment[equipment.rightHand].hasEquipment[i]) equipments.Add(equipmentPrefaps[i]);
+
+        }
+        equipmentPrefaps = Database.instance.GetPrefaps(equipment.weapon);
+        for (int i = 0; i < equipmentPrefaps.Count; i++)
+        {
+            if (!data.hasEquipment[equipment.weapon].hasEquipment[i]) equipments.Add(equipmentPrefaps[i]);
+
+        }
         SetItem();
+        SetEquip();
     }
 
     void SetItem()
     {
-        foreach(ShopItemSlot slot in shopItemSlots)
+        List<Item> copyItemList = items;  
+        foreach(ShopSlot slot in shopItemSlots)
         {
-            int listIndex = Random.Range(0, itemListPrefaps.Count);
-            int itemIndex = Random.Range(0, itemListPrefaps[listIndex].items.Count);
-            slot.Setup(itemListPrefaps[listIndex].items[itemIndex]);
+            if(copyItemList.Count == 0)
+            {
+                slot.gameObject.SetActive(false);
+                continue;
+            }
+            int itemIndex = Random.Range(0, copyItemList.Count);
+            slot.Setup(copyItemList[itemIndex]);
+            copyItemList.RemoveAt(itemIndex);
         }
     }
+    void SetEquip()
+    {
+        List<EquipmentPrefap> copyEquipList = equipments;
+        foreach (ShopSlot slot in shopEquipSlots)
+        {
+            if (copyEquipList.Count == 0)
+            {
+                slot.gameObject.SetActive(false);
+                continue;
+            }
+            int itemIndex = Random.Range(0, copyEquipList.Count);
+            slot.SetupEquipment(copyEquipList[itemIndex]);
+            copyEquipList.RemoveAt(itemIndex);
+        }
 
+    }
     public void ChangeText(int index)
     {
         keepersTalk.text = talkManager.GetTalk(talkType.Shop, index);

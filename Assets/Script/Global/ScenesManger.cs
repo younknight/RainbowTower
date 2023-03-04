@@ -7,6 +7,7 @@ public class ScenesManger : MonoBehaviour
     public void MoveSelectStage()
     {
         SceneManager.LoadScene("SelectStage");
+        DataManager.instance.Save();
     }
     public void GameStart()
     {

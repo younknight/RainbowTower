@@ -35,9 +35,6 @@ public class ItemSelector : MonoBehaviour
             selectedBtn.item = itemPrefap;
             PlayerManager.PlayerItem.Add(itemPrefap);
             DataManager.Data.itemIndex[(int)this.color] = (int)itemPrefap.itemClass;
-           // Debug.Log(itemPrefap.name);
-            //Debug.Log("i"+(int)itemPrefap.itemClass);
-            //Debug.Log("c"+(int)this.color);
         }
         else popup.ClosePopup();
     }

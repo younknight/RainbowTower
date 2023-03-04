@@ -37,7 +37,7 @@ public class Inventory : MonoBehaviour
         int itemIndex = Random.Range(0, range);
         if (range != 0)
         {
-            if (sp > 0)
+            if (sp >= 10)
             {
                 for (int i = 0; i < slots.Length; i++)
                 {

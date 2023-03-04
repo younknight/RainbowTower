@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 1
   representImage: {fileID: 0}
+  itemClass: 1
   items:
   - {fileID: 11400000, guid: 21995d9cd06c85a4a9f58b458be41ea8, type: 2}
   - {fileID: 11400000, guid: 5ab767869c02665499013fe3c1bb3c0a, type: 2}

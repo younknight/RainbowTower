@@ -24,11 +24,11 @@ public class StatusManager: MonoBehaviour
     {
         if (instance != null) Destroy(gameObject);
         instance = this;
-        colorDatabase = Database.instance;//데이터베이스
-        playerData = DataManager.Data;
     }
     private void Start()
     {
+        playerData = DataManager.Data;
+        colorDatabase = Database.instance;//데이터베이스
         if (key.Length != valueText.Length) throw new System.Exception("keyNum != valueNum");
         for(int i = 0; i < key.Length; i++)
         {
@@ -42,10 +42,8 @@ public class StatusManager: MonoBehaviour
         SetStatus();
         buttonManagers = inventory.GetComponentsInChildren<ButtonManager>();
         int index = 0;
-        //Debug.Log(PlayerManager.PlayerItem.Count);
         foreach (Item item in PlayerManager.PlayerItem)
         {
-           // Debug.Log(buttonManagers[index].gameObject.name + "  " + item.name);
             buttonManagers[index].item = item;
             index++;
         }

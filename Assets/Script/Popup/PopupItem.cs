@@ -12,6 +12,7 @@ public class PopupItem : MonoBehaviour
     [SerializeField] Image portrait;
     Slot slot;
     Item item;
+    TextChanger textChanger = new TextChanger(); 
     public Slot Slot { get => slot; set => slot = value; }
     private void Start()
     {
@@ -22,15 +23,7 @@ public class PopupItem : MonoBehaviour
         this.slot = slot;
         this.item = slot.item;
         itemOfName.text = item.itemName;
-        string str = item.explain;
-        for(int index = 0; index < item.itemType.Length;index++)
-        {
-            //Debug.Log(index);
-            str = str.Replace("@Cool" + (index + 1), "<color=red>" + item.coolTime[index] + "</color>");
-            str = str.Replace("@Value" + (index + 1), "<color=red>" + item.value[index] + "</color>");
-            str = str.Replace("@Link","<color=blue>" + Slot.Graph[item.colorType].BFS(slot.index) + "</color>");
-        }
-        explain.text = str;
+        explain.text = textChanger.ExplainChangeInGame(item, slot);
         enforce.text = "" + item.enforce;
         cost.text = "" + item.cost;
         portrait.sprite = item.sprite;

@@ -23,6 +23,7 @@ public class TalkManager
         talkData[talkType.Shop].Add("구매 고맙다 데스");
         talkData[talkType.Shop].Add("그거 좋다 데스");
         talkData[talkType.Shop].Add("아쉽다 데스");
+        talkData[talkType.Shop].Add("돈이 부족하다 데스");
     }
     void GenerateStoryData()
     {

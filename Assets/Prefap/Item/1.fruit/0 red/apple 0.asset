@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: apple 0
   m_EditorClassIdentifier: 
   sprite: {fileID: -1514043223, guid: 7a778232627b65f44ae6e079857af50b, type: 3}
-  itemValue: 0
+  price: 300
   colorType: 0
   itemClass: 1
   linkType: 1
