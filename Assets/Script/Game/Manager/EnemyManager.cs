@@ -9,7 +9,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] GameObject defaultEnemy;
     [SerializeField] GameObject enemyHpSlider;
     HpControl enemyHp;
-    FloorPrefap floorPrefap;
+    public FloorPrefap floorPrefap;//
     public static List<UnitState> EnemyList { get => enemyList; }
     public FloorPrefap FloorPrefap { get => floorPrefap; }
 
@@ -40,6 +40,8 @@ public class EnemyManager : MonoBehaviour
     {
         enemyHp = enemyHpSlider.GetComponent<HpControl>();
         enemyHp.Setup(enemyList[0].GetComponent<UnitState>());
+        GameoverControl.instance.DungeonType = floorPrefap.dungeonType;
+        GameoverControl.instance.Floor = floorPrefap.height;
     }
     public void RemoveEnemy()//적 제거
     {
@@ -53,6 +55,10 @@ public class EnemyManager : MonoBehaviour
         {
             enemyList[0].gameObject.SetActive(true);
             enemyHp.Setup(enemyList[0].GetComponent<UnitState>());
+        }
+        else
+        {
+            GameoverControl.instance.GameOverWithVictory(true);
         }
     }
 }

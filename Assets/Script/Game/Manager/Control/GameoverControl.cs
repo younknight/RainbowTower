@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+using UnityEngine.SceneManagement;
 public class GameoverControl : MonoBehaviour
 {
     public static GameoverControl instance;
@@ -17,6 +17,13 @@ public class GameoverControl : MonoBehaviour
     float start = 0f;
     float end = 1f;
     float time;
+    //층수
+    int floorHeight;
+    DungeonType dungeonType;
+    TalkManager talkManager = new TalkManager();
+    public int Floor { get => floorHeight; set => floorHeight = value; }
+    public DungeonType DungeonType { get => dungeonType; set => dungeonType = value; }
+
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -73,5 +80,11 @@ public class GameoverControl : MonoBehaviour
             text.color = color;
             yield return null;
         }
+    }
+    public void GoMain()
+    {
+        StoryManager.Setup(dungeonType,floorHeight);
+        if(DataManager.Data.clearFloor[dungeonType] <= floorHeight) SceneManager.LoadScene("Story");
+        else SceneManager.LoadScene("Main");
     }
 }

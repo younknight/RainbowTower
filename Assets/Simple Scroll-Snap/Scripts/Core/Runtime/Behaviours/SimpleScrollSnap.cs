@@ -1,4 +1,4 @@
-﻿// Simple Scroll-Snap - https://assetstore.unity.com/packages/tools/gui/simple-scroll-snap-140884
+// Simple Scroll-Snap - https://assetstore.unity.com/packages/tools/gui/simple-scroll-snap-140884
 // Copyright (c) Daniel Lochner
 
 using System;
@@ -295,7 +295,6 @@ namespace DanielLochner.Assets.SimpleScrollSnap
 
             GetVelocity();
         }
-        
         public void OnPointerDown(PointerEventData eventData)
         {
             isPressing = true;

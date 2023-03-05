@@ -30,6 +30,7 @@ public class ShopKeeper : MonoBehaviour
         shopEquipSlots = equipsParents.GetComponentsInChildren<ShopSlot>();
         //아이템
         itemListPrefaps = Database.instance.ItemPrefap;
+        items.RemoveAll(x => true);
         foreach (ItemListPrefap itemListPrefap in itemListPrefaps)
         {
             for(int i=0;i< itemListPrefap.items.Count;i++)
@@ -101,6 +102,6 @@ public class ShopKeeper : MonoBehaviour
     }
     public void ChangeText(int index)
     {
-        keepersTalk.text = talkManager.GetTalk(talkType.Shop, index);
+        keepersTalk.text = talkManager.TalkData[index].GetTalk();
     }
 }

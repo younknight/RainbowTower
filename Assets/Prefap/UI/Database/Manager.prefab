@@ -124,6 +124,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e9e5e4acc56b52648909fdfc89c03c9e, type: 2}
   - {fileID: 11400000, guid: c551789fb905b044c9774550604f7b91, type: 2}
   - {fileID: 11400000, guid: aefb2e2298a25744181291b6c306cdee, type: 2}
+  - {fileID: 11400000, guid: 2619a66999d23614284c9c36ece6824e, type: 2}
 --- !u!1 &704568304915497398
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +135,7 @@ GameObject:
   m_Component:
   - component: {fileID: 704568304915497032}
   m_Layer: 0
-  m_Name: Database
+  m_Name: Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

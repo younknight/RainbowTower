@@ -23,6 +23,7 @@ public enum ItemClass
     portion,
     fruit,
     highPortion,
+    planet,
     None
 }
 public enum ItemType
@@ -34,7 +35,8 @@ public enum ItemType
 public enum linkType
 {
     None,
-    single
+    single,
+    outline
 
 }
 public enum skillType

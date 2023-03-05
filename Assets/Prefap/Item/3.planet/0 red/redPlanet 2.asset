@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be7679be769e45c468e2fd55b81eb418, type: 3}
+  m_Name: redPlanet 2
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 1424926378, guid: 47faa3644f31a864c9186ae05f701e5d, type: 3}
+  priceGold: 0
+  pricePaint: 0
+  colorType: 0
+  itemClass: 3
+  linkType: 2
+  itemName: "\uBE68\uAC04\uC0C9 \uD589\uC131"
+  explain: "\uCCB4\uB825\uC744 @Cool1\uCD08\uB9C8\uB2E4\n@Value1 + \uC5F0\uACB0\uB41C
+    \uB9C1\uD06C\uC758 \uC218\uB9CC\uD07C \uD68C\uBCF5\uD569\uB2C8\uB2E4.\n\uC5F0\uACB0\uB41C
+    \uC544\uC774\uD15C: @Link"
+  level: 2
+  cost: 10
+  enforce: 60
+  destroyed: 0
+  nextItem: {fileID: 11400000, guid: 9ce3e5428846c044db2ea5ea3ed626b7, type: 2}
+  itemType: 01000000
+  targetState: 00000000
+  value:
+  - 7
+  coolTime:
+  - 5

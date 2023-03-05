@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca14bdc39e0304e4db8db4d6ea86264f, type: 3}
   m_Name: highPotions
   m_EditorClassIdentifier: 
-  index: 0
+  index: 2
   representImage: {fileID: 0}
   itemClass: 2
   items:

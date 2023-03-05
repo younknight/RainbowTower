@@ -6,6 +6,7 @@ using UnityEngine;
 using Newtonsoft.Json;
 public class Data
 {
+    public bool tutorialCleared;
     public int gold;
     public int paint;
     public int[] itemIndex = new int[6] { 0,0,0,0,0,0} ;//들고있는 아이템
@@ -23,6 +24,7 @@ public class Data
         hasItems.Add(ItemClass.portion, new bool[6] { true, true, true, true, true, true }); //기본템
         hasItems.Add(ItemClass.fruit, new bool[6] { false, false, false, false, false, false });
         hasItems.Add(ItemClass.highPortion, new bool[6] { false, false, false, false, false, false });
+        hasItems.Add(ItemClass.planet, new bool[6] { false, false, false, false, false, false });
         //클리어 던전
         clearFloor.Add(DungeonType.redTower, 0);
         clearFloor.Add(DungeonType.orangeTower, 0);
@@ -30,6 +32,9 @@ public class Data
         clearFloor.Add(DungeonType.greenTower, 0);
         clearFloor.Add(DungeonType.blueTower, 0);
         clearFloor.Add(DungeonType.purpleTower, 0);
+        //스토리
+        tutorialCleared = false;
+        //자원
         gold = 1000;
         paint = 500;
         //디버그모드 앵간한거 들고있기

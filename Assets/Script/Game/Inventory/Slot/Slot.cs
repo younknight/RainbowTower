@@ -14,7 +14,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     [SerializeField] SlotType slotType;
     Popup popup;
     PopupItem popupItem;
-
+    List<Item> items = new List<Item>();
     static Dictionary<colorType, Graph> graph = new Dictionary<colorType, Graph>();
     public int Index { get => index; set => index = value; }
     public SlotType SlotType { get => slotType; }
@@ -22,6 +22,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     public int LinkedItemNum { get => linkedItemNum; set => linkedItemNum = value; }
     void Awake()
     {
+        items = PlayerManager.PlayerItem;
         ResetGraph();
         GameObject PopupObj = GameObject.Find("PopupItem");
         popup = PopupObj.GetComponent<Popup>();
@@ -38,12 +39,10 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         graph.Remove(colorType.blue);
         graph.Remove(colorType.purple);
         //그래프 초기화
-        graph.Add(colorType.red, new Graph(16));
-        graph.Add(colorType.orange, new Graph(16));
-        graph.Add(colorType.yellow, new Graph(16));
-        graph.Add(colorType.green, new Graph(16));
-        graph.Add(colorType.blue, new Graph(16));
-        graph.Add(colorType.purple, new Graph(16));
+        foreach(Item item in items)
+        {
+            graph.Add(item.colorType, new Graph(16, item.linkType));
+        }
         //
     }
     public void OnPointerClick(PointerEventData eventData)

@@ -7,8 +7,12 @@ public class LinkCalculator
     {
         switch (linkType)
         {
+            case linkType.None:
+                break;
             case linkType.single:
-               return SingleLink(link);
+                return SingleLink(link);
+            case linkType.outline:
+                return link;
         }
         return 0;//링크없을경우
     }

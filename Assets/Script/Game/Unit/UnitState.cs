@@ -101,7 +101,6 @@ public class UnitState : MonoBehaviour
                 if (EnemyManager.EnemyList.Count == 0)
                 {
                     Debug.Log("승리");
-                    GameoverControl.instance.GameOverWithVictory(true);
                 }
             }
         }

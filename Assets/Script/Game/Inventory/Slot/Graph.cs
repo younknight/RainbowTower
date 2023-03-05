@@ -14,7 +14,7 @@ public class Graph
         public List<int>[] vArray;
         public List<bool> isActive;
     }
-    public Graph(int numV)
+    public Graph(int numV, linkType linkType)
     {
         graph = new myGraph();
         graph.numV = numV;
@@ -28,7 +28,17 @@ public class Graph
         {
             graph.isActive.Add(false);
         }
-        SetEdge();
+        switch (linkType)
+        {
+            case linkType.None:
+                break;
+            case linkType.single:
+                SetEdgeAll();
+                break;
+            case linkType.outline:
+                SetEdgeOutline();
+                break;
+        }
     }
     public bool IsActive(int index)
     {
@@ -41,71 +51,95 @@ public class Graph
             if (graph.isActive[i]) Debug.Log(i);
         }
     }
-    void SetEdge()
+    void SetEdgeAll()
+    {
+        AddEdge(0, 1);
+        AddEdge(0, 4);
+        AddEdge(1, 0);
+        AddEdge(1, 2);
+        AddEdge(1, 5);
+        AddEdge(2, 1);
+        AddEdge(2, 3);
+        AddEdge(2, 6);
+        AddEdge(3, 2);
+        AddEdge(3, 7);
+        AddEdge(4, 5);
+        AddEdge(4, 0);
+        AddEdge(4, 8);
+        AddEdge(5, 1);
+        AddEdge(5, 4);
+        AddEdge(5, 6);
+        AddEdge(5, 9);
+        AddEdge(6, 2);
+        AddEdge(6, 5);
+        AddEdge(6, 7);
+        AddEdge(6, 10);
+        AddEdge(7, 3);
+        AddEdge(7, 6);
+        AddEdge(7, 11);
+        AddEdge(8, 4);
+        AddEdge(8, 9);
+        AddEdge(8, 12);
+        AddEdge(9, 8);
+        AddEdge(9, 5);
+        AddEdge(9, 13);
+        AddEdge(9, 10);
+        AddEdge(10, 6);
+        AddEdge(10, 9);
+        AddEdge(10, 11);
+        AddEdge(10, 14);
+        AddEdge(11, 7);
+        AddEdge(11, 10);
+        AddEdge(11, 15);
+        AddEdge(12, 8);
+        AddEdge(12, 13);
+        AddEdge(13, 14);
+        AddEdge(13, 9);
+        AddEdge(13, 12);
+        AddEdge(14, 10);
+        AddEdge(14, 13);
+        AddEdge(14, 15);
+        AddEdge(15, 11);
+        AddEdge(15, 14);
+    }//열지마시오
+    void SetEdgeOutline()
     {
         AddEdge(0, 1);
         AddEdge(0, 4);
 
         AddEdge(1, 0);
         AddEdge(1, 2);
-        AddEdge(1, 5);
 
         AddEdge(2, 1);
         AddEdge(2, 3);
-        AddEdge(2, 6);
 
         AddEdge(3, 2);
         AddEdge(3, 7);
 
-        AddEdge(4, 5);
         AddEdge(4, 0);
         AddEdge(4, 8);
 
-        AddEdge(5, 1);
-        AddEdge(5, 4);
-        AddEdge(5, 6);
-        AddEdge(5, 9);
-
-        AddEdge(6, 2);
-        AddEdge(6, 5);
-        AddEdge(6, 7);
-        AddEdge(6, 10);
-
         AddEdge(7, 3);
-        AddEdge(7, 6);
-        AddEdge(7, 11);
+        AddEdge(7,11);
 
         AddEdge(8, 4);
-        AddEdge(8, 9);
-        AddEdge(8, 12);
-
-        AddEdge(9, 8);
-        AddEdge(9, 5);
-        AddEdge(9, 13);
-        AddEdge(9, 10);
-
-        AddEdge(10, 6);
-        AddEdge(10, 9);
-        AddEdge(10, 11);
-        AddEdge(10, 14);
+        AddEdge(8,12);
 
         AddEdge(11, 7);
-        AddEdge(11, 10);
-        AddEdge(11, 15);
+        AddEdge(11,15);
 
         AddEdge(12, 8);
-        AddEdge(12, 13);
+        AddEdge(12,13);
 
-        AddEdge(13, 14);
-        AddEdge(13, 9);
-        AddEdge(13, 12);
+        AddEdge(13,12);
+        AddEdge(13,14);
 
-        AddEdge(14, 10);
-        AddEdge(14, 13);
-        AddEdge(14, 15);
+        AddEdge(14,13);
+        AddEdge(14,15);
 
-        AddEdge(15, 11);
-        AddEdge(15, 14);
+        AddEdge(15,14);
+        AddEdge(15,11);
+
     }
     public void AddEdge(int fromV, int toV)
     {

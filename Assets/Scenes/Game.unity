@@ -758,6 +758,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultEnemy: {fileID: 734628024742327608, guid: d7499d62fe5ed8e46b50c7e57fd5d691, type: 3}
   enemyHpSlider: {fileID: 240836532}
+  floorPrefap: {fileID: 0}
 --- !u!1 &157300701
 GameObject:
   m_ObjectHideFlags: 0
@@ -13192,9 +13193,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 653361901}
-        m_TargetAssemblyTypeName: ScenesManger, GameScript
-        m_MethodName: GoHome
+      - m_Target: {fileID: 511149727}
+        m_TargetAssemblyTypeName: GameoverControl, GameScript
+        m_MethodName: GoMain
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
