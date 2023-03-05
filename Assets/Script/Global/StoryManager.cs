@@ -52,7 +52,7 @@ public class StoryManager : MonoBehaviour
     }
     public void EndTalk()
     {
-        if(talkId == 1000) DataManager.Data.tutorialCleared = true;
+        if(talkId == 1000) DataManager.Data.clearedStory[1] = true;
         DataManager.instance.Save();
         SceneManager.LoadScene("Main");
     }

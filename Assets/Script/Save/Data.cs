@@ -6,13 +6,13 @@ using UnityEngine;
 using Newtonsoft.Json;
 public class Data
 {
-    public bool tutorialCleared;
     public int gold;
     public int paint;
     public int[] itemIndex = new int[6] { 0,0,0,0,0,0} ;//들고있는 아이템
     public Dictionary<ItemClass, bool[]> hasItems = new Dictionary<ItemClass, bool[]>();//가지고 있는 아이템
     public Dictionary<equipment, Equipment> hasEquipment = new Dictionary<equipment, Equipment>();//가지고 있는 장비
     public Dictionary<DungeonType, int> clearFloor = new Dictionary<DungeonType, int>();//클리어 한 던전의 층수
+    public Dictionary<int, bool> clearedStory = new Dictionary<int, bool>();
     public Data(bool isDebug) 
     {
         //장비
@@ -33,7 +33,9 @@ public class Data
         clearFloor.Add(DungeonType.blueTower, 0);
         clearFloor.Add(DungeonType.purpleTower, 0);
         //스토리
-        tutorialCleared = false;
+        clearedStory.Add(0, false);//튜토리얼
+        clearedStory.Add(1, false);//시작이야기
+
         //자원
         gold = 1000;
         paint = 500;
