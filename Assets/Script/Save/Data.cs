@@ -44,6 +44,8 @@ public class Data
         {
             gold = 9999;
             paint = 5500;
+            clearedStory.Add(0, true);//튜토리얼
+            clearedStory.Add(1, true);//시작이야기
             foreach (KeyValuePair<equipment, Equipment> entry in hasEquipment)//올장비
             {
                 for (int i = 0; i < entry.Value.hasEquipment.Count; i++)

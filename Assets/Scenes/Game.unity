@@ -4958,7 +4958,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 653361901}
         m_TargetAssemblyTypeName: ScenesManger, GameScript
-        m_MethodName: GoHome
+        m_MethodName: GoMainWithSave
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

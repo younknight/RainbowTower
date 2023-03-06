@@ -13,10 +13,15 @@ public class ScenesManger : MonoBehaviour
     {
         SceneManager.LoadScene("Game");
     }
-    public void GoHome()
+    public void GoMainWithSave()
     {
         SceneManager.LoadScene("Main");
         DataManager.instance.Save();
+    }
+    public void GoMain()
+    {
+        if(DataManager.Data.clearedStory[1]) SceneManager.LoadScene("Main");
+        else SceneManager.LoadScene("Story");
     }
     public void GoTest()
     {
