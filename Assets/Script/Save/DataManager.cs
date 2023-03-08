@@ -12,7 +12,7 @@ public class DataManager : MonoBehaviour
     {
         if (instance != null) Destroy(gameObject);
         instance = this;
-        data = new Data(false);
+        data = new Data(true);
         //Save();
         data = playerData.LoadJsonFile(playerData.FileName);//데이터 들고오기
     }

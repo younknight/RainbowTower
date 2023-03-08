@@ -18,7 +18,7 @@ public class EnemyManager : MonoBehaviour
     private void Awake()
     {
         if (instance == null) instance = this;
-        if (MapSelector.FloorPrefap.enemyList.Count != 0)
+        if (MapSelector.FloorPrefap != null)
         {
             floorPrefap = MapSelector.FloorPrefap;
             enemyList.RemoveAll(x => true);
@@ -40,8 +40,11 @@ public class EnemyManager : MonoBehaviour
     {
         enemyHp = enemyHpSlider.GetComponent<HpControl>();
         enemyHp.Setup(enemyList[0].GetComponent<UnitState>());
-        GameoverControl.instance.DungeonType = floorPrefap.dungeonType;
-        GameoverControl.instance.Floor = floorPrefap.height;
+        if (MapSelector.FloorPrefap != null)
+        {
+            GameoverControl.instance.DungeonType = floorPrefap.dungeonType;
+            GameoverControl.instance.Floor = floorPrefap.height;
+        }
     }
     public void RemoveEnemy()//적 제거
     {

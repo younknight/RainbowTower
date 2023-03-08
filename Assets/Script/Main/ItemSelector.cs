@@ -13,7 +13,7 @@ public class ItemSelector : MonoBehaviour
 
     private void Start()
     {
-        popup = GameObject.Find("InventoryPopup").GetComponent<Popup>();
+        if (GameObject.Find("InventoryPopup") != null) popup = GameObject.Find("InventoryPopup").GetComponent<Popup>();
         if(itemPrefap != null)color = itemPrefap.colorType;
     }
     public void InitalizeButton(Item itemPrefap)//버튼의 정보와 이미지 초기화

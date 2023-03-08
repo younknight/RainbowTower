@@ -18,6 +18,7 @@ public class GameoverControl : MonoBehaviour
     float end = 1f;
     float time;
     //층수
+    bool isFirstClear = false;
     int floorHeight;
     DungeonType dungeonType;
     TalkManager talkManager = new TalkManager();
@@ -39,8 +40,9 @@ public class GameoverControl : MonoBehaviour
         if (isVictory)//승리
         {
             StartCoroutine(FadeOutText(VictoryText));
-            if (DataManager.Data.clearFloor[EnemyManager.instance.FloorPrefap.dungeonType] < EnemyManager.instance.FloorPrefap.height)
+            if (DataManager.Data.clearFloor[EnemyManager.instance.FloorPrefap.dungeonType] <= EnemyManager.instance.FloorPrefap.height)
             {
+                isFirstClear = true;
                 DataManager.Data.clearFloor[EnemyManager.instance.FloorPrefap.dungeonType] = EnemyManager.instance.FloorPrefap.height;
             }
         }
@@ -83,8 +85,9 @@ public class GameoverControl : MonoBehaviour
     }
     public void GoMain()
     {
-        StoryManager.Setup(dungeonType,floorHeight);
-        if(DataManager.Data.clearFloor[dungeonType] <= floorHeight) SceneManager.LoadScene("Story");
+        int talkId = StoryManager.Setup(dungeonType,floorHeight);
+        Debug.Log(dungeonType +"/"+floorHeight);
+        if(isFirstClear && talkManager.TalkData.ContainsKey(talkId)) SceneManager.LoadScene("Story");
         else SceneManager.LoadScene("Main");
     }
 }

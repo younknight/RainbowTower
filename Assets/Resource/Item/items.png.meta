@@ -2373,7 +2373,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: items_108
+      name: shilver
       rect:
         serializedVersion: 2
         x: 192
@@ -2793,7 +2793,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: items_128
+      name: level
       rect:
         serializedVersion: 2
         x: 0
@@ -3339,7 +3339,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: items_154
+      name: equipment
       rect:
         serializedVersion: 2
         x: 160
@@ -4893,7 +4893,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: items_228
+      name: item
       rect:
         serializedVersion: 2
         x: 64
@@ -6415,11 +6415,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      items_290: -717164008
-      items_279: -1997519330
+      items_275: 2083290472
+      items_192: 350030159
       items_281: -2117343819
       items_125: -714554513
       items_243: 147283999
+      shilver: -502566064
       items_115: -806668748
       items_164: 2027659344
       items_234: 1536648735
@@ -6454,6 +6455,7 @@ TextureImporter:
       items_107: 1228176908
       items_19: 951048077
       items_274: 43424604
+      equipment: -1622496843
       items_211: 369965937
       items_200: 599485643
       items_248: -756910399
@@ -6499,6 +6501,7 @@ TextureImporter:
       items_151: 1400560738
       items_229: -730148889
       items_33: -835635995
+      level: 1882812695
       items_113: -2065456146
       items_162: -74234562
       items_273: -963973327
@@ -6518,7 +6521,7 @@ TextureImporter:
       items_49: -1593854440
       items_147: -1561007785
       items_214: -1923460560
-      items_108: -502566064
+      items_293: 1143896750
       items_236: -416927844
       items_286: -731835405
       items_21: -1761695877
@@ -6527,7 +6530,6 @@ TextureImporter:
       items_176: -53182336
       items_41: -275308713
       items_8: -621269869
-      items_154: -1622496843
       items_201: 1039554910
       items_14: -932883521
       items_31: 2019581533
@@ -6536,7 +6538,6 @@ TextureImporter:
       items_278: 1967186213
       items_221: -1578472727
       items_246: -1511194386
-      items_293: 1143896750
       items_114: -1236807891
       items_166: 1864128571
       items_197: -1587870880
@@ -6644,7 +6645,7 @@ TextureImporter:
       items_294: -1408093365
       items_57: 595419728
       items_209: 172176677
-      items_228: -449495851
+      items_258: -1532517711
       items_16: 216549358
       items_195: -233437628
       items_235: 1482563621
@@ -6661,7 +6662,6 @@ TextureImporter:
       items_97: -1194284768
       items_287: 176774444
       items_64: 121664518
-      items_258: -1532517711
       items_173: -1901050062
       items_240: -768461090
       items_185: -1804038746
@@ -6700,7 +6700,6 @@ TextureImporter:
       items_156: -727002327
       items_232: 1615187964
       items_299: 769999230
-      items_128: 1882812695
       items_28: -1112561066
       items_191: -874894338
       items_92: 1386995417
@@ -6708,13 +6707,14 @@ TextureImporter:
       items_193: 139597452
       items_233: 1577403797
       items_171: 1063954028
+      item: -449495851
       items_292: 712837567
       items_207: 1230384959
       items_277: 811677150
       items_238: 447626782
       items_257: -390032793
-      items_192: 350030159
-      items_275: 2083290472
+      items_279: -1997519330
+      items_290: -717164008
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

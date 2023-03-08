@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c03550d72ae86544194be6392e49fad3, type: 3}
+  m_Name: RedSlime
+  m_EditorClassIdentifier: 
+  portrait: {fileID: 21300000, guid: c3a5aa4a67f954745ab7574ca1a32b95, type: 3}
+  unitName: "\uBE68\uAC04 \uC2AC\uB77C\uC784"
+  hp: 10
+  attackDamage: 1
+  criticalRate: 0
+  criticalDamage: 0
+  defence: 0
+  explain: "\uBE60\uC544\uC54C\uAC04\uB9DB\uC774 \uB09C\uB2E4"
+  dropGold: 1
+  dropSpRate: 1

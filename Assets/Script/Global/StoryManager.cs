@@ -14,7 +14,7 @@ public class StoryManager : MonoBehaviour
     {
         NextText();
     }
-    public static void Setup(DungeonType dungeonType,int floor)
+    public static int Setup(DungeonType dungeonType,int floor)
     {
         switch (dungeonType)
         {
@@ -38,6 +38,7 @@ public class StoryManager : MonoBehaviour
                 break;
         }
         talkId += floor * 100;
+        return talkId;
     }
     public void NextText()
     {

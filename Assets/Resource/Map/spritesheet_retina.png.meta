@@ -126,7 +126,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheet_retina_2
+      name: sound
       rect:
         serializedVersion: 2
         x: 256
@@ -357,7 +357,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheet_retina_14
+      name: triangle
       rect:
         serializedVersion: 2
         x: 384
@@ -2589,6 +2589,7 @@ TextureImporter:
       spritesheet_retina_60: 568540657
       spritesheet_retina_102: -665098176
       num 3: 241608712
+      sound: 1298047233
       spritesheet_retina_23: -892171343
       num 1: -1259267007
       spritesheet_retina_33: -1742782306
@@ -2600,21 +2601,20 @@ TextureImporter:
       spritesheet_retina_61: 476488405
       spritesheet_retina_101: 262969330
       roundCharRed: 1572818250
-      roundCharOrange: -1055860909
+      spritesheet_retina_110: 1229874405
       spritesheet_retina_94: -1316015239
-      num 9: 1439578095
+      spritesheet_retina_89: 444675335
       spritesheet_retina_65: -287602180
       spritesheet_retina_83: 297490896
-      spritesheet_retina_110: 1229874405
+      roundCharOrange: -1055860909
       spritesheet_retina_8: -2113086487
       squereCharGreen: -111156522
       spritesheet_retina_18: -1566180913
-      spritesheet_retina_89: 444675335
+      num 9: 1439578095
       spritesheet_retina_57: -1531910912
       spritesheet_retina_40: -654066570
       spritesheet_retina_69: 2032003934
       spritesheet_retina_95: 437835753
-      spritesheet_retina_14: 22110989
       spritesheet_retina_41: -2108961099
       spritesheet_retina_76: 639108725
       spritesheet_retina_30: -82197094
@@ -2628,6 +2628,7 @@ TextureImporter:
       spritesheet_retina_26: -328099822
       num 8: -941341378
       num 4: -797615048
+      triangle: 22110989
       squereCharRed: 1154969889
       spritesheet_retina_5: -309967316
       spritesheet_retina_16: -667442054
@@ -2655,9 +2656,9 @@ TextureImporter:
       spritesheet_retina_100: 549215094
       spritesheet_retina_82: 1697593518
       num 0: 1309226945
-      spritesheet_retina_27: 1923858906
-      squereCharYellow: -2014933008
       HandPurple: 952990433
+      squereCharYellow: -2014933008
+      spritesheet_retina_27: 1923858906
       spritesheet_retina_7: 1597637858
       num 7: 2146121529
       spritesheet_retina_19: 1511538142
@@ -2676,7 +2677,6 @@ TextureImporter:
       spritesheet_retina_32: -1551684387
       spritesheet_retina_43: -407413282
       spritesheet_retina_105: 1553266620
-      spritesheet_retina_2: 1298047233
       spritesheet_retina_29: -141911984
       spritesheet_retina_59: -1091927208
       spritesheet_retina_87: -281128716

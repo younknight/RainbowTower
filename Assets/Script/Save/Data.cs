@@ -33,8 +33,8 @@ public class Data
         clearFloor.Add(DungeonType.blueTower, 0);
         clearFloor.Add(DungeonType.purpleTower, 0);
         //스토리
-        clearedStory.Add(0, false);//튜토리얼
-        clearedStory.Add(1, false);//시작이야기
+        //clearedStory.Add(0, false);//튜토리얼
+        //clearedStory.Add(1, false);//시작이야기
 
         //자원
         gold = 1000;

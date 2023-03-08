@@ -21,12 +21,14 @@ public class PopupShop : MonoBehaviour
     TextChanger textChanger = new TextChanger();
     PopupInventory popupInventory;
     PopupEquipment popupEquipment;
+    Storage storage;
     // Start is called before the first frame update
     private void Awake()
     {
 
         popupInventory = GameObject.Find("InventoryPopup").GetComponent<PopupInventory>();
         popupEquipment = GameObject.Find("EquipmentPopup").GetComponent<PopupEquipment>();
+        storage = GameObject.Find("storage").GetComponent<Storage>();
     }
     void Start()
     {
@@ -76,6 +78,7 @@ public class PopupShop : MonoBehaviour
             slot.Close();
             popup.ClosePopup();
             popupInventory.AddBtn(item);
+            storage.AddItemBtn(item);
             ShopKeeper.Items.Remove(item);
             DataManager.instance.Save();
             return;
@@ -95,6 +98,7 @@ public class PopupShop : MonoBehaviour
             slot.Close();
             popup.ClosePopup();
             popupEquipment.AddEquip(equipment);
+            storage.AddEquipBtn(equipment);
             ShopKeeper.Equipments.Remove(equipment);
             DataManager.instance.Save();
             return;
