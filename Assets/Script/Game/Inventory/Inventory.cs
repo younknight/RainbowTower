@@ -8,9 +8,9 @@ public class Inventory : MonoBehaviour
     static Inventory instance;
     int sp = 150;
     [SerializeField] TextMeshProUGUI spText;
-    [SerializeField] GameObject SlotsParent;
-    public Slot[] slots = new Slot[8];
-
+    [SerializeField] Transform SlotsParent;
+    public Slot[] slots = new Slot[16];
+    SlotManager slotManager;
     public static Inventory Instance { get => instance; }
     public int Sp { get => sp; }
 
@@ -23,6 +23,10 @@ public class Inventory : MonoBehaviour
             slots[i].Index = i;
         }
         spText.text = "" + sp;
+    }
+    private void Start()
+    {
+        slotManager = new SlotManager(EquipmentSlot.instance);
     }
     public void GetSp(int value)
     {
@@ -42,6 +46,7 @@ public class Inventory : MonoBehaviour
                     if (slots[i].item == null)
                     {
                         slots[i].AddItem(PlayerManager.PlayerItem[itemIndex]);
+                        slotManager.ActiveSlot(true, slots[i],slots[i]);
                         sp -= 10;
                         break;
                     }

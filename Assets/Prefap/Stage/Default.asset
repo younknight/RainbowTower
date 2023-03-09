@@ -17,5 +17,21 @@ MonoBehaviour:
   enemyList:
   - {fileID: 2772684980994260, guid: d7499d62fe5ed8e46b50c7e57fd5d691, type: 3}
   - {fileID: 2772684980994260, guid: d7499d62fe5ed8e46b50c7e57fd5d691, type: 3}
+  - {fileID: 2772684980994260, guid: d7499d62fe5ed8e46b50c7e57fd5d691, type: 3}
+  - {fileID: 2772684980994260, guid: d7499d62fe5ed8e46b50c7e57fd5d691, type: 3}
+  - {fileID: 2772684980994260, guid: d7499d62fe5ed8e46b50c7e57fd5d691, type: 3}
+  - {fileID: 2772684980994260, guid: d7499d62fe5ed8e46b50c7e57fd5d691, type: 3}
+  - {fileID: 2772684980994260, guid: d7499d62fe5ed8e46b50c7e57fd5d691, type: 3}
+  - {fileID: 2772684980994260, guid: d7499d62fe5ed8e46b50c7e57fd5d691, type: 3}
+  - {fileID: 2772684980994260, guid: d7499d62fe5ed8e46b50c7e57fd5d691, type: 3}
+  - {fileID: 2772684980994260, guid: d7499d62fe5ed8e46b50c7e57fd5d691, type: 3}
+  - {fileID: 2772684980994260, guid: d7499d62fe5ed8e46b50c7e57fd5d691, type: 3}
+  - {fileID: 2772684980994260, guid: d7499d62fe5ed8e46b50c7e57fd5d691, type: 3}
+  - {fileID: 2772684980994260, guid: d7499d62fe5ed8e46b50c7e57fd5d691, type: 3}
+  - {fileID: 2772684980994260, guid: d7499d62fe5ed8e46b50c7e57fd5d691, type: 3}
+  - {fileID: 2772684980994260, guid: d7499d62fe5ed8e46b50c7e57fd5d691, type: 3}
+  - {fileID: 2772684980994260, guid: d7499d62fe5ed8e46b50c7e57fd5d691, type: 3}
+  - {fileID: 2772684980994260, guid: d7499d62fe5ed8e46b50c7e57fd5d691, type: 3}
+  - {fileID: 2772684980994260, guid: d7499d62fe5ed8e46b50c7e57fd5d691, type: 3}
   portrait: {fileID: 0}
   explain: "\uBD89\uC740 \uD0D1\uC758 \uC2DC\uC791\uC810"

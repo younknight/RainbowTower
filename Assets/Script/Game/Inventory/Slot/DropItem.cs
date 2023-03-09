@@ -7,6 +7,7 @@ public class DropItem : MonoBehaviour, IDropHandler
     [SerializeField] Sprite defaultItem;
     static DropItem instance;
     EquipmentSlot equipmentSlot;
+    SlotManager slotManager;
     public static DropItem Instance { get => instance; set => instance = value; }
     void Awake()
     {
@@ -15,6 +16,7 @@ public class DropItem : MonoBehaviour, IDropHandler
     void Start()
     {
         equipmentSlot = EquipmentSlot.instance;
+        slotManager = new SlotManager(equipmentSlot);
     }
 
     void IDropHandler.OnDrop(PointerEventData eventData)//드랍됬을때
@@ -34,9 +36,10 @@ public class DropItem : MonoBehaviour, IDropHandler
     {
         if (slot.SlotType == SlotType.equipment)
         {
-            Slot.Graph[slot.item.colorType].Active(false, slot.index);
-            slot.SetFrameColor(colorType.gray);
-            equipmentSlot.EndItem(slot.item, slot);
+            slotManager.ActiveSlot(false, slot, slot);
+            //Slot.Graph[slot.item.colorType].Active(false, slot.index);
+            //slot.SetFrameColor(colorType.gray);
+            //equipmentSlot.EndItem(slot.item, slot);
         }
         Inventory.Instance.GetSp(10);
         slot.item = null;

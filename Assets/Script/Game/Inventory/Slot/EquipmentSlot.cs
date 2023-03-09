@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class EquipmentSlot : MonoBehaviour
 {
-    [SerializeField] GameObject SlotsParent;
-    public Slot[] slots = new Slot[16];//
     public static EquipmentSlot instance;
-
     Dictionary<colorType, List<Slot>> usedItemList = new Dictionary<colorType, List<Slot>>();
 
     private void Awake()
@@ -15,25 +12,12 @@ public class EquipmentSlot : MonoBehaviour
     }
     void Start()
     {
-        slots = SlotsParent.GetComponentsInChildren<Slot>();
-        for (int i = 0; i < SlotsParent.transform.childCount; i++)
-        {
-            slots[i].Index = i;
-        }
         usedItemList.Add(colorType.red, new List<Slot>());
         usedItemList.Add(colorType.orange, new List<Slot>());
         usedItemList.Add(colorType.yellow, new List<Slot>());
         usedItemList.Add(colorType.green, new List<Slot>());
         usedItemList.Add(colorType.blue, new List<Slot>());
         usedItemList.Add(colorType.purple, new List<Slot>());
-    }
-    public void Test()
-    {
-        Debug.Log("test:");
-        foreach(Slot slot in slots)
-        {
-            Debug.Log(slot.index+"/"+slot.LinkedItemNum);
-        }
     }
     public void UseItem(Slot itemSlot)
     {

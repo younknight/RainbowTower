@@ -10,10 +10,16 @@ public class AudioManager : MonoBehaviour
     [SerializeField] Slider audioSlider;
     [SerializeField] GameObject mute;
     bool isMute = false;
-    float volum;
+    static float volum;
+    static float sound = -15;
+    private void Start()
+    {
+        audioSlider.value = sound;
+        masterMixer.SetFloat("BGM", sound);
+    }
     public void AudioControl()
     {
-        float sound = audioSlider.value;
+        sound = audioSlider.value;
         mute.SetActive(false);
         if (sound == -40f)
         {
@@ -27,12 +33,14 @@ public class AudioManager : MonoBehaviour
         if(isMute)
         {
             mute.SetActive(false);
-            audioSlider.value = volum; 
+            audioSlider.value = volum;
+            sound = volum;
             masterMixer.SetFloat("BGM", volum);
         }
         else
         {
             mute.SetActive(true);
+            sound = -80;
             volum = audioSlider.value;
             audioSlider.value = -40;
             masterMixer.SetFloat("BGM", -80);

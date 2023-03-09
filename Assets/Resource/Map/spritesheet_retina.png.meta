@@ -2436,7 +2436,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheet_retina_114
+      name: up
       rect:
         serializedVersion: 2
         x: 640
@@ -2574,7 +2574,6 @@ TextureImporter:
     nameFileIdTable:
       num 10: 1619167481
       num 11: -1515404727
-      spritesheet_retina_114: -652289821
       HandGreen: 1960513355
       cloude1: 195087381
       spritesheet_retina_39: -201644680
@@ -2602,15 +2601,15 @@ TextureImporter:
       spritesheet_retina_101: 262969330
       roundCharRed: 1572818250
       spritesheet_retina_110: 1229874405
-      spritesheet_retina_94: -1316015239
-      spritesheet_retina_89: 444675335
-      spritesheet_retina_65: -287602180
-      spritesheet_retina_83: 297490896
       roundCharOrange: -1055860909
+      spritesheet_retina_89: 444675335
+      num 9: 1439578095
+      spritesheet_retina_94: -1316015239
+      spritesheet_retina_83: 297490896
+      spritesheet_retina_65: -287602180
       spritesheet_retina_8: -2113086487
       squereCharGreen: -111156522
       spritesheet_retina_18: -1566180913
-      num 9: 1439578095
       spritesheet_retina_57: -1531910912
       spritesheet_retina_40: -654066570
       spritesheet_retina_69: 2032003934
@@ -2635,8 +2634,8 @@ TextureImporter:
       spritesheet_retina_93: 699142584
       selector: 1528361543
       spritesheet_retina_84: 242032330
-      helmat: -1726600529
       roundCharBlue: -1768506456
+      helmat: -1726600529
       spritesheet_retina_22: -647273390
       spritesheet_retina_48: -1862708574
       num 2: 1265556366
@@ -2677,6 +2676,7 @@ TextureImporter:
       spritesheet_retina_32: -1551684387
       spritesheet_retina_43: -407413282
       spritesheet_retina_105: 1553266620
+      up: -652289821
       spritesheet_retina_29: -141911984
       spritesheet_retina_59: -1091927208
       spritesheet_retina_87: -281128716
