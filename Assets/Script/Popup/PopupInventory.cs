@@ -8,11 +8,11 @@ public class PopupInventory : MonoBehaviour
     [SerializeField] GameObject btnPrefap;//생성할 버튼
     List<ItemSelector> btnList = new List<ItemSelector>();//생성된 버튼 리스트
     List<ItemListPrefap> itemDatabase;
-    Data playerData;
+    DataPlayer playerData;
     // Start is called before the first frame update
     void Start()
     {
-        playerData = DataManager.Data;
+        playerData = DataManager.DataPlayer;
         itemDatabase = Database.instance.ItemPrefap;
         InitBtn(itemDatabase);
         gameObject.SetActive(false);

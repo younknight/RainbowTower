@@ -23,7 +23,7 @@ public class EquipmentSelector : MonoBehaviour
     {
         PlayerManager.ChangeEquipment(equipmentPrefap.spriteTarget, equipmentPrefap); //플레이어 정보저장
         StatusManager.Instance.SetStatus(); //스테이터스 정보 표시
-        DataManager.SetEquipmentData(equipmentPrefap.spriteTarget, equipmentPrefap.index);//데이터 저장
+        DataManager.DataPlayer.SetEquipmentData(equipmentPrefap.spriteTarget, equipmentPrefap.index);//데이터 저장
         popup.ClosePopup();
         ButtonManager.SelectedBtn.GetComponent<ButtonManager>().ChangePortrait(equipmentPrefap.sprite);
     }

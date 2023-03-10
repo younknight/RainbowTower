@@ -36,7 +36,7 @@ public class Floor : MonoBehaviour
         //MapSelector.EnemyList.RemoveAll(x => true);
         MapSelector.FloorPrefap = floorPrefap;
         explain.text = floorPrefap.explain;
-        if (DataManager.Data.clearFloor[dungeonType] >= height) goGameBtn.SetActive(true);
+        if (DataManager.DataPlayer.clearFloor[dungeonType] >= height) goGameBtn.SetActive(true);
         else lockedBtn.SetActive(true);
     }
     public void SetMapPortrait(bool isLocekd)

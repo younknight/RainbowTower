@@ -34,7 +34,7 @@ public class ItemSelector : MonoBehaviour
             selectedBtn.transform.GetChild(0).GetComponent<Image>().color = color;
             selectedBtn.item = itemPrefap;
             PlayerManager.PlayerItem.Add(itemPrefap);
-            DataManager.Data.itemIndex[(int)this.color] = (int)itemPrefap.itemClass;
+            DataManager.DataPlayer.itemIndex[(int)this.color] = (int)itemPrefap.itemClass;
         }
         else popup.ClosePopup();
     }

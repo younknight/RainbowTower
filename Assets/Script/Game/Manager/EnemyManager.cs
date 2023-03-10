@@ -50,7 +50,7 @@ public class EnemyManager : MonoBehaviour
     {
         //드랍
         Inventory.Instance.GetSp(enemyList[0].ThisCharacter.dropSpRate);
-        DataManager.instance.AddGold(enemyList[0].ThisCharacter.dropGold);
+        DataManager.DataPlayer.AddGold(enemyList[0].ThisCharacter.dropGold);
         //제거
         Destroy(enemyList[0].gameObject);
         enemyList.RemoveAt(0);

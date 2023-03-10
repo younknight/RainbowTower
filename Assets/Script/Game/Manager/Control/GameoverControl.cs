@@ -40,10 +40,10 @@ public class GameoverControl : MonoBehaviour
         if (isVictory)//승리
         {
             StartCoroutine(FadeOutText(VictoryText));
-            if (DataManager.Data.clearFloor[EnemyManager.instance.FloorPrefap.dungeonType] <= EnemyManager.instance.FloorPrefap.height)
+            if (DataManager.DataPlayer.clearFloor[EnemyManager.instance.FloorPrefap.dungeonType] <= EnemyManager.instance.FloorPrefap.height)
             {
                 isFirstClear = true;
-                DataManager.Data.clearFloor[EnemyManager.instance.FloorPrefap.dungeonType] = EnemyManager.instance.FloorPrefap.height;
+                DataManager.DataPlayer.clearFloor[EnemyManager.instance.FloorPrefap.dungeonType] = EnemyManager.instance.FloorPrefap.height;
             }
         }
         else//패배

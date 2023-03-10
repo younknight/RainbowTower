@@ -13,7 +13,7 @@ public class SpriteManager : MonoBehaviour
     [SerializeField] Image[] values;
     [SerializeField] List<Image> itemImage;
     Dictionary<equipment, Image> btnImages = new Dictionary<equipment, Image>();
-    Data playerData;
+    DataPlayer playerData;
     void Start()
     {
         if (keys.Length != values.Length) throw new SystemException("keyNum != vlaueNum");
@@ -22,7 +22,7 @@ public class SpriteManager : MonoBehaviour
             btnImages.Add(keys[i], values[i]);
         }//사전 초기화
         colorDatabase = Database.instance;//데이터베이스
-        playerData = DataManager.Data;
+        playerData = DataManager.DataPlayer;
         //이미지 초기화
         EquipmentPrefap prefap;
         foreach (KeyValuePair<equipment, Equipment> entry in playerData.hasEquipment)

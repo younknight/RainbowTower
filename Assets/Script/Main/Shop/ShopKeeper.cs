@@ -14,7 +14,7 @@ public class ShopKeeper : MonoBehaviour
     public ShopSlot[] shopItemSlots;//
     public ShopSlot[] shopEquipSlots;//
     TalkManager talkManager = new TalkManager();
-    Data data;
+    DataPlayer data;
     List<ItemListPrefap> itemListPrefaps = new List<ItemListPrefap>();
 
     static List<Item> items = new List<Item>();
@@ -25,7 +25,7 @@ public class ShopKeeper : MonoBehaviour
 
     void Start()
     {
-        data = DataManager.Data;
+        data = DataManager.DataPlayer;
         shopItemSlots = itemsParents.GetComponentsInChildren<ShopSlot>();
         shopEquipSlots = equipsParents.GetComponentsInChildren<ShopSlot>();
         //아이템

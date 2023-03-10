@@ -15,10 +15,10 @@ public class Storage : MonoBehaviour
     [SerializeField] GameObject equipmentBtnPrefap;//생성할 버튼
     List<ItemListPrefap> itemDatabase;
     bool isItem = true;
-    Data playerData;
+    DataPlayer playerData;
     private void Start()
     {
-        playerData = DataManager.Data;
+        playerData = DataManager.DataPlayer;
         itemDatabase = Database.instance.ItemPrefap;
         InitItemBtn(itemDatabase);
         InitEquipBtn(Database.instance.GetPrefaps(equipment.body), equipment.body);

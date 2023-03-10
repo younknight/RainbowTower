@@ -15,7 +15,7 @@ public class StatusManager: MonoBehaviour
     ButtonManager[] buttonManagers = new ButtonManager[6];
     Dictionary<status, double> defaultStatus = new Dictionary<status, double>();
     Dictionary<status, TextMeshProUGUI> textList = new Dictionary<status, TextMeshProUGUI>();
-    Data playerData;
+    DataPlayer playerData;
     Database colorDatabase;
 
     public static StatusManager Instance { get => instance;  }
@@ -27,7 +27,7 @@ public class StatusManager: MonoBehaviour
     }
     private void Start()
     {
-        playerData = DataManager.Data;
+        playerData = DataManager.DataPlayer;
         colorDatabase = Database.instance;//데이터베이스
         if (key.Length != valueText.Length) throw new System.Exception("keyNum != valueNum");
         for(int i = 0; i < key.Length; i++)

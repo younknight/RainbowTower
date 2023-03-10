@@ -30,7 +30,7 @@ public class PopupSelectMap : MonoBehaviour
                 floors[i].gameObject.SetActive(true);
                 floors[i].Height = i;
                 floors[i].Setup(i, floorPrefap[i], dungeonType);
-                if(DataManager.Data.clearFloor[thisFloorPrefap[0].dungeonType] < i)//잠김
+                if(DataManager.DataPlayer.clearFloor[thisFloorPrefap[0].dungeonType] < i)//잠김
                 {
                     floors[i].SetMapPortrait(true);
                 }

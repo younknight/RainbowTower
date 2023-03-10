@@ -11,10 +11,10 @@ public class PopupEquipment : MonoBehaviour
     Dictionary<equipment, List<GameObject>> btnDict = new Dictionary<equipment, List<GameObject>>();
     Database colorDatabase;
     ButtonManager selectedBtn;
-    Data playerData;
+    DataPlayer playerData;
     void Start()
     {
-        playerData = DataManager.Data;
+        playerData = DataManager.DataPlayer;
         colorDatabase = Database.instance;
         InitBtn(colorDatabase.GetPrefaps(equipment.body), equipment.body);
         InitBtn(colorDatabase.GetPrefaps(equipment.leftHand), equipment.leftHand);

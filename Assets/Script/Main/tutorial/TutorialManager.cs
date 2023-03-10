@@ -13,13 +13,13 @@ public class TutorialManager : MonoBehaviour
     RectTransform rectTransform;
     [SerializeField] SnapScroll snapScrollMain;//칸 이동용
     [SerializeField] SnapScroll snapScrollShop;//칸 이동용
-    Data data;
+    DataPlayer data;
     TalkManager talkManager = new TalkManager();
     int index = 0;
     bool haveToWait = false;
     void Start()
     {
-        data = DataManager.Data;
+        data = DataManager.DataPlayer;
         
         if (!data.clearedStory[0])//튜토리얼 시작
         {

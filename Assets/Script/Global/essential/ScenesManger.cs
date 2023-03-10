@@ -20,7 +20,7 @@ public class ScenesManger : MonoBehaviour
     }
     public void GoMain()
     {
-        if(DataManager.Data.clearedStory[1]) SceneManager.LoadScene("Main");
+        if(DataManager.DataPlayer.clearedStory[1]) SceneManager.LoadScene("Main");
         else SceneManager.LoadScene("Story");
     }
     public void GoTest()

@@ -4,12 +4,12 @@ using UnityEngine;
 using TMPro;
 public class ResourceManager : MonoBehaviour
 {
-    Data data;
+    DataPlayer data;
     [SerializeField] TextMeshProUGUI goldText;
     [SerializeField] TextMeshProUGUI paintText;
     void Start()
     {
-        data = DataManager.Data;
+        data = DataManager.DataPlayer;
     }
     private void Update()
     {

@@ -16,7 +16,7 @@ public class PopupShop : MonoBehaviour
     public Item item;//
     public EquipmentPrefap equipment;//
     public ShopSlot slot;
-    Data data;
+    DataPlayer data;
     Popup popup;
     TextChanger textChanger = new TextChanger();
     PopupInventory popupInventory;
@@ -33,7 +33,7 @@ public class PopupShop : MonoBehaviour
     void Start()
     {
         popup = gameObject.GetComponent<Popup>();
-        data = DataManager.Data;
+        data = DataManager.DataPlayer;
         gameObject.SetActive(false);
     }
     public void SetupItem(ShopSlot slot)
