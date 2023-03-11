@@ -9,6 +9,7 @@ public class PopupItem : MonoBehaviour
     [SerializeField] TextMeshProUGUI itemOfName;
     [SerializeField] TextMeshProUGUI explain;
     [SerializeField] TextMeshProUGUI enforce;
+    [SerializeField] TextMeshProUGUI destroy;
     [SerializeField] TextMeshProUGUI cost;
     [SerializeField] Image portrait;
     Slot slot;
@@ -26,6 +27,7 @@ public class PopupItem : MonoBehaviour
         itemOfName.text = item.itemName;
         explain.text = textChanger.ExplainChangeInGame(item, slot);
         enforce.text = "" + item.enforce;
+        destroy.text = "" + item.destroyed;
         cost.text = "" + item.cost;
         portrait.sprite = item.sprite;
     }

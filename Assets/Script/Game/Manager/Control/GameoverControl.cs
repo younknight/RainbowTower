@@ -21,7 +21,7 @@ public class GameoverControl : MonoBehaviour
     bool isFirstClear = false;
     int floorHeight;
     DungeonType dungeonType;
-    TalkManager talkManager = new TalkManager();
+    TalkDatabase talkManager = new TalkDatabase();
     public int Floor { get => floorHeight; set => floorHeight = value; }
     public DungeonType DungeonType { get => dungeonType; set => dungeonType = value; }
 
@@ -40,7 +40,7 @@ public class GameoverControl : MonoBehaviour
         if (isVictory)//승리
         {
             StartCoroutine(FadeOutText(VictoryText));
-            if (DataManager.DataPlayer.clearFloor[EnemyManager.instance.FloorPrefap.dungeonType] <= EnemyManager.instance.FloorPrefap.height)
+            if (DataManager.DataPlayer.clearFloor[EnemyManager.instance.FloorPrefap.dungeonType] < EnemyManager.instance.FloorPrefap.height)
             {
                 isFirstClear = true;
                 DataManager.DataPlayer.clearFloor[EnemyManager.instance.FloorPrefap.dungeonType] = EnemyManager.instance.FloorPrefap.height;

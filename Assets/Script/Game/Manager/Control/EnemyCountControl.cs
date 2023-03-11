@@ -1,26 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
+using TMPro;
 public class EnemyCountControl : MonoBehaviour
 {
-    [SerializeField] GameObject GaugePrefab;
-    List<GameObject> Gauge = new List<GameObject>();
-    public static EnemyCountControl instance;
-    private void Awake()
+    [SerializeField] TextMeshProUGUI text;
+    public int totalEnemy;//
+    public int currentEnemy;//
+    public Slider EnemyCountbar;//
+    bool isSetup = false;
+    private void Update()
     {
-        if (instance == null) instance = this;
-    }
-    void Start()
-    {
-        for (int i = 0; i < EnemyManager.EnemyList.Count; i++)
+        if (isSetup)
         {
-            GameObject newGauge = Instantiate(GaugePrefab, Vector3.zero, Quaternion.identity, this.transform);
-            Gauge.Add(newGauge);
+            if ((float)currentEnemy / totalEnemy <= 1)
+            {
+                EnemyCountbar.value = 1 - ((float)currentEnemy / totalEnemy);
+            }
+            else
+            {
+                EnemyCountbar.value = 0f;
+            }
+            currentEnemy = EnemyManager.EnemyList.Count;
+            text.text = "" + currentEnemy + "/" + totalEnemy;
         }
     }
-    public void DeleteCount(int count)
+    public void Setup()
     {
-        Gauge[count].SetActive(false);
+        EnemyCountbar = gameObject.GetComponent<Slider>();
+        totalEnemy = EnemyManager.EnemyList.Count;
+        currentEnemy = totalEnemy;
+        isSetup = true;
     }
 }

@@ -6,24 +6,29 @@ public class DataManager : MonoBehaviour
 {
     public static DataManager instance;
     JsonManager jsonManager = new JsonManager();
-    static DataPlayer data;
+    static DataPlayer dataPlayer;
     static DataSetting dataSetting;
-    public static DataPlayer DataPlayer { get => data; }
+    public static DataPlayer DataPlayer { get => dataPlayer; }
     public static DataSetting DataSetting { get => dataSetting; }
 
     void Awake()
     {
         if (instance != null) Destroy(gameObject);
         instance = this;
-        data = new DataPlayer(true);
+        dataPlayer = new DataPlayer(false);
         dataSetting = new DataSetting();
         //Save();
-        data = jsonManager.LoadPlayerData(jsonManager.FileNamePlayer);//데이터 들고오기
+        dataPlayer = jsonManager.LoadPlayerData(jsonManager.FileNamePlayer);//데이터 들고오기
         dataSetting = jsonManager.LoadSettingData(jsonManager.FileNameSetting);//데이터 들고오기
+    }
+    public void ResetData(DataPlayer _dataPlayer, DataSetting _dataSetting)
+    {
+        dataPlayer = _dataPlayer;
+        dataSetting= _dataSetting;
     }
     public void Save()
     {
-        jsonManager.SavePlayerData(jsonManager.FileNamePlayer, data);
+        jsonManager.SavePlayerData(jsonManager.FileNamePlayer, dataPlayer);
         jsonManager.SaveSettingData(jsonManager.FileNameSetting, dataSetting);
     }
 }

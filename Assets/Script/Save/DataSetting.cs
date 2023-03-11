@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class DataSetting
 {
-    public float sound = 0;
+    public float sound = -15;
     public DataSetting() { }
 }

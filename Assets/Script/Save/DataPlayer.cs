@@ -35,6 +35,7 @@ public class DataPlayer
         //스토리
         clearedStory.Add(0, false);//튜토리얼
         clearedStory.Add(1, false);//시작이야기
+        clearedStory.Add(2, false);//게임튜토리얼
 
         //자원
         gold = 1000;
@@ -46,6 +47,7 @@ public class DataPlayer
             paint = 5500;
             clearedStory[0] = true;//튜토리얼
             clearedStory[1] = true;//시작이야기
+            clearedStory[2] = true;//게임튜토리얼
             foreach (KeyValuePair<equipment, Equipment> entry in hasEquipment)//올장비
             {
                 for (int i = 0; i < entry.Value.hasEquipment.Count; i++)

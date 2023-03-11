@@ -8,6 +8,7 @@ public class EnemyManager : MonoBehaviour
     public static EnemyManager instance;
     [SerializeField] GameObject defaultEnemy;
     [SerializeField] GameObject enemyHpSlider;
+    [SerializeField] EnemyCountControl enemyCount;
     HpControl enemyHp;
     public FloorPrefap floorPrefap;//
     public static List<UnitState> EnemyList { get => enemyList; }
@@ -40,6 +41,7 @@ public class EnemyManager : MonoBehaviour
     {
         enemyHp = enemyHpSlider.GetComponent<HpControl>();
         enemyHp.Setup(enemyList[0].GetComponent<UnitState>());
+        enemyCount.Setup();
         if (MapSelector.FloorPrefap != null)
         {
             GameoverControl.instance.DungeonType = floorPrefap.dungeonType;

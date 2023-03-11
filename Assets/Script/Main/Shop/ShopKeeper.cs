@@ -8,12 +8,12 @@ public enum goodsType
 }
 public class ShopKeeper : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI keepersTalk;
+    [SerializeField] TypeEffect keepersTalk;
     [SerializeField] Transform itemsParents;
     [SerializeField] Transform equipsParents;
     public ShopSlot[] shopItemSlots;//
     public ShopSlot[] shopEquipSlots;//
-    TalkManager talkManager = new TalkManager();
+    TalkDatabase talkManager = new TalkDatabase();
     DataPlayer data;
     List<ItemListPrefap> itemListPrefaps = new List<ItemListPrefap>();
 
@@ -102,6 +102,6 @@ public class ShopKeeper : MonoBehaviour
     }
     public void ChangeText(int index)
     {
-        keepersTalk.text = talkManager.TalkData[index].GetTalk();
+        keepersTalk.Setup(talkManager.TalkData[index].GetTalk());
     }
 }

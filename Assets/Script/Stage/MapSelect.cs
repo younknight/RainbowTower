@@ -6,19 +6,18 @@ public class MapSelect : MonoBehaviour
 {
     [SerializeField] GameObject main;
     [SerializeField] GameObject stage;
+    static bool isMain = true;
+
+    public static bool IsMain { get => isMain; }
+
     public void Start()
     {
         stage.SetActive(false);
     }
-    public void SetStage()
+    public void ToggleMode()
     {
-        main.SetActive(false);
-        stage.SetActive(true);
-    }
-    public void SetMain()
-    {
-
-        main.SetActive(true);
-        stage.SetActive(false);
+        isMain = !isMain;
+        main.SetActive(isMain);
+        stage.SetActive(!isMain);
     }
 }
