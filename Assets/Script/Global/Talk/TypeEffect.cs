@@ -33,7 +33,7 @@ public class TypeEffect : MonoBehaviour
         {
             talkText.text += targetMsg[index];
             index++;
-            yield return new WaitForSeconds(CPS);
+            yield return new WaitForSecondsRealtime(CPS);
 
         }
         EffectEnd();

@@ -41,32 +41,24 @@ public class Inventory : MonoBehaviour
         {
             if (sp >= 10)
             {
-                for (int i = 0; i < slots.Length; i++)
-                {
-                    if (slots[i].item == null)
-                    {
-                        slots[i].AddItem(PlayerManager.PlayerItem[itemIndex]);
-                        slotManager.ActiveSlot(true, slots[i],slots[i]);
-                        sp -= 10;
-                        break;
-                    }
-                }
+                AcquireItem(itemIndex);
+                sp -= 10;
                 spText.text = "" + sp;
             }
         }
     }
-    //public void AcquireItem(Item _item)
-    //{
-    //    for (int i = 0; i < slots.Length; i++)
-    //    {
-    //        if (slots[i].item == null)
-    //        {
-    //            slots[i].AddItem(_item);
-    //            return;
-    //        }
-    //    }
-    //    GetSp(10);
-    //}
+    public void AcquireItem(int index)
+    {
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i].item == null)
+            {
+                slots[i].AddItem(PlayerManager.PlayerItem[index]);
+                slotManager.ActiveSlot(true, slots[i], slots[i]);
+                break;
+            }
+        }
+    }
     public void SwapSlot(Slot currentItem, Slot previousItem)
     {
         Item item = currentItem.item;

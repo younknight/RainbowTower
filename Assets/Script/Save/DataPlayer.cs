@@ -27,11 +27,11 @@ public class DataPlayer
         hasItems.Add(ItemClass.planet, new bool[6] { false, false, false, false, false, false });
         //클리어 던전
         clearFloor.Add(DungeonType.redTower, 0);
-        clearFloor.Add(DungeonType.orangeTower, 0);
-        clearFloor.Add(DungeonType.yellowTower, 0);
-        clearFloor.Add(DungeonType.greenTower, 0);
-        clearFloor.Add(DungeonType.blueTower, 0);
-        clearFloor.Add(DungeonType.purpleTower, 0);
+        clearFloor.Add(DungeonType.orangeTower, -1);
+        clearFloor.Add(DungeonType.yellowTower, -1);
+        clearFloor.Add(DungeonType.greenTower, -1);
+        clearFloor.Add(DungeonType.blueTower, -1);
+        clearFloor.Add(DungeonType.purpleTower, -1);
         //스토리
         clearedStory.Add(0, false);//튜토리얼
         clearedStory.Add(1, false);//시작이야기

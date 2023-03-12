@@ -30,7 +30,7 @@ public class PopupSelectMap : MonoBehaviour
                 floors[i].gameObject.SetActive(true);
                 floors[i].Height = i;
                 floors[i].Setup(i, floorPrefap[i], dungeonType);
-                if(DataManager.DataPlayer.clearFloor[thisFloorPrefap[0].dungeonType] < i)//잠김
+                if(DataManager.DataPlayer.clearFloor[dungeonType] < i)//잠김
                 {
                     floors[i].SetMapPortrait(true);
                 }
@@ -47,6 +47,6 @@ public class PopupSelectMap : MonoBehaviour
     }
     public void LockedFloor()
     {
-        explain.text = "잠겨있다";
+        explain.text = "안열린다";
     }
 }

@@ -6,12 +6,13 @@ public class MapSelect : MonoBehaviour
 {
     [SerializeField] GameObject main;
     [SerializeField] GameObject stage;
-    static bool isMain = true;
+    static bool isMain;
 
     public static bool IsMain { get => isMain; }
 
-    public void Start()
+    void Start()
     {
+        isMain = true;
         stage.SetActive(false);
     }
     public void ToggleMode()

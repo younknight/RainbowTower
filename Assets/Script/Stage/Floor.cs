@@ -35,9 +35,16 @@ public class Floor : MonoBehaviour
         lockedBtn.SetActive(false);
         //MapSelector.EnemyList.RemoveAll(x => true);
         MapSelector.FloorPrefap = floorPrefap;
-        explain.text = floorPrefap.explain;
-        if (DataManager.DataPlayer.clearFloor[dungeonType] >= height) goGameBtn.SetActive(true);
-        else lockedBtn.SetActive(true);
+        if (DataManager.DataPlayer.clearFloor[dungeonType] >= height)
+        {
+            explain.text = floorPrefap.explain;
+            goGameBtn.SetActive(true);
+        }
+        else
+        {
+            explain.text = "잠겨있다";
+            lockedBtn.SetActive(true);
+        }
     }
     public void SetMapPortrait(bool isLocekd)
     {

@@ -69,6 +69,16 @@ public class TalkDatabase
         talkData.Add(1116, new Talk(speakerType.상점아저씨, "그럼 빨간탑으로 가자데스"));
         //-----------------------------------------------------------------------------------------------------------------------
         talkData.Add(1200, new Talk(speakerType.상점아저씨, "그럼 이제 탑에서 싸우는 법에 대해서 알려주겠데스"));
+        talkData.Add(1201, new Talk(speakerType.상점아저씨, "이게 너 데스"));
+        talkData.Add(1202, new Talk(speakerType.상점아저씨, "그리고 저게 적데스"));
+        talkData.Add(1203, new Talk(speakerType.상점아저씨, "적을 쓰러트리기 위해선 강해져야 한데스"));
+        talkData.Add(1204, new Talk(speakerType.상점아저씨, "여기가 너의 가방데스 여기에 아이템을 소환해 강해지는데스"));
+        talkData.Add(1205, new Talk(speakerType.상점아저씨, "이 버튼을 누르면 아이템을 소환할수 있데스 눌러봐데스"));
+        talkData.Add(1206, new Talk(speakerType.상점아저씨, "아이템은 각각의 능력이 있데스 일단 클릭해봐라 데스"));
+        talkData.Add(1207, new Talk(speakerType.상점아저씨, "이게 이 아이템의 효과데스"));
+        talkData.Add(1208, new Talk(speakerType.상점아저씨, "이건 아이템을 강화하는 버튼데스"));
+        talkData.Add(1209, new Talk(speakerType.상점아저씨, "이런 아이템들을 이용해 적을 죽여보자데스"));
+        talkData.Add(1210, new Talk(speakerType.상점아저씨, "파이팅 데스"));
         //id = 2000 레드타워
 
         talkData.Add(2100, new Talk(speakerType.상점아저씨, "1층 클리어 축하 한다 데스"));
